@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+{% include 'django_facebook/_facebook_js.html' %}
+{% endblock %}
+		
 {% block body %}
 <h1>Mirror, mirror on the wall...</h1>
 <img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
@@ -26,4 +31,21 @@
        </p>
        <input type="submit" value="Can I go out like this?! ^_^" />
 </form>
+
+<form action="{% url facebook_connect %}?facebook_login=1" method="post">
+	<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Register, login or connect with facebook</a>
+	<input type="hidden" value="{{ request.path }}" name="next" />
+</form>
+
+
+<ul>
+	{% for f in fb_friends %}
+	<li>
+		<img src='{{ f.pic_square }}' height="50" width="50" />
+		{{ f.name }}, {{ f.username }}@facebook.com 
+	</li>
+	{% endfor %}
+	<li>...</li>
+</ul>
+
 {% endblock %}
