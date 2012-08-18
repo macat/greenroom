@@ -117,6 +117,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'pipeline',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -161,6 +162,10 @@ LOGGING = {
 }
 
 HOST = 'http://greenroom-app.herokuapp.com'
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE = not DEBUG
 
 try:
     from settings_local import *
