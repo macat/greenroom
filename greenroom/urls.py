@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 import greenroom.apps.outfit.views as outfit_views
 import greenroom.apps.www.views as www_views
@@ -11,3 +12,5 @@ urlpatterns = patterns('',
     url(r'^outfit/(?P<uuid>.{6})/request_feedback$', outfit_views.request_feedback, name='outfit_request_feedback'),
     url(r'^outfit/feedback/(?P<uuid>.{6})$', outfit_views.give_feedback, name='outfit_give_feedback'),
 )
+
+urlpatterns += staticfiles_urlpatterns()
