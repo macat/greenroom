@@ -1,5 +1,8 @@
+{% load compressed %}
 <html>
-	<head></head>
+  <head>
+{% compressed_js 'scripts' %}
+  </head>
 	<body>
 		{% block body %}
 		{% endblock %}

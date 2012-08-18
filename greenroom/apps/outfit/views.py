@@ -1,15 +1,21 @@
+import base64
+import binascii
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import OutfitForm
 from .helpers import create_and_send_feedback_requests, give_outfit_feedback, JSONResponse
 from .models import Outfit, OutfitFeedback
 
-
+@csrf_exempt
 def new_outfit(request):
     if request.method == 'POST':
+
+        with open('file.jpg', 'w+') as f:
+            f.write(binascii.unhexlify(request.raw_post_data))
         form = OutfitForm(request.POST, request.FILES)
         if form.is_valid():
             outfit = form.save()

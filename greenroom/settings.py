@@ -167,6 +167,16 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 PIPELINE = not DEBUG
 
+PIPELINE_JS = {
+    'scripts': {
+        'source_filenames': (
+          'scripts/libs/*.js',
+          'scripts/*.js',
+        ),
+        'output_filename': 'scripts.js',
+    }
+}
+
 try:
     from settings_local import *
 except ImportError:
