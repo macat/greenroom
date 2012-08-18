@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Wadrobe PANIC! Ask for emergency feedback!</h1>
+<img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
+<form action="/outfit/submit">
+	<h3>Dear friends!</h3>
+	<p>
+		email 1 : <input type="text" name="email_1" /> <br />
+		email 2 : <input type="text" name="email_2" /> <br />
+		email 3 : <input type="text" name="email_3" /> <br />
+	</p>
+	<input type="submit" value="Can I go out like this?! ^_^" />
+</form>
+{% endblock %}
