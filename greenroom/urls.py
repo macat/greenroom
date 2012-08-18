@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
-from greenroom.apps.www.views import HomeView
+from greenroom.apps.outfit.views import OutfitNewView
+from greenroom.apps.www.views import WWWHomeView
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -8,8 +9,8 @@ from greenroom.apps.www.views import HomeView
 
 
 urlpatterns = patterns('',
-    url(r'^$', HomeView.as_view(), name='home'),
-    # url(r'^greenroom/', include('greenroom.foo.urls')),
+    url(r'^$', WWWHomeView.as_view(), name='www_home'),
+    url(r'^outfit/new$', OutfitNewView.as_view(), name='outfit_new'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
