@@ -3,7 +3,7 @@
 {% block body %}
 <h1>Please... tell me it's not that bad!</h1>
 <img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
-<form action="/outfit/feedback/{{ outfit_feedback.uuid }}" method="post">
+<form action="{% url outfit_give_feedback uuid=outfit_feedback.uuid %}" method="post">
 	{% csrf_token %}
 	<select name='rating'>
 	  <option value="1">1</option>
