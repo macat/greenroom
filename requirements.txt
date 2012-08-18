@@ -6,3 +6,5 @@ django-facebook==4.0.9
 django-pipeline==1.2.14
 psycopg2==2.4.5
 wsgiref==0.1.2
+django-storages==1.1.5
+boto==2.5.2

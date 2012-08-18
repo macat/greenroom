@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.base import ContentFile
 
 from .forms import OutfitForm
 from .helpers import create_and_send_feedback_requests, give_outfit_feedback, JSONResponse
@@ -13,16 +14,17 @@ from .models import Outfit, OutfitFeedback
 @csrf_exempt
 def new_outfit(request):
     if request.method == 'POST':
-
-        with open('file.jpg', 'w+') as f:
-            f.write(binascii.unhexlify(request.raw_post_data))
-        form = OutfitForm(request.POST, request.FILES)
-        if form.is_valid():
-            outfit = form.save()
+        if request.FILES:
+            form = OutfitForm(request.POST, request.FILES)
+            if form.is_valid():
+                outfit = form.save()
+                # success - new outfit uploaded
+                return JSONResponse(request,
+                                    {'request_feedback_url': reverse('outfit_request_feedback', args=[outfit.uuid])})
+        else:
+            outfit = Outfit()
+            outfit.img.save('image.jpg', ContentFile(binascii.unhexlify(request.raw_post_data)), save=False)
             outfit.save()
-            # success - new outfit uploaded
-            return JSONResponse(request,
-                                {'request_feedback_url': reverse('outfit_request_feedback', args=[outfit.uuid])})
     # failure
     return JSONResponse(request, {})
  

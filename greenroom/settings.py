@@ -118,7 +118,7 @@ LOGGING = {
 
 HOST = 'http://greenroom-app.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-PIPELINE = True #not DEBUG
+PIPELINE = False
 
 PIPELINE_JS = {
     'scripts': {
@@ -131,8 +131,13 @@ PIPELINE_JS = {
 }
 
 # Facebook integration
-FACEBOOK_APP_ID = '104170716399805'
-FACEBOOK_APP_SECRET = '95b73050a1b74289b84c12a900620162'
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = ''
 
 try:
     from settings_local import *
