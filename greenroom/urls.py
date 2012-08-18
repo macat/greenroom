@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', www_views.home, name='www_home'),
     # apps.outfit
     url(r'^outfit/new$', outfit_views.new_outfit, name='outfit_new_outfit'),
+    url(r'^outfit/list$', outfit_views.list_outfits, name='outfit_list_outfits'),
     url(r'^outfit/(?P<uuid>.{6})$', outfit_views.view_outfit, name='outfit_view_outfit'),
     url(r'^outfit/(?P<uuid>.{6})/request_feedback$', outfit_views.request_feedback, name='outfit_request_feedback'),
     url(r'^outfit/feedback/(?P<uuid>.{6})$', outfit_views.give_feedback, name='outfit_give_feedback'),

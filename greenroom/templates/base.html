@@ -6,6 +6,12 @@
 		{% endblock %}
 	</head>
 	<body>
+		{% if user.is_authenticated %}
+			LOGGED IN! Wazzup, {{ user.get_profile }}? | <a href="{% url outfit_list_outfits %}">outfits list</a> 
+	 	{% else %}
+	 		NOT LOGGED IN! Maaaan, your not logged in...
+	 	{% endif %} | <a href="{% url www_home %}">home</a> 
+	 	
 		{% block body %}
 		{% endblock %}
 	</body>
