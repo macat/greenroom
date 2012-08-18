@@ -120,6 +120,15 @@ HOST = 'http://greenroom-app.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE = not DEBUG
 
+PIPELINE_JS = {
+    'scripts': {
+        'source_filenames': (
+          'scripts/libs/*.js',
+          'scripts/*.js',
+        ),
+        'output_filename': 'scripts.js',
+    }
+}
 # Facebook integration
 FACEBOOK_APP_ID = '104170716399805'
 FACEBOOK_APP_SECRET = '95b73050a1b74289b84c12a900620162'
