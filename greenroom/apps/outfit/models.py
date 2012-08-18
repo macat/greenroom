@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 
+
 def generate_uuid():
     # return a 6-char string random of letters and digits e.g. 4Gcr92
     return ''.join(random.choice(string.ascii_letters + string.digits) for i in range(6))
@@ -20,7 +21,11 @@ class Outfit(models.Model):
     @property
     def avg_rating(self):
         """Avarage from all ratings"""
-        raise NotImplementedError()
+        ratings = self.outfitfeedback_set.filter(is_used=True).values_list('rating', flat=True)
+        if ratings:
+            return float(sum(ratings))/float(len(ratings))
+        else:
+            return 0.0
     
     @property
     def view_url(self):
@@ -33,7 +38,7 @@ class OutfitFeedback(models.Model):
     uuid = models.CharField(max_length=6, default=generate_uuid, editable=False, primary_key=True) # auto-generated
     outfit = models.ForeignKey(Outfit)
     emailed_to = models.EmailField()
-    rating = models.CharField(max_length=1, choices=RATING_CHOICES)
+    rating = models.IntegerField(max_length=1, choices=RATING_CHOICES, null=True, blank=True)
     is_used = models.BooleanField(default=False)
 
     def get_absolute_url(self):

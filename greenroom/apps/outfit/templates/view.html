@@ -14,6 +14,12 @@
 		{% endif %} <br />
 	{% endfor %}
 </p>
-<h3>Avarage is: NOT IMPLEMETED YET</h3>
-<h5>Well... better stay at home...</h5>
+<h3>Average rating is: 
+	{% if outfit.avg_rating %}
+		{{ outfit.avg_rating }}
+	{% else %}
+		yet to be discovered... maybe better stay at home for now ;)
+	{% endif %}
+</h3>
+<h3>Are You happy now? ^_^</h3>
 {% endblock %}
