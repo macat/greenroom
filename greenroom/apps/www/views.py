@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.template import RequestContext
 
 from .helpers import get_facebook_friends
         

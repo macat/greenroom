@@ -2,6 +2,7 @@ import random
 import string
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -13,6 +14,7 @@ def generate_uuid():
 class Outfit(models.Model):
     uuid = models.CharField(max_length=6, default=generate_uuid, editable=False, primary_key=True) # auto-generated
     img = models.ImageField(upload_to='outfits')
+    user = models.ForeignKey(User, editable=False, null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('outfit_view_outfit', args=[self.uuid])

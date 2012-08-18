@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<ul>
+	{% for o in outfits %}
+		<li><a href='{{ o.view_url }}'><img src="{{ o.img }}" /></a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

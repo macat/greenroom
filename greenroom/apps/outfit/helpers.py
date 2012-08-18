@@ -5,9 +5,19 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.utils import simplejson
 
+from .forms import OutfitForm
 from .models import OutfitFeedback
 
 
+def get_and_create_outfit_from_reqeust(request):
+    form = OutfitForm(request.POST, request.FILES)
+    if form.is_valid():
+        outfit = form.save()
+        outfit.save()
+        return outfit
+    else:
+        return None
+    
 def create_and_send_feedback_requests(outfit, recipients_list):
     for rec in recipients_list:
         outfit_feedback = OutfitFeedback.objects.create(outfit=outfit, emailed_to=rec)
@@ -16,12 +26,16 @@ def create_and_send_feedback_requests(outfit, recipients_list):
                   'friend@greenroom.com', 
                   [rec],
                   fail_silently=False)
-        
+
 def give_outfit_feedback(outfit_feedback, rating):
     outfit_feedback.rating = rating
     outfit_feedback.is_used = True
     outfit_feedback.save()
     
+def bind_user_with_outfit(user, outfit):
+    if user.is_authenticated() and not outfit.user:
+        outfit.user = user
+        outfit.save()
     
 class JSONResponse(HttpResponse):
     def __init__(self, request, data):
