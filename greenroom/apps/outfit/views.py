@@ -1,14 +1,14 @@
-import base64
 import binascii
+
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render
-from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import OutfitForm
 from .helpers import create_and_send_feedback_requests, give_outfit_feedback, JSONResponse
 from .models import Outfit, OutfitFeedback
+
 
 @csrf_exempt
 def new_outfit(request):
@@ -27,7 +27,7 @@ def new_outfit(request):
     return JSONResponse(request, {})
  
 def view_outfit(request, uuid):
-    return render('view.html', {'outfit': Outfit.objects.get(uuid=uuid)})
+    return render(request, 'view.html', {'outfit': Outfit.objects.get(uuid=uuid)})
 
 def request_feedback(request, uuid):        
     if request.method == 'POST':
@@ -51,4 +51,4 @@ def give_feedback(request, uuid):
         # success
         return redirect(outfit_feedback.outfit.view_url)
     
-    return render('feedback.html', {'outfit_feedback': outfit_feedback})
+    return render(request, 'feedback.html', {'outfit_feedback': outfit_feedback})
