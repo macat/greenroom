@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>Mirror, mirror on the wall...</h1>
+<h1>Is it good?</h1>
 <img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
-<form action="/outfit/new"  method="post">
-	{% csrf_token %}
-	<p>
-		Bla, bla...
-	</p>
-	<input type="submit" value="Can I go out like this?!" />
-</form>
+<h3>What do they think!?</h3>
+<p>
+	email 1 rating: *<br />
+	email 2 rating: ***<br />
+	email 3 rating: ?<br />
+</p>
+<h3>Avarage is: **</h3>
+<h5>Well... better stay at home...</h5>
 {% endblock %}

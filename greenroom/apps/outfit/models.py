@@ -3,7 +3,6 @@ from django.db import models
 
 class Outfit(models.Model):
 #    img =
-#    title =
     
     @property
     def avg_rating(self):
@@ -15,7 +14,6 @@ class OutfitFeedback(models.Model):
 #    uuid = 
 ##
 #    rating = 
-#    comment = 
 
     @property
     def url(self):
