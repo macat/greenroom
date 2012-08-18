@@ -9,7 +9,7 @@ class NewView(TemplateView):
         return self.get(*args, **kwargs)
     
 class SubmitView(RedirectView):
-    url = '/outfit/view'
+    url = '/outfit/view/' + 'abc123' # + fake uuid
     
 class ViewView(TemplateView):
     template_name = "view.html"
@@ -17,6 +17,11 @@ class ViewView(TemplateView):
 class FeedbackView(TemplateView):
     template_name = "feedback.html"
     
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackView, self).get_context_data(**kwargs)
+        context['outfit'] = {'uuid': 'abc123'} # fake outfit + fake uuid
+        return context
+    
     def post(self, *args, **kwargs):
-        return redirect('/outfit/view')
+        return redirect('/outfit/view/' + 'abc123') # + fake uuid
         
