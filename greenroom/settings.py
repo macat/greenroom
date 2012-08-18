@@ -118,7 +118,7 @@ LOGGING = {
 
 HOST = 'http://greenroom-app.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-PIPELINE = not DEBUG
+PIPELINE = True #not DEBUG
 
 PIPELINE_JS = {
     'scripts': {
