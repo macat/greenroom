@@ -1,5 +1,8 @@
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
+
+from .models import Outfit, OutfitFeedback
+from .helpers import create_and_send_feedback_requests, give_outfit_feedback
 
 
 class NewView(TemplateView):
@@ -8,20 +11,38 @@ class NewView(TemplateView):
     def post(self, *args, **kwargs):
         return self.get(*args, **kwargs)
     
-class SubmitView(RedirectView):
-    url = '/outfit/view/' + 'abc123' # + fake uuid
+class SubmitView(TemplateView):
+    def post(self, *args, **kwargs):
+        outfit = Outfit.objects.create()
+        create_and_send_feedback_requests(outfit, ['mat.jankowski@gmail.com'])
+        return redirect(outfit.view_url)
     
 class ViewView(TemplateView):
     template_name = "view.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(ViewView, self).get_context_data(**kwargs)
+        context['outfit'] = Outfit.objects.get(uuid=kwargs['uuid'])
+        return context
     
 class FeedbackView(TemplateView):
     template_name = "feedback.html"
     
     def get_context_data(self, **kwargs):
         context = super(FeedbackView, self).get_context_data(**kwargs)
-        context['outfit'] = {'uuid': 'abc123'} # fake outfit + fake uuid
+        context['outfit_feedback'] = OutfitFeedback.objects.get(uuid=kwargs['uuid'])
         return context
     
-    def post(self, *args, **kwargs):
-        return redirect('/outfit/view/' + 'abc123') # + fake uuid
+    def get(self, *args, **kwargs):
+        outfit_feedback = OutfitFeedback.objects.get(uuid=kwargs['uuid'])
+        if not outfit_feedback.is_used:
+            return super(FeedbackView, self).get(*args, **kwargs)
+        else:
+            return redirect(outfit_feedback.outfit.view_url)
+            
+    def post(self, request, *args, **kwargs):
+        outfit_feedback = OutfitFeedback.objects.get(uuid=kwargs['uuid'])
+        if not outfit_feedback.is_used:
+            give_outfit_feedback(outfit_feedback, request.POST['rating'])
+        return redirect(outfit_feedback.outfit.view_url)
         

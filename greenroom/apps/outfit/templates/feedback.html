@@ -3,11 +3,15 @@
 {% block body %}
 <h1>Please... tell me it's not that bad!</h1>
 <img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
-<form action="/outfit/feedback/{{ outfit.uuid }}" method="post">
+<form action="/outfit/feedback/{{ outfit_feedback.uuid }}" method="post">
 	{% csrf_token %}
-	<p>
-		* | ** | *** | **** | ****
-	</p>
+	<select name='rating'>
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3" selected="selected">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select> 
 	<input type="submit" value="Go!" />
 </form>
 {% endblock %}

@@ -5,10 +5,15 @@
 <img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
 <h3>What do they think!?</h3>
 <p>
-	email 1 rating: *<br />
-	email 2 rating: ***<br />
-	email 3 rating: ?<br />
+	{% for of in outfit.outfitfeedback_set.all %}
+		{{ of.emailed_to }} rating: 
+		{% if of.rating %}
+			{{ of.rating }}
+		{% else %}
+			<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
+		{% endif %} <br />
+	{% endfor %}
 </p>
-<h3>Avarage is: **</h3>
+<h3>Avarage is: NOT IMPLEMETED YET</h3>
 <h5>Well... better stay at home...</h5>
 {% endblock %}
