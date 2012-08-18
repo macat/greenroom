@@ -12,9 +12,10 @@ class NewView(TemplateView):
         return self.get(*args, **kwargs)
     
 class SubmitView(TemplateView):
-    def post(self, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         outfit = Outfit.objects.create()
-        create_and_send_feedback_requests(outfit, ['mat.jankowski@gmail.com'])
+        recipients_list = [v for k,v in request.POST.items() if k.startswith('email_') and v]
+        create_and_send_feedback_requests(outfit, recipients_list)
         return redirect(outfit.view_url)
     
 class ViewView(TemplateView):
