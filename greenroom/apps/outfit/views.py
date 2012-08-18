@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseNotAllowed
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render
 from django.template import RequestContext
 
 from .forms import OutfitForm
@@ -21,9 +21,7 @@ def new_outfit(request):
     return JSONResponse(request, {})
  
 def view_outfit(request, uuid):
-    return render_to_response('view.html',
-                              {'outfit': Outfit.objects.get(uuid=uuid)},
-                              context_instance=RequestContext(request))
+    return render('view.html', {'outfit': Outfit.objects.get(uuid=uuid)})
 
 def request_feedback(request, uuid):        
     if request.method == 'POST':
@@ -47,6 +45,4 @@ def give_feedback(request, uuid):
         # success
         return redirect(outfit_feedback.outfit.view_url)
     
-    return render_to_response('feedback.html',
-                              {'outfit_feedback': outfit_feedback},
-                              context_instance=RequestContext(request)) 
+    return render('feedback.html', {'outfit_feedback': outfit_feedback})
