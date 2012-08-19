@@ -31,8 +31,7 @@ MEDIA_ROOT = ''
 MEDIA_URL = ''
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (prepend_path_with_root('static'),
-                    '/app/.heroku/venv/lib/python2.7/site-packages/django_facebook', )
+STATICFILES_DIRS = (prepend_path_with_root('static'),)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -55,7 +54,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django_facebook.context_processors.facebook',
+    'greenroom.apps.django_facebook_patched.context_processors.facebook',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -82,12 +81,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'greenroom.apps.outfit',
     'greenroom.apps.www',
-    'django_facebook',
+    'greenroom.apps.django_facebook_patched',
 )
 
-AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+AUTH_PROFILE_MODULE = 'django_facebook_patched.FacebookProfile'
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
+    'greenroom.apps.django_facebook_patched.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 

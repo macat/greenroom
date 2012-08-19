@@ -15,8 +15,8 @@ urlpatterns = patterns('',
     url(r'^outfit/(?P<uuid>.{6})/request_feedback$', outfit_views.request_feedback, name='outfit_request_feedback'),
     url(r'^outfit/feedback/(?P<uuid>.{6})$', outfit_views.give_feedback, name='outfit_give_feedback'),
     # django-facebook
-    (r'^facebook/', include('django_facebook.urls')),
-    (r'^accounts/', include('django_facebook.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
+    (r'^facebook/', include('greenroom.apps.django_facebook_patched.urls')),
+    (r'^accounts/', include('greenroom.apps.django_facebook_patched.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
 )
 
 urlpatterns += staticfiles_urlpatterns()
