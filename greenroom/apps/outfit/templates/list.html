@@ -5,6 +5,7 @@
 	{% for o in outfits %}
 		<li>
 			<a href='{{ o.view_url }}'>
+				From {{ o.submitted_at }}
 				<img src="{{ o.img.url }}" width="100" height="100"/>
 				Average rating: {{ o.avg_rating|default:"no ratings yet" }}
 			</a>

@@ -7,7 +7,8 @@ from .helpers import (create_and_send_feedback_requests,
                       give_outfit_feedback,
                       JSONResponse,
                       get_and_create_outfit_from_reqeust,
-                      bind_user_with_outfit)
+                      bind_user_with_outfit,
+                      add_description_to_outfit)
 from .models import Outfit, OutfitFeedback
 
 
@@ -33,6 +34,7 @@ def view_outfit(request, uuid):
 def request_feedback(request, uuid):        
     if request.method == 'POST':
         outfit = Outfit.objects.get(uuid=uuid)
+        add_description_to_outfit(outfit, request.POST.get('description', ''))
         recipients_list = [v for k,v in request.POST.items() if k.startswith('email_') and v]
         create_and_send_feedback_requests(outfit, recipients_list)
         bind_user_with_outfit(request.user, outfit)
@@ -45,12 +47,13 @@ def request_feedback(request, uuid):
 def give_feedback(request, uuid):
     outfit_feedback = OutfitFeedback.objects.get(uuid=uuid)
     
-    if outfit_feedback.is_used:
+    if outfit_feedback.answered_at:
         # failure - feedback already given
         return redirect(outfit_feedback.outfit.view_url)
     
     if request.method == 'POST':
-        give_outfit_feedback(outfit_feedback, request.POST['rating'])
+        print request.POST
+        give_outfit_feedback(request.POST['rating'], request.POST['comment'], outfit_feedback)
         # success
         return redirect(outfit_feedback.outfit.view_url)
     

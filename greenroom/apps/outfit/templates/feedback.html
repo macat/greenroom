@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<h3> {{ outfit_feedback.outfit.description|default:"How does it look? ^_^" }} </h3>
 <img src='{{ outfit_feedback.outfit.img.url }}' width="200" height="200"/>
 <form action="{% url outfit_give_feedback uuid=outfit_feedback.uuid %}" method="post">
 	{% csrf_token %}
+	rating:
 	<select name='rating'>
 	  <option value="1">1</option>
 	  <option value="2">2</option>
 	  <option value="3" selected="selected">3</option>
 	  <option value="4">4</option>
 	  <option value="5">5</option>
-	</select> 
+	</select>
+	comment: 
+	<input type="text" value="" name="comment" />
 	<input type="submit" value="Rate!" />
 </form>
 {% endblock %}

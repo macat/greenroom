@@ -1,5 +1,6 @@
 import binascii
 import re
+from datetime import datetime
 
 from django.conf import settings
 from django.core.files.base import ContentFile
@@ -17,6 +18,10 @@ def get_and_create_outfit_from_reqeust(request):
     outfit.img.save('%s.jpg' % outfit.uuid, ContentFile(cf_content))
     return outfit
     
+def add_description_to_outfit(outfit, description):
+    outfit.description = description
+    outfit.save()
+
 def create_and_send_feedback_requests(outfit, recipients_list):
     for rec in recipients_list:
         outfit_feedback = OutfitFeedback.objects.create(outfit=outfit, emailed_to=rec)
@@ -26,9 +31,10 @@ def create_and_send_feedback_requests(outfit, recipients_list):
                   [rec],
                   fail_silently=False)
 
-def give_outfit_feedback(outfit_feedback, rating):
+def give_outfit_feedback(rating, comment, outfit_feedback):
     outfit_feedback.rating = rating
-    outfit_feedback.is_used = True
+    outfit_feedback.comment = comment
+    outfit_feedback.answered_at = datetime.now()
     outfit_feedback.save()
     
 def bind_user_with_outfit(user, outfit):

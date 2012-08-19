@@ -15,6 +15,8 @@ class Outfit(models.Model):
     uuid = models.CharField(max_length=6, default=generate_uuid, editable=False, primary_key=True) # auto-generated
     img = models.ImageField(upload_to='outfits')
     user = models.ForeignKey(User, editable=False, null=True, blank=True)
+    description = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True, editable=False)
 
     def get_absolute_url(self):
         return reverse('outfit_view_outfit', args=[self.uuid])
@@ -22,7 +24,7 @@ class Outfit(models.Model):
     @property
     def avg_rating(self):
         """Avarage from all ratings"""
-        ratings = self.outfitfeedback_set.filter(is_used=True).values_list('rating', flat=True)
+        ratings = self.outfitfeedback_set.filter(answered_at__isnull=False).values_list('rating', flat=True)
         if ratings:
             return float(sum(ratings))/float(len(ratings))
         else:
@@ -41,7 +43,9 @@ class OutfitFeedback(models.Model):
     outfit = models.ForeignKey(Outfit)
     emailed_to = models.EmailField()
     rating = models.IntegerField(max_length=1, choices=RATING_CHOICES, null=True, blank=True)
-    is_used = models.BooleanField(default=False)
+    comment = models.TextField()
+    requested_at = models.DateTimeField(auto_now_add=True, editable=False)
+    answered_at = models.DateTimeField(editable=False, null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('outfit_give_feedback', args=[self.uuid])
