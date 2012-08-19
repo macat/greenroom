@@ -1,0 +1,31 @@
+/* Typography */
+@import url(http://fonts.googleapis.com/css?family=Puritan:400,700);
+
+@mixin font-face($font-family, $url) {
+   @font-face {
+      font-family: '#{$font-family}';
+      src: url('#{$url}.eot?') format('eot'), url('#{$url}.woff') format('woff'), url('#{$url}.ttf') format('truetype');
+   }
+}
+
+.logo {
+	@include font-face(riesling-webfont, "/fonts/");
+	color: $basic;
+	
+	.light { color: $light;
+
+	}
+}
+
+/* Headlines */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Puritan", sans-serif;
+	font-weight: 400;
+	color: $basic;
+}
+
+/* Suggestions */
+.suggestions {
+	@include font-face(aescrawl-webfont, "/fonts/");
+	color: $action;
+}
