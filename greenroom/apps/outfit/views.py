@@ -34,7 +34,7 @@ def view_outfit(request, uuid):
 def request_feedback(request, uuid):        
     if request.method == 'POST':
         outfit = Outfit.objects.get(uuid=uuid)
-        add_description_to_outfit(outfit, request.POST.get('description', ''))
+        add_description_to_outfit(outfit, request.POST['description'])
         recipients_list = [v for k,v in request.POST.items() if k.startswith('email_') and v]
         create_and_send_feedback_requests(outfit, recipients_list)
         bind_user_with_outfit(request.user, outfit)
