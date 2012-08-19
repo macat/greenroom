@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -116,7 +116,7 @@ LOGGING = {
 # custom settings 
 
 HOST = 'http://mygreenroom.herokuapp.com'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage' # 'greenroom.libs.staticfile_storage.S3PipelineStorage'
 PIPELINE = True
 
 PIPELINE_JS = {
@@ -152,7 +152,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
 ## Mailgun 
 #EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
