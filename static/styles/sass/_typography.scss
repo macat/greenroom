@@ -7,8 +7,19 @@
       src: url('#{$url}#{$font-family}.eot') format('eot'), url('#{$url}#{$font-family}.woff') format('woff'), url('#{$url}#{$font-family}.ttf') format('truetype');
    }
 }
+@font-face {
+	font-family: 'zocial';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../../fonts/zocial-regular-webfont.eot');
+	src: url('../../fonts/zocial-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/zocial-regular-webfont.woff') format('woff'),
+		url('../../fonts/zocial-regular-webfont.ttf') format('truetype'),
+		url('../../fonts/zocial-regular-webfont.svg#ZocialRegular') format('svg');
+	unicode-range:U+0-U+10FFFF;
+}
 @include font-face(riesling-webfont, "../../fonts/");
-@include font-face(zocial-regular-webfont, "../../fonts/");
+/*@include font-face(zocial-regular-webfont, "../../fonts/");*/
 
 .logo {
 	color: $basic;
