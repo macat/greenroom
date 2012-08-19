@@ -137,7 +137,6 @@ PIPELINE_CSS = {
     'styles': {
         'source_filenames': (
           'styles/*.css',
-          'styles/stylesheets/*.css'
         ),
         'output_filename': 'style.css',
         'extra_context': {
