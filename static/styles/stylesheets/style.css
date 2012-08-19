@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Puritan:400,700);
+@import url(http://fonts.googleapis.com/css?family=Puritan:400,700|The+Girl+Next+Door);
 .container {
   *zoom: 1;
   margin: 0 auto;
@@ -752,6 +752,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* Colours */
+/* Basic  */
 /* Have ideas for improving this CSS for the general community? Submit your changes at: https://github.com/Valums-File-Uploader/file-uploader */
 .qq-uploader {
   position: relative;
@@ -843,6 +845,49 @@ table {
   background-color: #D60000;
   color: #FFFFFF; }
 
+.allwidth {
+  width: 100%; }
+  .allwidth.deco {
+    background: url(../../images/background.jpg); }
+  .allwidth.basic {
+    background: #19181d;
+    border-top: 1px solid #615d71;
+    border-bottom: 1px solid #615d71; }
+  .allwidth.green {
+    background: #40876e; }
+
+/* How it works */
+.how-it-works h1, .how-it-works h2, .how-it-works h3 {
+  text-align: center; }
+.how-it-works .box-selected {
+  background: #e7d7c1; }
+  .how-it-works .box-selected .box {
+    background: none; }
+  .how-it-works .box-selected h1, .how-it-works .box-selected h2, .how-it-works .box-selected h3 {
+    color: #40876e; }
+.how-it-works .box-image {
+  text-align: center;
+  height: 345px; }
+.how-it-works .box {
+  background: #19181d;
+  padding: 4px; }
+
+.square-rotate {
+  width: 58px;
+  height: 58px;
+  margin-bottom: -18px;
+  margin-top: 12px;
+  background: #19181d;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(45deg);
+  /* Opera */
+  -moz-transform: rotate(45deg);
+  /* Firefox */ }
+
 .hidden {
   display: none; }
 
@@ -861,21 +906,15 @@ table {
   background: red;
   display: block; }
 
-/* Colours */
-/* Basic  */
 /* Typography */
 @font-face {
   font-family: "riesling-webfont";
   src: url("../../fonts/riesling-webfont.eot") format("eot"), url("../../fonts/riesling-webfont.woff") format("woff"), url("../../fonts/riesling-webfont.ttf") format("truetype"); }
 
-@font-face {
-  font-family: "aescrawl-webfont";
-  src: url("../../fonts/aescrawl-webfont.eot") format("eot"), url("../../fonts/aescrawl-webfont.woff") format("woff"), url("../../fonts/aescrawl-webfont.ttf") format("truetype"); }
-
 .logo {
   color: #19181d;
   font-family: "riesling";
-  font-size: 7em;
+  font-size: 6em;
   margin: 0.67em 0; }
   .logo .light {
     color: #e7d7c1; }
@@ -887,10 +926,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #19181d;
   text-transform: uppercase; }
 
+.green h1, .green h2, .green h3, .green h4, .green h5, .green h6 {
+  color: #e7d7c1; }
+
 /* Suggestions */
 .suggestions {
   color: #40876e;
-  font-family: "aescrawl"; }
+  font-family: 'The Girl Next Door', cursive;
+  font-size: 2em;
+  margin: 0.67em 0;
+  line-height: 1.4em; }
 
 /* Paragraph */
 body {
@@ -986,3 +1031,8 @@ body {
   background: url("../../images/images.png");
   width: 20px;
   height: 16px; }
+
+#mirror {
+  background: url(../../images/mirror.png) no-repeat;
+  width: 697px;
+  height: 726px; }

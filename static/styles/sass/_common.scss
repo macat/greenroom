@@ -1,4 +1,50 @@
+.allwidth {
+  width: 100%;
 
+  &.deco {
+    background:url(../../images/background.jpg);
+  }
+  &.basic {
+    background: $basic;
+    border-top: 1px solid $light-basic;
+    border-bottom: 1px solid $light-basic;
+  }
+  &.green {  background: $action;}
+}
+
+/* How it works */
+.how-it-works {
+  h1, h2, h3 {
+    text-align: center;
+  }
+  .box-selected {
+    background: $light;
+    
+    .box { background: none;}
+    h1, h2, h3 { color: $action;}
+  }
+  .box-image {
+    text-align: center;
+    height: 345px;
+  }
+  .box {
+    background: $basic;
+    padding: 4px;
+  }
+}
+
+.square-rotate {
+  width: 58px;
+  height: 58px;
+  margin-bottom: -18px;
+  margin-top: 12px;
+  background: $basic;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  -o-transform: rotate(45deg); /* Opera */
+  -moz-transform: rotate(45deg); /* Firefox */
+}
 .hidden {
   display: none;
 }
