@@ -8,6 +8,7 @@
    }
 }
 @include font-face(riesling-webfont, "../../fonts/");
+@include font-face(zocial-regular-webfont, "../../fonts/");
 
 .logo {
 	color: $basic;
