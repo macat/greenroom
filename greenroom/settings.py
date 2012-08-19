@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -118,7 +118,7 @@ LOGGING = {
 
 HOST = 'http://mygreenroomapp.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-PIPELINE = False
+PIPELINE = True
 
 PIPELINE_JS = {
     'scripts': {
