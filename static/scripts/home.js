@@ -3,6 +3,7 @@ $(function(){
 
   var steps = {
     first: function() {
+      $('#arrow').animate({left: '-420px'}, 500)
       step = 1;
       $('.step').addClass('hidden');
       $('#step-1').removeClass('hidden');
@@ -14,6 +15,7 @@ $(function(){
     },
     third: function() {
       step = 3;
+      $('#arrow').animate({left: '-25px'}, 500)
       $('.step').addClass('hidden');
       $('#step-3').removeClass('hidden');
     }
@@ -54,7 +56,7 @@ $(function(){
     onComplete: function(id, fileName, responseJSON){
       var feedback_form_action = responseJSON['request_feedback_url'];
       $('#form-ask').attr("action", feedback_form_action);
-      $('<img>', {src: responseJSON.img, width: '679px', height: '716px'}).appendTo('#result-img')
+      $('<img>', {src: responseJSON.img, width: '679', height: '605'}).appendTo('#result-img')
       steps.second();
     },
   });

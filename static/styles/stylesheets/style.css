@@ -1180,6 +1180,19 @@ body {
 .placeholder-pic {
   background: black; }
 
+.step {
+  padding: 30px 0; }
+
+#arrow {
+  position: relative;
+  left: -420px;
+  top: -30px;
+  margin: 0 auto; }
+
+.placeholder {
+  height: 72px;
+  width: 100%; }
+
 /* How it works */
 .how-it-works h1, .how-it-works h2, .how-it-works h3 {
   text-align: center; }
@@ -1202,8 +1215,13 @@ body {
 
 /* Ask feedback form */
 .ask-feedback-form ul li {
-  margin-top: 10px; }
+  margin-top: 10px;
+  list-style: none;
+  padding: 0; }
 .ask-feedback-form ul input {
   margin-left: 50px;
-  height: 100%;
-  width: 234px; }
+  height: 24px;
+  width: 234px;
+  border-radius: 4px; }
+.ask-feedback-form ul .button {
+  margin-left: 150px; }
