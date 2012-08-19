@@ -844,7 +844,8 @@ a {
 
 /* row all background */
 .allwidth {
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .allwidth.deco {
     background: url(../../images/background.jpg); }
   .allwidth.basic {
@@ -873,11 +874,19 @@ a {
   -o-transform: rotate(45deg);
   /* Opera */
   -moz-transform: rotate(45deg);
-  /* Firefox */ }
+  /* Firefox */
+  position: absolute;
+  bottom: 0; }
 
 /* Comments */
 .comments-fb {
-  background: #f5efe6; }
+  background: #f5efe6;
+  padding: 10px;
+  margin: 4px 0; }
+  .comments-fb .time {
+    color: #40876e; }
+  .comments-fb .comment-detail {
+    padding-top: 7px; }
 
 /* general classes */
 .hidden {

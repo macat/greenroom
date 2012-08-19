@@ -24,25 +24,23 @@
 </div>
 <div class="allwidth basic">
 	<div class="container">
-      <div id="step-1" class="step hidden">
-        <div class="square-rotate span-1"></div>
-        <div class="offset-5 span-4">
+      <div id="step-1" class="step row hidden">
+        <div class="span-4 offset-5">
           <div class="button big" id="show-camera">Take picture</div>
         </div>
         <div class="span-4">
           <div class="button big-blue" id="uploader">Upload</div>
         </div>
       </div>
-      <div id="step-2" class="step hidden">
-        <div class="square-rotate span-1"></div>
-        <div class="offset-4 span-4">
+      <div id="step-2" class="step row hidden">
+        <div class="span-4 offset-5">
           <div class="button big" id="ok">Ask for feedback</div>
         </div>
         <div class="span-4">
           <div class="button big-blue" id="back">Take another</div>
         </div>
       </div>
-      <div id="step-3" class="step hidden ask-feedback-form">
+      <div id="step-3" class="step row hidden ask-feedback-form">
         <form id="form-ask" action="" method="post" class="">
             {% csrf_token %}
             <textarea name="description"></textarea>
@@ -67,6 +65,7 @@
           </div>
         </form>
       </div>
+      <div class="square-rotate"></div>
 		</div>
 	</div>
 </div>
