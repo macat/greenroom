@@ -8,6 +8,8 @@
     background: $basic;
     border-top: 1px solid $light-basic;
     border-bottom: 1px solid $light-basic;
+
+    h1, h2, h3, h4, h5, h6 {color: $light;}
   }
   &.green {  background: $action;}
 }

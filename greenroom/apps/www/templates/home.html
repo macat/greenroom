@@ -28,8 +28,7 @@
 <div class="allwidth basic">
 	<div class="container">
 		<div class="row">
-			<div class="square-rotate span-1"></div>
-			<div class="offset-4 span-4">
+			<div class="span-4 offset-5">
 				<div class="button big" id="show-camera">Take picture</div>
 			</div>
 			<div class="span-4">
@@ -39,28 +38,32 @@
 	</div>
 	<div class="container">
 		<!-- action should be created from the url returned by ajax call above -->
-		<form id="form-ask" action="" method="post" class="">
-				{% csrf_token %}
-		   	<div class="span-6">
-		   		<h3>Ask your friends about your outfit</h3>
-		   		<ul>
-		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
-		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
-		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
-		   		</ul>
-				<input class="button" type="submit" value="Ask feedback" />
-		   	</div>
-		   	<div class="span-6">
-		   		<h3>or ask your friends on facebook</h3>
-
-				<p>
-					{% for f in fb_friends %}
-						<img src='{{ f.pic_square }}' height="50" width="50" />
-						<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-					{% endfor %}
-				</p>
-			</div>
-		</form>
+		<div class="row ask-feedback-form">
+			<form id="form-ask" action="" method="post" class="">
+					{% csrf_token %}
+			   	<div class="span-8">
+			   		<h3>Ask your friends about your outfit</h3>
+			   		<ul>
+			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
+			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
+			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
+			   		</ul>
+					<input class="button" type="submit" value="Ask feedback" />
+			   	</div>
+			   	<div class="span-8">
+			   		<h3>or ask your friends on facebook</h3>
+					<p>
+						{% for f in fb_friends %}
+							<img src='{{ f.pic_square }}' height="50" width="50" />
+							<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+						{% endfor %}
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="container">
+		<div class="square-rotate"></div>	
 	</div>
 </div>
 <div class="allwidth green">
