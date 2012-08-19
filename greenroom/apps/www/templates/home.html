@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="span-4">
 					<div class="logo"></div>
-					<h2>Ask feedback of your outfit to your best friends</h2>
+					<h2>Ask your friends about your style</h2>
 					{% if not user.is_authenticated %}
 						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
 							<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
@@ -69,16 +69,18 @@
 	              </ul>
 	            <input class="button" type="submit" value="Ask feedback" />
 	            </div>
-		            <div class="span-6">
+		            <div class="">
 		              <h3>or ask your friends on facebook</h3>
 		
-		            <p>
+		            <div id="fb-friends" >
 		              
 		              	{% for f in fb_friends %}
+                    <div class="fb-friend">
 		                <img src='{{ f.pic_square }}' height="50" width="50" />
 		                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+                  </div>
 		              {% endfor %}
-		            </p>
+		            </div>
 		          </div>
 	        </form>
 	      </div>
@@ -87,7 +89,6 @@
 	</div>
 	<div class="allwidth green">
 	  <div id="arrow" class="square-rotate"></div>
-	  <div class="container placeholder"></div>
 		<div class="container how-it-works">
 			<div class="row">
 				<div class="span-4 box-selected">
