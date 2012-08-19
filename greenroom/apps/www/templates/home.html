@@ -7,42 +7,32 @@
 {% endblock %}
 		
 {% block body %}
-<div id="logo">
-</div>
+<div id="logo"></div>
 <div id="mirror">
-  <div id="camera" class="hidden"></div>
+	<div id="camera" class="hidden"></div>
 </div>
 <br />
 <div id="show-camera">Take picture</div>
-<div id="uploader">Upload</div>
+<div id="uploader">Upload picutre</div>
 
-
-<!-- action should be created from the url returned by ajax call above -->
 <form id="form-ask" action="" method="post" class="hidden">
-       {% csrf_token %}
-       <h3>Dear friends!</h3>
-       <p>
-               email 1 : <input type="text" name="email_1" /> <br />
-               email 2 : <input type="text" name="email_2" /> <br />
-               email 3 : <input type="text" name="email_3" /> <br />
-       </p>
-       <input type="submit" value="Can I go out like this?! ^_^" />
+		{% csrf_token %}
+   		<h3>Dear friends!</h3>
+   		<p>
+   			email 1 : <input type="text" name="email_1" /> <br />
+   			email 2 : <input type="text" name="email_2" /> <br />
+   			email 3 : <input type="text" name="email_3" /> <br />
+   		</p>
+
+		<p>
+			{% for f in fb_friends %}
+				<img src='{{ f.pic_square }}' height="50" width="50" />
+				<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+			{% endfor %}
+		</p>
+	
+		<input type="submit" value="Ask for opinion" />
+
 </form>
-
-<form action="{% url facebook_connect %}?facebook_login=1" method="post">
-	<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Register, login or connect with facebook</a>
-	<input type="hidden" value="{{ request.path }}" name="next" />
-</form>
-
-
-<ul>
-	{% for f in fb_friends %}
-	<li>
-		<img src='{{ f.pic_square }}' height="50" width="50" />
-		{{ f.name }}, {{ f.username }}@facebook.com 
-	</li>
-	{% endfor %}
-	<li>...</li>
-</ul>
 
 {% endblock %}

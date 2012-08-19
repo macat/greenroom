@@ -29,7 +29,8 @@ $(function(){
     onComplete: function(id, fileName, responseJSON){
     	var feedback_form_action = responseJSON['request_feedback_url'];
     	$('#form-ask').attr("action", feedback_form_action);
-    	$('#form-ask').css("visibility","visible").show();
+    	$('#form-ask').css("visibility", "visible");
+    	$('#form-ask').show();
     },
   });
 })

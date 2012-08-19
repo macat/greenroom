@@ -3,7 +3,12 @@
 {% block body %}
 <ul>
 	{% for o in outfits %}
-		<li><a href='{{ o.view_url }}'><img src="{{ o.img.url }}" width="100" height="100"/></a></li>
+		<li>
+			<a href='{{ o.view_url }}'>
+				<img src="{{ o.img.url }}" width="100" height="100"/>
+				Average rating: {{ o.avg_rating|default:"no ratings yet" }}
+			</a>
+		</li>
 	{% endfor %}
 </ul>
 {% endblock %}
