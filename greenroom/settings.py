@@ -145,15 +145,24 @@ PIPELINE_CSS = {
     }
 }
 
-# Facebook integration
+# Facebook
 FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET', '')
 
-# Amazon S3 integration
+# Amazon S3
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
+
+# Mailgun 
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_API_KEY = os.getenv('MAILGUN_API_KEY', '')
+MAILGUN_SMTP_LOGIN = os.getenv('MAILGUN_SMTP_LOGIN', '')
+MAILGUN_SMTP_PASSWORD = os.getenv('MAILGUN_SMTP_PASSWORD', '')
+MAILGUN_SMTP_PORT = os.getenv('MAILGUN_SMTP_PORT', '')
+MAILGUN_SMTP_SERVER = os.getenv('MAILGUN_SMTP_SERVER', '')
+
 
 try:
     from settings_local import *
