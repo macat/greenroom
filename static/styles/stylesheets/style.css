@@ -833,6 +833,7 @@ table {
   background-color: #D60000;
   color: #FFFFFF; }
 
+/* row all background */
 .allwidth {
   width: 100%; }
   .allwidth.deco {
@@ -846,6 +847,7 @@ table {
   .allwidth.green {
     background: #40876e; }
 
+/* arrow for how it works */
 .square-rotate {
   width: 58px;
   height: 58px;
@@ -862,6 +864,7 @@ table {
   -moz-transform: rotate(45deg);
   /* Firefox */ }
 
+/* general classes */
 .hidden {
   display: none; }
 
@@ -1096,6 +1099,16 @@ body {
   width: 697px;
   height: 726px; }
 
+/* Friends suggest opinion homepage*/
+.suggestions.left-side {
+  margin-top: 60px; }
+  .suggestions.left-side .big-arrow {
+    margin-left: 100px; }
+
+/* placeholder for mirror */
+.placeholder-pic {
+  background: black; }
+
 /* How it works */
 .how-it-works h1, .how-it-works h2, .how-it-works h3 {
   text-align: center; }
@@ -1116,7 +1129,7 @@ body {
 .how-it-works .arrow {
   margin-top: 10%; }
 
-/* Assk feedback form */
+/* Ask feedback form */
 .ask-feedback-form ul li {
   margin-top: 10px; }
 .ask-feedback-form ul input {

@@ -7,12 +7,14 @@
 			<div class="span-4">
 				<div class="logo">greenroom</div>
 				<h2>Ask feedback of your outfit to your best friends</h2>
-				<div class="suggestions">
+				<div class="suggestions left-side">
 					only your real friends can give you a trustable opinion
+					<div class="big-arrow"></div>
 				</div>
 			</div>
 			<div class="span-10">
 				<div id="mirror">
+					<div class="placeholder-pic"></div>
 				  <div id="camera" class="hidden"></div>
 				</div>
 			</div>
@@ -21,43 +23,50 @@
 </div>
 <div class="allwidth basic">
 	<div class="container">
-		<div class="row">
-			<div class="span-4 offset-5">
-				<div class="button big" id="show-camera">Take picture</div>
-			</div>
-			<div class="span-4">
-				<div class="button big-blue" id="uploader">Upload</div>
-			</div>
+      <div id="step-1" class="step hidden">
+        <div class="square-rotate span-1"></div>
+        <div class="offset-5 span-4">
+          <div class="button big" id="show-camera">Take picture</div>
+        </div>
+        <div class="span-4">
+          <div class="button big-blue" id="uploader">Upload</div>
+        </div>
+      </div>
+      <div id="step-2" class="step hidden">
+        <div class="square-rotate span-1"></div>
+        <div class="offset-4 span-4">
+          <div class="button big" id="ok">Ask for feedback</div>
+        </div>
+        <div class="span-4">
+          <div class="button big-blue" id="back">Take another</div>
+        </div>
+      </div>
+      <div id="step-3" class="step hidden ask-feedback-form">
+        <form id="form-ask" action="" method="post" class="">
+            {% csrf_token %}
+            <input type="text" value="" name="description" />
+            <div class="span-6">
+              <h3>Ask your friends about your outfit</h3>
+              <ul>
+                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
+                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
+                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
+              </ul>
+            <input class="button" type="submit" value="Ask feedback" />
+            </div>
+            <div class="span-6">
+              <h3>or ask your friends on facebook</h3>
+
+            <p>
+              {% for f in fb_friends %}
+                <img src='{{ f.pic_square }}' height="50" width="50" />
+                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+              {% endfor %}
+            </p>
+          </div>
+        </form>
+      </div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="row ask-feedback-form">
-			<form id="form-ask" action="" method="post" class="">
-				{% csrf_token %}
-				<input type="text" value="" name="description" />
-			   	<div class="span-8">
-			   		<h3>Ask your friends about your outfit</h3>
-			   		<ul>
-			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
-			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
-			   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
-			   		</ul>
-					<input class="button" type="submit" value="Ask feedback" />
-			   	</div>
-			   	<div class="span-8">
-			   		<h3>or ask your friends on facebook</h3>
-					<p>
-						{% for f in fb_friends %}
-							<img src='{{ f.pic_square }}' height="50" width="50" />
-							<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-						{% endfor %}
-					</p>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="container">
-		<div class="square-rotate"></div>	
 	</div>
 </div>
 <div class="allwidth green">
