@@ -50,12 +50,11 @@ $(function(){
     allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
     sizeLimit: 8000000,
     action: '/outfit/new',
-    button: {
-      element: document.getElementById('uploader')
-    },
+    button:  document.getElementById('uploader'),
     onComplete: function(id, fileName, responseJSON){
       var feedback_form_action = responseJSON['request_feedback_url'];
       $('#form-ask').attr("action", feedback_form_action);
+      $('<img>', {src: responseJSON.img}).appendTo('#result-img')
       steps.second();
     },
   });

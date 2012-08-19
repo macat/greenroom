@@ -15,6 +15,7 @@
 			<div class="span-10">
 				<div id="mirror">
 					<div class="placeholder-pic"></div>
+          <div id="result-img"></div>
 				  <div id="camera" class="hidden"></div>
 				</div>
 			</div>
@@ -44,7 +45,7 @@
       <div id="step-3" class="step hidden ask-feedback-form">
         <form id="form-ask" action="" method="post" class="">
             {% csrf_token %}
-            <input type="text" value="" name="description" />
+            <textarea name="description"></textarea>
             <div class="span-6">
               <h3>Ask your friends about your outfit</h3>
               <ul>
