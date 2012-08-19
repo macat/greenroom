@@ -15,40 +15,42 @@
 	<div class="row">
 		<div class="span-8">
 			<div class="row">
-				<div class="span-8">
-					<h3> {{ outfit.description|default:"How does it look? ^_^" }}</h3>
+				<div class="span-7">
+					<p class="request-for-fb">" {{ outfit.description }} "</p>
+					<h3> what your friends thought about it</h3>
+					<div class="line"></div>
 				</div>	
 			</div>
 
 			{% for of in outfit.outfitfeedback_set.all %}
-				<div class="span-7 comments-fb">
-					<div class="span-1">
-						<div class="pic">
-						</div>
-					</div>
-					<div class="span-7">
-						<div class="row">
-							<div class="span-5">
-								{{ of.emailed_to }} - 
-								<span class="time">
-									{% if of.answered_at %}
-										at {{ of.answered_at }} UTC
-									{% endif %}
-								</span>
-							</div>
-							<div class="span-2">
-								<div class="stars empty">
-	  								<div class="stars filled_{{ of.rating|default:"0" }}"></div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							{% if of.comment %}
-								<div class="span-7 comment-detail">: "{{ of.comment}}"</div>
-							{% endif %}
-						</div>
+			<div class="span-7 comments-fb">
+				<div class="span-1">
+					<div class="pic">
 					</div>
 				</div>
+				<div class="span-7">
+					<div class="row">
+						<div class="span-5">
+							{{ of.emailed_to }} - 
+							<span class="time">
+								{% if of.answered_at %}
+									at {{ of.answered_at }} UTC
+								{% endif %}
+							</span>
+						</div>
+						<div class="span-2">
+							<div class="stars empty">
+  								<div class="stars filled_{{ of.rating|default:"0" }}"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						{% if of.comment %}
+							<div class="span-7 comment-detail">: "{{ of.comment}}"</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
 			{% endfor %}
 
 
@@ -76,7 +78,9 @@
 			</p>
 		</div>
 		<div class="span-8">
-			<img src='{{ outfit.img.url }}' width="200" height="200"/>
+			<div class="img-result">
+				<img src='{{ outfit.img.url }}' width="200" height="200"/>
+			</div>
 		</div>	
 	</div>
 </div>

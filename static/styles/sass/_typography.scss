@@ -38,7 +38,15 @@ h1, h2, h3, h4, h5, h6, .button {
     line-height: 1.4em;
 }
 
+
 /* Paragraph */
 body {
 	font-family: "Helvetica", self-serif;
+}
+
+/* message to ask about friends opinion */
+.request-for-fb {
+	color: $action;
+	margin: 20px 0;
+	text-align: center;
 }

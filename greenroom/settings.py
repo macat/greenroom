@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -30,9 +30,7 @@ USE_L10N = True
 MEDIA_ROOT = ''
 MEDIA_URL = ''
 STATIC_ROOT = ''
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (prepend_path_with_root('static'),
-                    '/app/.heroku/venv/lib/python2.7/site-packages/django_facebook', )
+STATICFILES_DIRS = (prepend_path_with_root('static'),)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -55,7 +53,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django_facebook.context_processors.facebook',
+    'greenroom.apps.django_facebook_patched.context_processors.facebook',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -82,12 +80,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'greenroom.apps.outfit',
     'greenroom.apps.www',
-    'django_facebook',
+    'greenroom.apps.django_facebook_patched',
 )
 
-AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+AUTH_PROFILE_MODULE = 'django_facebook_patched.FacebookProfile'
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
+    'greenroom.apps.django_facebook_patched.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -118,7 +116,7 @@ LOGGING = {
 # custom settings 
 
 HOST = 'http://mygreenroom.herokuapp.com'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'greenroom.libs.staticfile_storage.S3PipelineStorage'
 PIPELINE = True
 
 PIPELINE_JS = {
@@ -154,6 +152,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
+STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
 ## Mailgun 
 #EMAIL_BACKEND = 'django_mailgun.MailgunBackend'

@@ -1,4 +1,4 @@
-#from django_facebook.api import FacebookUserConverter, get_persistent_graph
+#from greenroom.apps.django_facebook_patched.api import FacebookUserConverter, get_persistent_graph
 #from open_facebook.api import FacebookAuthorization
 #
 #

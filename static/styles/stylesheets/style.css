@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Puritan:400,700|The+Girl+Next+Door);
 .container {
   *zoom: 1;
   margin: 0 auto;
@@ -127,7 +128,6 @@
       float: none;
       margin: 0;
       width: auto; } }
-
 @media (min-width: 630px) and (max-width: 790px) {
   .container {
     width: 630px; }
@@ -227,7 +227,6 @@
 
   .offset-15 {
     margin-left: 600px; } }
-
 @media (min-width: 790px) and (max-width: 1100px) {
   .container {
     width: 790px; }
@@ -327,8 +326,7 @@
 
   .offset-15 {
     margin-left: 750px; } }
-
-/*! normalize.css v1.0.0 | MIT License | git.io/normalize */
+/* normalize.css v1.0.0 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -853,9 +851,13 @@ a {
   .allwidth.basic {
     background: #19181d;
     border-top: 1px solid #615d71;
-    border-bottom: 1px solid #615d71; }
+    border-bottom: 1px solid #615d71;
+    -webkit-box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.2); }
     .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6, .allwidth.basic .logo {
       color: #e7d7c1; }
+    .allwidth.basic .step {
+      padding: 10px 0; }
   .allwidth.green {
     background: #40876e; }
 
@@ -879,6 +881,13 @@ a {
   bottom: 0;
   z-index: 10; }
 
+/* Img results */
+.img-result {
+  margin: 20px 0; }
+  .img-result img {
+    padding: 5px;
+    background: #19181d; }
+
 /* Comments */
 .comments-fb {
   background: #f5efe6;
@@ -889,7 +898,19 @@ a {
   .comments-fb .comment-detail {
     padding-top: 7px; }
 
+/* form leave a comment */
+.leave-a-comment textarea {
+  width: 95%; }
+.leave-a-comment .button {
+  margin-top: -8px; }
+
 /* general classes */
+.line {
+  height: 2px;
+  width: 100%;
+  background: url(../../images/line.png);
+  padding: 0px 10px; }
+
 .hidden {
   display: none; }
 
@@ -915,7 +936,6 @@ input[type="placeholder"],
   color: #eee; }
 
 /* Typography */
-@import url(http://fonts.googleapis.com/css?family=Puritan:400,700|The+Girl+Next+Door);
 @font-face {
   font-family: "riesling-webfont";
   src: url("../../fonts/riesling-webfont.eot") format("eot"), url("../../fonts/riesling-webfont.woff") format("woff"), url("../../fonts/riesling-webfont.ttf") format("truetype"); }
@@ -946,6 +966,12 @@ h1, h2, h3, h4, h5, h6, .button {
 /* Paragraph */
 body {
   font-family: "Helvetica", self-serif; }
+
+/* message to ask about friends opinion */
+.request-for-fb {
+  color: #40876e;
+  margin: 20px 0;
+  text-align: center; }
 
 /* Images */
 .arrow {
@@ -1065,15 +1091,6 @@ body {
   width: 165px;
   height: 29px; }
 
-.line {
-  background: url("../../images/images.png");
-  background-position: 0 -1340px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  text-align: center;
-  width: 4px;
-  height: 2px; }
-
 .plus-icon {
   background: url("../../images/images.png");
   background-position: 0 -1392px;
@@ -1151,8 +1168,6 @@ body {
 
 #mirror-inner {
   position: absolute;
-  top: -20px;
-  left: 0;
   background: url(../../images/mirror.png) no-repeat;
   width: 697px;
   height: 605px; }
@@ -1165,10 +1180,7 @@ body {
 #mirror {
   position: relative;
   width: 697px;
-  height: 605px;
-  top: 43px;
-  left: -36px;
-  margin-bottom: 42px; }
+  height: 605px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
