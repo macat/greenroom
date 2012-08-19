@@ -47,6 +47,9 @@ class OutfitFeedback(models.Model):
     requested_at = models.DateTimeField(auto_now_add=True, editable=False)
     answered_at = models.DateTimeField(editable=False, null=True, blank=True)
 
+    def rating_doubled(self):
+        return self.rating * 2
+
     def get_absolute_url(self):
         return reverse('outfit_give_feedback', args=[self.uuid])
         
