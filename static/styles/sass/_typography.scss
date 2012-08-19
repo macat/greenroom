@@ -1,12 +1,6 @@
 /* Typography */
 @import url(http://fonts.googleapis.com/css?family=Puritan:400,700|The+Girl+Next+Door);
 
-@mixin font-face($font-family, $url) {
-   @font-face {
-      font-family: '#{$font-family}';
-      src: url('#{$url}#{$font-family}.eot') format('eot'), url('#{$url}#{$font-family}.woff') format('woff'), url('#{$url}#{$font-family}.ttf') format('truetype');
-   }
-}
 @font-face {
 	font-family: 'zocial';
 	font-style: normal;
@@ -17,14 +11,6 @@
 		url('../../fonts/zocial-regular-webfont.ttf') format('truetype'),
 		url('../../fonts/zocial-regular-webfont.svg#ZocialRegular') format('svg');
 	unicode-range:U+0-U+10FFFF;
-}
-@include font-face(riesling-webfont, "../../fonts/");
-/*@include font-face(zocial-regular-webfont, "../../fonts/");*/
-
-.logo {
-	color: $basic;
-	font-family: "riesling";
-    font-size: 6em;
 }
 
 /* Headlines */

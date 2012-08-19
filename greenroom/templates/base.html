@@ -10,7 +10,7 @@
 		{% endblock %}
 	</head>
 	<body>
-		<a href="{% url www_home %}">home</a>
+		<!-- <a href="{% url www_home %}">home</a>
 		{% if user.is_authenticated %}
 			| <a href="{% url outfit_list_outfits %}">outfits list</a> 
 	 	{% else %}
@@ -19,7 +19,7 @@
 				<input type="hidden" value="{{ request.path }}" name="next" />
 			</form>
 
-	 	{% endif %}
+	 	{% endif %} -->
 		{% block header %}
 		{% endblock%}
 
