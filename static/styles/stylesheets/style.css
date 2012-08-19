@@ -1210,6 +1210,32 @@ body {
     background: -ms-linear-gradient(-45deg, #717377 0%, #f7f5f4 49%, #d1d1d1 62%, #eaeaea 80%, #a2a39f 100%);
     background: linear-gradient(135deg, #717377 0%, #f7f5f4 49%, #d1d1d1 62%, #eaeaea 80%, #a2a39f 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#717377', endColorstr='#a2a39f',GradientType=1 ); }
+  #mirror p {
+    padding-top: 45%;
+    padding-left: 108px;
+    transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-30deg);
+    /* Safari and Chrome */
+    -o-transform: rotate(-30deg);
+    /* Opera */
+    -moz-transform: rotate(-30deg);
+    /* Firefox */ }
+  #mirror .big-arrow {
+    text-align: center;
+    transform: rotate(-102deg);
+    -ms-transform: rotate(-102deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-102deg);
+    /* Safari and Chrome */
+    -o-transform: rotate(-102deg);
+    /* Opera */
+    -moz-transform: rotate(-102deg);
+    /* Firefox */
+    position: absolute;
+    right: 250px;
+    bottom: 10px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
