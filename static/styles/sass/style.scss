@@ -13,6 +13,20 @@
 	height: 726px;
 }
 
+/* Friends suggest opinion homepage*/
+.suggestions.left-side {
+	margin-top: 60px;
+	.big-arrow {
+
+		margin-left: 100px;
+
+	}
+}
+/* placeholder for mirror */
+.placeholder-pic {
+	background: black;
+}
+	
 /* How it works */
 .how-it-works {
   h1, h2, h3 {
@@ -38,7 +52,7 @@
   }
 }
 
-/* Assk feedback form */
+/* Ask feedback form */
 .ask-feedback-form {
 	ul {
 		li { margin-top: 10px;}
