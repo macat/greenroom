@@ -559,3 +559,98 @@ h1, h2, h3, h4, h5, h6 {
     src: url("../../fonts/.eot?") format("eot"), url("../../fonts/.woff") format("woff"), url("../../fonts/.ttf") format("truetype"); }
 
   color: #40876e; }
+
+/* Paragraph */
+body {
+  font-family: "Helvetica", self-serif; }
+
+/* Images */
+.big-arrow {
+  background-position: 0 -169px;
+  background: url("../../images/images.png");
+  width: 126px;
+  height: 133px; }
+
+.blue-big-btn {
+  background-position: 0 -352px;
+  background: url("../../images/images.png");
+  width: 255px;
+  height: 121px; }
+
+.check-icon {
+  background-position: 0 -523px;
+  background: url("../../images/images.png");
+  width: 20px;
+  height: 20px; }
+
+.comments {
+  background-position: 0 -593px;
+  background: url("../../images/images.png");
+  width: 15px;
+  height: 34px; }
+
+.dark-check-icon {
+  background-position: 0 -677px;
+  background: url("../../images/images.png");
+  width: 18px;
+  height: 17px; }
+
+.decoration-line {
+  background-position: 0 -744px;
+  background: url("../../images/images.png");
+  width: 39px;
+  height: 29px; }
+
+.email-icon {
+  background-position: 0 -823px;
+  background: url("../../images/images.png");
+  width: 42px;
+  height: 30px; }
+
+.facebook-big {
+  background-position: 0 -903px;
+  background: url("../../images/images.png");
+  width: 17px;
+  height: 35px; }
+
+.facebook-small {
+  background-position: 0 -988px;
+  background: url("../../images/images.png");
+  width: 12px;
+  height: 23px; }
+
+.green-big-btn {
+  background-position: 0 -1061px;
+  background: url("../../images/images.png");
+  width: 255px;
+  height: 120px; }
+
+.green-small-btn {
+  background-position: 0 -1231px;
+  background: url("../../images/images.png");
+  width: 165px;
+  height: 59px; }
+
+.line {
+  background-position: 0 -1340px;
+  background: url("../../images/images.png");
+  width: 4px;
+  height: 2px; }
+
+.plus-icon {
+  background-position: 0 -1392px;
+  background: url("../../images/images.png");
+  width: 23px;
+  height: 23px; }
+
+.red-big-btn {
+  background-position: 0 -1465px;
+  background: url("../../images/images.png");
+  width: 255px;
+  height: 120px; }
+
+.x-icon {
+  background-position: 0 -1635px;
+  background: url("../../images/images.png");
+  width: 20px;
+  height: 16px; }
