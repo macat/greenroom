@@ -3,6 +3,11 @@
 	position: relative;
 	width: 100%;
 }
+#uploader {
+  input {
+    height: 60px;
+  }
+}
 .qq-upload-button {
 	display: block;
 	/*or inline-block*/
