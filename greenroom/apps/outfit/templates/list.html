@@ -3,7 +3,7 @@
 {% block body %}
 <ul>
 	{% for o in outfits %}
-		<li><a href='{{ o.view_url }}'><img src="{{ o.img }}" /></a></li>
+		<li><a href='{{ o.view_url }}'><img src="{{ o.img.url }}" width="100" height="100"/></a></li>
 	{% endfor %}
 </ul>
 {% endblock %}

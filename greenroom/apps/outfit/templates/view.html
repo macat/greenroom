@@ -2,7 +2,7 @@
 
 {% block body %}
 <h1>Is it good?</h1>
-<img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
+<img src='{{ outfit.img.url }}' width="200" height="200"/>
 <h3>What do they think!?</h3>
 <p>
 	{% for of in outfit.outfitfeedback_set.all %}

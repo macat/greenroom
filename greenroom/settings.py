@@ -116,7 +116,7 @@ LOGGING = {
 
 # custom settings 
 
-HOST = 'http://greenroom-app.herokuapp.com'
+HOST = 'http://mygreenroomapp.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE = False
 
@@ -148,6 +148,7 @@ PIPELINE_CSS = {
 FACEBOOK_APP_ID = ''
 FACEBOOK_APP_SECRET = ''
 
+# Amazon S3 integration
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = ''
 AWS_SECRET_ACCESS_KEY = ''

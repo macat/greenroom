@@ -25,6 +25,11 @@ $(function(){
     element: document.getElementById('uploader'),
     allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
     sizeLimit: 8000000,
-    action: '/outfit/new'
+    action: '/outfit/new',
+    onComplete: function(id, fileName, responseJSON){
+    	var feedback_form_action = responseJSON['request_feedback_url'];
+    	$('#form-ask').attr("action", feedback_form_action);
+    	$('#form-ask').css("visibility","visible").show();
+    },
   });
 })
