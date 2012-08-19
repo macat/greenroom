@@ -844,7 +844,8 @@ a {
 
 /* row all background */
 .allwidth {
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .allwidth.deco {
     background: url(../../images/background.jpg); }
   .allwidth.basic {
@@ -854,8 +855,6 @@ a {
     border-bottom: 1px solid #615d71; }
     .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6, .allwidth.basic .logo {
       color: #e7d7c1; }
-    .allwidth.basic .logo {
-      margin: 0; }
   .allwidth.green {
     background: #40876e; }
 
@@ -874,11 +873,20 @@ a {
   -o-transform: rotate(45deg);
   /* Opera */
   -moz-transform: rotate(45deg);
-  /* Firefox */ }
+  /* Firefox */
+  position: absolute;
+  bottom: 0;
+  z-index: 10; }
 
 /* Comments */
 .comments-fb {
-  background: #f5efe6; }
+  background: #f5efe6;
+  padding: 10px;
+  margin: 4px 0; }
+  .comments-fb .time {
+    color: #40876e; }
+  .comments-fb .comment-detail {
+    padding-top: 7px; }
 
 /* general classes */
 .hidden {
@@ -913,8 +921,7 @@ input[type="placeholder"],
 .logo {
   color: #19181d;
   font-family: "riesling";
-  font-size: 6em;
-  margin: 0.67em 0; }
+  font-size: 6em; }
 
 /* Headlines */
 h1, h2, h3, h4, h5, h6, .button {
@@ -1151,10 +1158,10 @@ body {
 #mirror {
   position: relative;
   width: 697px;
-  height: 716px;
   top: 43px;
   left: -36px;
-  margin-bottom: 42px; }
+  margin-bottom: 42px;
+  height: 640px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {

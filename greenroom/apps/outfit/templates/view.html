@@ -21,18 +21,20 @@
 			</div>
 
 			{% for of in outfit.outfitfeedback_set.all %}
-				<div class="span-8 comments-fb">
+				<div class="span-7 comments-fb">
 					<div class="span-1">
 						<div class="pic">
 						</div>
 					</div>
-					<div class="span-10">
+					<div class="span-7">
 						<div class="row">
-							<div class="span-10">
+							<div class="span-5">
 								{{ of.emailed_to }} - 
-								{% if of.answered_at %}
-									at {{ of.answered_at }} UTC
-								{% endif %}
+								<span class="time">
+									{% if of.answered_at %}
+										at {{ of.answered_at }} UTC
+									{% endif %}
+								</span>
 							</div>
 							<div class="span-2">
 								<div class="stars empty">
@@ -42,7 +44,7 @@
 						</div>
 						<div class="row">
 							{% if of.comment %}
-							: "{{ of.comment}}"
+								<div class="span-7 comment-detail">: "{{ of.comment}}"</div>
 							{% endif %}
 						</div>
 					</div>

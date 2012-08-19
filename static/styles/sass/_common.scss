@@ -12,6 +12,7 @@ a {
 /* row all background */
 .allwidth {
   width: 100%;
+  position: relative;
 
   &.deco {
     background:url(../../images/background.jpg);
@@ -22,7 +23,6 @@ a {
     border-bottom: 1px solid $light-basic;
 
     h1, h2, h3, h4, h5, h6, .logo {color: $light;}
-    .logo { margin: 0; }
   }
   &.green {  background: $action;}
 }
@@ -39,11 +39,19 @@ a {
   -webkit-transform: rotate(45deg); /* Safari and Chrome */
   -o-transform: rotate(45deg); /* Opera */
   -moz-transform: rotate(45deg); /* Firefox */
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
 }
 
 /* Comments */
 .comments-fb {
   background: lighten($light, 10%);
+  padding: 10px;
+  margin: 4px 0;
+
+  .time { color: $action;}
+  .comment-detail { padding-top: 7px; }
 }
 /* general classes */
 .hidden {

@@ -12,7 +12,7 @@
 					<div class="big-arrow"></div>
 				</div>
 			</div>
-			<div class="span-10">
+			<div class="span-10 offset-2">
 				<div id="mirror">
           <div id="result-img"></div>
           <div id="mirror-inner"></div>
@@ -35,14 +35,14 @@
         </div>
       </div>
       <div id="step-2" class="row step hidden">
-        <div class="offset-6 span-4">
+        <div class="span-4 offset-7">
           <div class="button big" id="ok">Ask for feedback</div>
         </div>
         <div class="span-4">
           <div class="button big-blue" id="back">Take another</div>
         </div>
       </div>
-      <div id="step-3" class="step hidden ask-feedback-form">
+      <div id="step-3" class="step row hidden ask-feedback-form">
         <form id="form-ask" action="" method="post" class="">
             {% csrf_token %}
             <textarea name="description"></textarea>
@@ -70,6 +70,7 @@
               -->
         </form>
       </div>
+      <div class="square-rotate"></div>
 		</div>
 	</div>
 </div>
