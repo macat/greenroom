@@ -5,15 +5,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span-10">
-					<div class="logo">greenroom</div>
+					<a href="{% url www_home %}" class="logo"></a>
 				</div>
 				<div class="span-6 navbar">
-					<div class="span-2">
-						<a class="span-2" href="{% url www_home %}">home</a>
-					</div>
-					<div class="span-4">
-						<a class="zocial facebook span-4">Login with Facebook</a>
-					</div>
+					<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+						<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+						<input type="hidden" value="{{ request.path }}" name="next" />
+					</form>
 				</div>
 			</div>	
 		</div>	
@@ -40,7 +38,7 @@
 				</div>
 				<div class="span-7">
 					<div class="row">
-						<div class="span-5">
+						<div class="span-5 user-data">
 							{{ of.emailed_to }} - 
 							<span class="time">
 								{% if of.answered_at %}
@@ -56,7 +54,7 @@
 					</div>
 					<div class="row">
 						{% if of.comment %}
-							<div class="span-7 comment-detail">: "{{ of.comment}}"</div>
+							<div class="span-7 comment-detail">{{ of.comment}}</div>
 						{% endif %}
 					</div>
 				</div>
@@ -66,7 +64,7 @@
 
 				
 
-			<p>
+<!-- 			<p>
 				{% for of in outfit.outfitfeedback_set.all %}
 					{{ of.emailed_to }} rating: 	
 					{% if of.rating %}
@@ -85,11 +83,11 @@
 			</p>
 			<p>
 				Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
-			</p>
+			</p> -->
 		</div>
 		<div class="span-8">
 			<div class="img-result">
-				<img src='{{ outfit.img.url }}' width="200" height="200"/>
+				<img src='{{ outfit.img.url }}' width="400" />
 			</div>
 		</div>	
 	</div>

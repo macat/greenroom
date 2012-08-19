@@ -5,15 +5,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="span-10">
-					<div class="logo">greenroom</div>
+					<a href="{% url www_home %}" class="logo"></a>
 				</div>
 				<div class="span-6 navbar">
-					<div class="span-2">
-						<a class="span-2" href="{% url www_home %}">home</a>
-					</div>
-					<div class="span-4">
-						<a class="zocial facebook span-4">Login with Facebook</a>
-					</div>
+					<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+						<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+						<input type="hidden" value="{{ request.path }}" name="next" />
+					</form>
 				</div>
 			</div>	
 		</div>	
