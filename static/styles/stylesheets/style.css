@@ -842,8 +842,14 @@ a {
   a:hover {
     color: #306452; }
 
+/* main content */
+.main-content {
+  margin-bottom: 40px; }
+
 /* footer */
 footer {
+  position: fixed;
+  bottom: 0;
   text-align: center;
   color: #e7d7c1;
   width: 100%;
