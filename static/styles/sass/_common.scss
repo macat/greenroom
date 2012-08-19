@@ -11,10 +11,14 @@ a {
 }
 /* footer */
 footer {
-  position: fixed;
-  bottom: 0;
   text-align: center;
   color: $light;
+  width: 100%;
+
+  font-size: 0.7em;
+  p {
+    padding: 10px auto;
+  }
 }
 /* row all background */
 .allwidth {

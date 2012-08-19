@@ -844,10 +844,12 @@ a {
 
 /* footer */
 footer {
-  position: fixed;
-  bottom: 0;
   text-align: center;
-  color: #e7d7c1; }
+  color: #e7d7c1;
+  width: 100%;
+  font-size: 0.7em; }
+  footer p {
+    padding: 10px auto; }
 
 /* row all background */
 .allwidth {
