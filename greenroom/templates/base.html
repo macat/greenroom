@@ -16,7 +16,7 @@
 	 	{% else %}
 			<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
 				<a href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Facebook!</a>
-				<input type="hidden" value="{{ request.path }}" name="next" />
+				<input type="hidden" value="/" name="next" />
 			</form>
 
 	 	{% endif %}

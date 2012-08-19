@@ -2,8 +2,9 @@ import logging
 
 from django.conf import settings
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import redirect, render_to_response
 from django.template.context import RequestContext
 from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
@@ -138,7 +139,7 @@ def connect(request):
     if not settings.DEBUG and facebook_settings.FACEBOOK_HIDE_CONNECT_TEST:
         raise Http404
 
-    return render_to_response('greenroom.apps.django_facebook_patched/connect.html', context)
+    return redirect(reverse('www_home'))#render_to_response('django_facebook_patched/connect.html', context)
 
 
 def connect_async_ajax(request):
