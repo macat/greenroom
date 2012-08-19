@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -150,7 +150,7 @@ FACEBOOK_APP_ID = ''
 FACEBOOK_APP_SECRET = ''
 
 # Amazon S3 integration
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = ''
 AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = ''
