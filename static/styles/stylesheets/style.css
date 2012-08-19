@@ -1095,6 +1095,8 @@ body {
     background: none; }
   .how-it-works .box-selected h1, .how-it-works .box-selected h2, .how-it-works .box-selected h3 {
     color: #40876e; }
+  .how-it-works .box-selected span {
+    display: inline-block; }
 .how-it-works .box-image {
   text-align: center;
   height: 345px; }
