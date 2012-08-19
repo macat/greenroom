@@ -854,8 +854,6 @@ a {
     border-bottom: 1px solid #615d71; }
     .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6, .allwidth.basic .logo {
       color: #e7d7c1; }
-    .allwidth.basic .logo {
-      margin: 0; }
   .allwidth.green {
     background: #40876e; }
 
@@ -921,8 +919,7 @@ input[type="placeholder"],
 .logo {
   color: #19181d;
   font-family: "riesling";
-  font-size: 6em;
-  margin: 0.67em 0; }
+  font-size: 6em; }
 
 /* Headlines */
 h1, h2, h3, h4, h5, h6, .button {
@@ -1146,9 +1143,9 @@ body {
     width: 100px; }
 
 #mirror {
-  background: url(../../images/mirror.png) no-repeat 0 15px;
+  background: url(../../images/mirror.png) no-repeat 0 -62px;
   width: 697px;
-  height: 726px; }
+  height: 640px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
