@@ -4,6 +4,8 @@ $url: (url("../../images/images.png"));
    background-position: $x $y;
    background:$url;
 }
+.arrow{ @include sprite( 0, 0px); width: 93px; height: 36px; } 
+.background-small{ @include sprite( 0, -86px); width: 329px; height: 33px; } 
 .big-arrow{ @include sprite( 0, -169px); width: 126px; height: 133px; } 
 .blue-big-btn{ @include sprite( 0, -352px); width: 255px; height: 121px; } 
 .check-icon{ @include sprite( 0, -523px); width: 20px; height: 20px; } 

@@ -5,9 +5,35 @@
 @import "common";
 @import "typography";
 @import "images";
+@import "buttons";
 
 #mirror {
 	background:url(../../images/mirror.png) no-repeat;
 	width: 697px;
 	height: 726px;
 }
+
+/* How it works */
+.how-it-works {
+  h1, h2, h3 {
+    text-align: center;
+  }
+  .box-selected {
+    background: $light;
+    
+    .box { background: none;}
+    h1, h2, h3 { color: $action;}
+  }
+  .box-image {
+    text-align: center;
+    height: 345px;
+  }
+  .box {
+    background: $basic;
+    height: 4em;
+  }
+  .arrow {
+    margin-top: 10%;
+  }
+}
+
