@@ -117,7 +117,7 @@ LOGGING = {
 
 # custom settings 
 
-HOST = 'http://mygreenroomapp.herokuapp.com'
+HOST = 'http://mygreenroom.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE = True
 
@@ -145,15 +145,21 @@ PIPELINE_CSS = {
     }
 }
 
-# Facebook integration
+# Facebook
 FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET', '')
 
-# Amazon S3 integration
+# Amazon S3
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
+
+# Mailgun 
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', '')
+MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', '')
+
 
 try:
     from settings_local import *
