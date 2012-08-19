@@ -19,7 +19,7 @@
 			{% csrf_token %}
 			rating:
 			<div class="stars empty">
-					<input type="radio" name="rating" class="stars filled_{{ of.rating }}" value="{{ of.rating }}" >
+					<input type="radio" name="rating" class="stars filled_{{ of.rating|default:"0" }}" value="{{ of.rating }}" >
 			</div>
 
 			<select name='rating'>

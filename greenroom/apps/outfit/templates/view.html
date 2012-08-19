@@ -36,7 +36,7 @@
 							</div>
 							<div class="span-2">
 								<div class="stars empty">
-	  								<div class="stars filled_{{ of.rating }}"></div>
+	  								<div class="stars filled_{{ of.rating|default:"0" }}"></div>
 								</div>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 			{% endfor %}
-			
+
 
 				
 
