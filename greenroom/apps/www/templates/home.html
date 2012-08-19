@@ -53,16 +53,19 @@
               </ul>
             <input class="button" type="submit" value="Ask feedback" />
             </div>
-            <div class="span-6">
-              <h3>or ask your friends on facebook</h3>
-
-            <p>
-              {% for f in fb_friends %}
-                <img src='{{ f.pic_square }}' height="50" width="50" />
-                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-              {% endfor %}
-            </p>
-          </div>
+            <!--
+	            <div class="span-6">
+	              <h3>or ask your friends on facebook</h3>
+	
+	            <p>
+	              
+	              	{% for f in fb_friends %}
+	                <img src='{{ f.pic_square }}' height="50" width="50" />
+	                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+	              {% endfor %}
+	            </p>
+	          </div>
+              -->
         </form>
       </div>
       <div class="square-rotate"></div>
