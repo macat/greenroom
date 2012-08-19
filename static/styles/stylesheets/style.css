@@ -761,19 +761,7 @@ table {
 
 .qq-upload-button {
   display: block;
-  /*or inline-block*/
-  width: 105px;
-  padding: 7px 0;
-  text-align: center;
-  background: #880000;
-  border-bottom: 1px solid #DDD;
-  color: #FFF; }
-
-.qq-upload-button-hover {
-  background: #CC0000; }
-
-.qq-upload-button-focus {
-  outline: 1px dotted #000000; }
+  /*or inline-block*/ }
 
 .qq-upload-drop-area, .qq-upload-extra-drop-area {
   position: absolute;
@@ -927,110 +915,167 @@ body {
 
 /* Images */
 .arrow {
-  background-position: 0 0px;
   background: url("../../images/images.png");
+  background-position: 0 0px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 93px;
   height: 36px; }
 
 .background-small {
-  background-position: 0 -86px;
   background: url("../../images/images.png");
+  background-position: 0 -86px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 329px;
   height: 33px; }
 
 .big-arrow {
-  background-position: 0 -169px;
   background: url("../../images/images.png");
+  background-position: 0 -169px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 126px;
   height: 133px; }
 
-.blue-big-btn {
-  background-position: 0 -352px;
+.blue-big-btn, .button-big-blue {
   background: url("../../images/images.png");
+  background-position: 0 -352px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 255px;
-  height: 121px; }
+  height: 58px; }
 
 .check-icon {
-  background-position: 0 -523px;
   background: url("../../images/images.png");
+  background-position: 0 -523px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 20px;
   height: 20px; }
 
 .comments {
-  background-position: 0 -593px;
   background: url("../../images/images.png");
+  background-position: 0 -593px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 15px;
   height: 34px; }
 
 .dark-check-icon {
-  background-position: 0 -677px;
   background: url("../../images/images.png");
+  background-position: 0 -677px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 18px;
   height: 17px; }
 
 .decoration-line {
-  background-position: 0 -744px;
   background: url("../../images/images.png");
+  background-position: 0 -744px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 39px;
   height: 29px; }
 
 .email-icon {
-  background-position: 0 -823px;
   background: url("../../images/images.png");
+  background-position: 0 -823px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 42px;
   height: 30px; }
 
 .facebook-big {
-  background-position: 0 -903px;
   background: url("../../images/images.png");
+  background-position: 0 -903px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 17px;
   height: 35px; }
 
 .facebook-small {
-  background-position: 0 -988px;
   background: url("../../images/images.png");
+  background-position: 0 -988px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 12px;
   height: 23px; }
 
-.green-big-btn {
-  background-position: 0 -1061px;
+.green-big-btn, .button-big {
   background: url("../../images/images.png");
+  background-position: 0 -1061px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 255px;
-  height: 120px; }
+  height: 58px; }
 
 .green-small-btn, .button {
-  background-position: 0 -1231px;
   background: url("../../images/images.png");
+  background-position: 0 -1231px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 165px;
-  height: 59px; }
+  height: 29px; }
 
 .line {
-  background-position: 0 -1340px;
   background: url("../../images/images.png");
+  background-position: 0 -1340px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 4px;
   height: 2px; }
 
 .plus-icon {
-  background-position: 0 -1392px;
   background: url("../../images/images.png");
+  background-position: 0 -1392px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 23px;
   height: 23px; }
 
 .red-big-btn {
-  background-position: 0 -1465px;
   background: url("../../images/images.png");
+  background-position: 0 -1465px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 255px;
   height: 120px; }
 
 .x-icon {
-  background-position: 0 -1635px;
   background: url("../../images/images.png");
+  background-position: 0 -1635px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-align: center;
   width: 20px;
   height: 16px; }
 
 /* Buttons */
 .button:hover {
   background-position: 0 -1261px; }
+
+.button-big:hover {
+  background-position: 0 -1123px; }
+
+.button-big-blue:hover {
+  background-position: 0 -415px; }
 
 #mirror {
   background: url(../../images/mirror.png) no-repeat;

@@ -1,13 +1,16 @@
 /* Images */
 $url: (url("../../images/images.png"));
 @mixin sprite($x, $y) {
-   background-position: $x $y;
-   background:$url;
+	background:$url;
+    background-position: $x $y;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
 }
 .arrow{ @include sprite( 0, 0px); width: 93px; height: 36px; } 
 .background-small{ @include sprite( 0, -86px); width: 329px; height: 33px; } 
 .big-arrow{ @include sprite( 0, -169px); width: 126px; height: 133px; } 
-.blue-big-btn{ @include sprite( 0, -352px); width: 255px; height: 121px; } 
+.blue-big-btn{ @include sprite( 0, -352px); width: 255px; height: 58px; } 
 .check-icon{ @include sprite( 0, -523px); width: 20px; height: 20px; } 
 .comments{ @include sprite( 0, -593px); width: 15px; height: 34px; } 
 .dark-check-icon{ @include sprite( 0, -677px); width: 18px; height: 17px; } 
@@ -15,8 +18,8 @@ $url: (url("../../images/images.png"));
 .email-icon{ @include sprite( 0, -823px); width: 42px; height: 30px; } 
 .facebook-big{ @include sprite( 0, -903px); width: 17px; height: 35px; } 
 .facebook-small{ @include sprite( 0, -988px); width: 12px; height: 23px; } 
-.green-big-btn{ @include sprite( 0, -1061px); width: 255px; height: 120px; } 
-.green-small-btn{ @include sprite( 0, -1231px); width: 165px; height: 59px; } 
+.green-big-btn{ @include sprite( 0, -1061px); width: 255px; height: 58px; } 
+.green-small-btn{ @include sprite( 0, -1231px); width: 165px; height: 29px; } 
 .line{ @include sprite( 0, -1340px); width: 4px; height: 2px; } 
 .plus-icon{  @include sprite( 0, -1392px); width: 23px; height: 23px; } 
 .red-big-btn{  @include sprite( 0, -1465px); width: 255px; height: 120px; } 
