@@ -29,7 +29,7 @@ USE_L10N = True
 
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-STATIC_ROOT = ''
+STATIC_ROOT = prepend_path_with_root('static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ('/app/.heroku/venv/lib/python2.7/site-packages/django_facebook', )
 STATICFILES_FINDERS = (
