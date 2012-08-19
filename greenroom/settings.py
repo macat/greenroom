@@ -155,11 +155,17 @@ AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
 
-# Mailgun 
-EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', '')
-MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', '')
+## Mailgun 
+#EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+#MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', '')
+#MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', '')
 
+# Sendgrid
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.getenv('SENDGRID_USERNAME', '')
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_PASSWORD', '')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 try:
     from settings_local import *
