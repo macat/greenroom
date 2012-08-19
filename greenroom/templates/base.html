@@ -3,6 +3,9 @@
 	<head>
 		{% compressed_css 'styles' %}
 		{% compressed_js 'scripts' %}
+		<link href="{{ STATIC_URL }}styles/stylesheets/style.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+		{% include 'django_facebook/_facebook_js.html' %}
 		{% block head %}
 		{% endblock %}
 	</head>
@@ -16,7 +19,6 @@
 				<input type="hidden" value="{{ request.path }}" name="next" />
 			</form>
 	 	{% endif %}
-	 	
 		{% block body %}
 		{% endblock %}
 	</body>
