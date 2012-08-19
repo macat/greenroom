@@ -41,6 +41,7 @@ a {
   -moz-transform: rotate(45deg); /* Firefox */
   position: absolute;
   bottom: 0;
+  z-index: 10;
 }
 
 /* Comments */
