@@ -1502,3 +1502,12 @@ div.rateit div.rateit-reset:hover {
   border-radius: 4px; }
 .ask-feedback-form ul .button {
   margin-left: 150px; }
+
+#fb-friends {
+  clear: both;
+-moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+	column-count: 3;
+	column-gap: 20px;}

@@ -68,16 +68,18 @@
 	              </ul>
 	            <input class="button" type="submit" value="Ask feedback" />
 	            </div>
-		            <div class="span-6">
+		            <div class="">
 		              <h3>or ask your friends on facebook</h3>
 		
-		            <p>
+		            <div id="fb-friends" >
 		              
 		              	{% for f in fb_friends %}
+                    <div class="fb-friend">
 		                <img src='{{ f.pic_square }}' height="50" width="50" />
 		                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+                  </div>
 		              {% endfor %}
-		            </p>
+		            </div>
 		          </div>
 	        </form>
 	      </div>
