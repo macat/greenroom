@@ -22,17 +22,12 @@ def add_description_to_outfit(outfit, description):
     outfit.description = description
     outfit.save()
 
-import random 
-import string
-def generate_random_string():
-    return ''.join(random.choice(string.ascii_letters + string.digits) for i in range(20))
-
 def create_and_send_feedback_requests(outfit, recipients_list):
     for rec in recipients_list:
         outfit_feedback = OutfitFeedback.objects.create(outfit=outfit, emailed_to=rec)
-        send_mail(generate_random_string(),
-                  generate_random_string(), 
-                  generate_random_string() + '@greenroom.com', 
+        send_mail('I urgently need your advice!',
+                  'Please give me feedback: ' + outfit_feedback.feedback_url, 
+                  'friend@greenroom.com', 
                   [rec],
                   fail_silently=False)
 
