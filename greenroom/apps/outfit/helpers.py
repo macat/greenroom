@@ -26,7 +26,7 @@ def add_description_to_outfit(outfit, description):
     outfit.save()
 
 def create_and_send_feedback_requests(request, outfit):
-    sender = get_users_fb_email(request) if request.user.is_authenticated else "friend@greenroomapp.com" 
+    sender = get_users_fb_email(request) if request.user.is_authenticated() else "friend@greenroomapp.com" 
     recipients_list = [v for k,v in request.POST.items() if k.startswith('email_') and v]
     for recipient in recipients_list:
         outfit_feedback = OutfitFeedback.objects.create(outfit=outfit, emailed_to=recipient)
