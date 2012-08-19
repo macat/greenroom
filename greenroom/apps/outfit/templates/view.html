@@ -8,10 +8,12 @@
 					<a href="{% url www_home %}" class="logo"></a>
 				</div>
 				<div class="span-6 navbar">
-					<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-						<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-						<input type="hidden" value="{{ request.path }}" name="next" />
-					</form>
+					{% if not user.is_authenticated %}
+						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+							<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+							<input type="hidden" value="{{ request.path }}" name="next" />
+						</form>
+					{% endif %}
 				</div>
 			</div>	
 		</div>	

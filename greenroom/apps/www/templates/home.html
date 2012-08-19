@@ -8,11 +8,12 @@
 				<div class="span-4">
 					<div class="logo"></div>
 					<h2>Ask your friends about your style</h2>
-					<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-						<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-						<input type="hidden" value="{{ request.path }}" name="next" />
-					</form>
-
+					{% if not user.is_authenticated %}
+						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+							<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+							<input type="hidden" value="{{ request.path }}" name="next" />
+						</form>
+					{% endif %}	
 					<div class="suggestions left-side">
 						only your real friends can give you a trustable opinion
 
