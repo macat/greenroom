@@ -10,10 +10,12 @@
 		{% endblock %}
 	</head>
 	<body>
+    {% comment %}
 		<a href="{% url www_home %}">home</a>
 		{% if user.is_authenticated %}
 			| <a href="{% url outfit_list_outfits %}">outfits list</a> 
 	 	{% else %}
+    {% endcomment %}
 			<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
 				<a href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Facebook!</a>
 				<input type="hidden" value="{{ request.path }}" name="next" />
