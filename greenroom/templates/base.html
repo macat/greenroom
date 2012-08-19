@@ -7,11 +7,15 @@
 		{% endblock %}
 	</head>
 	<body>
+		<a href="{% url www_home %}">home</a>
 		{% if user.is_authenticated %}
-			LOGGED IN! Wazzup, {{ user.get_profile }}? | <a href="{% url outfit_list_outfits %}">outfits list</a> 
+			| <a href="{% url outfit_list_outfits %}">outfits list</a> 
 	 	{% else %}
-	 		NOT LOGGED IN! Maaaan, your not logged in...
-	 	{% endif %} | <a href="{% url www_home %}">home</a> 
+			<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+				<a href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Facebook!</a>
+				<input type="hidden" value="{{ request.path }}" name="next" />
+			</form>
+	 	{% endif %}
 	 	
 		{% block body %}
 		{% endblock %}

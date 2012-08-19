@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>Please... tell me it's not that bad!</h1>
 <img src='{{ outfit_feedback.outfit.img.url }}' width="200" height="200"/>
 <form action="{% url outfit_give_feedback uuid=outfit_feedback.uuid %}" method="post">
 	{% csrf_token %}
@@ -12,6 +11,6 @@
 	  <option value="4">4</option>
 	  <option value="5">5</option>
 	</select> 
-	<input type="submit" value="Go!" />
+	<input type="submit" value="Rate!" />
 </form>
 {% endblock %}

@@ -2,7 +2,6 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
-from django.core.files.base import ContentFile
 
 from .helpers import (create_and_send_feedback_requests,
                       give_outfit_feedback,

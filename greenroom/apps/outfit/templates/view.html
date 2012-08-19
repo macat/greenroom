@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>Is it good?</h1>
 <img src='{{ outfit.img.url }}' width="200" height="200"/>
-<h3>What do they think!?</h3>
 <p>
 	{% for of in outfit.outfitfeedback_set.all %}
 		{{ of.emailed_to }} rating: 
@@ -14,12 +12,7 @@
 		{% endif %} <br />
 	{% endfor %}
 </p>
-<h3>Average rating is: 
-	{% if outfit.avg_rating %}
-		{{ outfit.avg_rating }}
-	{% else %}
-		yet to be discovered... maybe better stay at home for now ;)
-	{% endif %}
-</h3>
-<h3>Are You happy now? ^_^</h3>
+<p>
+	Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
+</p>
 {% endblock %}

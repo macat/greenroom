@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -31,7 +31,7 @@ MEDIA_ROOT = ''
 MEDIA_URL = ''
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = ('/app/.heroku/venv/lib/python2.7/site-packages/django_facebook', )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -118,7 +118,7 @@ LOGGING = {
 
 HOST = 'http://mygreenroomapp.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-PIPELINE = False
+PIPELINE = True
 
 PIPELINE_JS = {
     'scripts': {
