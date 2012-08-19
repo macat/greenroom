@@ -10,16 +10,6 @@
 		{% endblock %}
 	</head>
 	<body>
-		<!-- <a href="{% url www_home %}">home</a>
-		{% if user.is_authenticated %}
-			| <a href="{% url outfit_list_outfits %}">outfits list</a> 
-	 	{% else %}
-			<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-				<a href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Facebook!</a>
-				<input type="hidden" value="/" name="next" />
-			</form>
-
-	 	{% endif %} -->
 		{% block header %}
 		{% endblock%}
 
@@ -27,13 +17,13 @@
 		{% endblock %}
 
 		{% block footer %}
-		<footer>
-			<div class="allwidth basic">
-				<div class="container">
-					<p><a href="http://djangodash.com/teams/c3/berlin/">Team Berlin @2012</a></p>
+			<footer>
+				<div class="allwidth basic">
+					<div class="container">
+						<p><a href="http://djangodash.com/teams/c3/berlin/">Team Berlin @2012</a></p>
+					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
 		{% endblock%}
 	</body>
 </html>
