@@ -842,6 +842,13 @@ a {
   a:hover {
     color: #306452; }
 
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  color: #e7d7c1; }
+
 /* row all background */
 .allwidth {
   width: 100%;
