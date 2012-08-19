@@ -1,4 +1,28 @@
 $(function(){
+  var step = 1;
+
+  var steps = {
+    first: function() {
+      step = 1;
+      $('.step').addClass('hidden');
+      $('#step-1').removeClass('hidden');
+    },
+    second: function() {
+      step = 2;
+      $('.step').addClass('hidden');
+      $('#step-2').removeClass('hidden');
+    },
+    third: function() {
+      step = 3;
+      $('.step').addClass('hidden');
+      $('#step-3').removeClass('hidden');
+    }
+  };
+  steps.first();
+  
+  $('#ok').on('click', steps.third);
+  $('#back').on('click', steps.first);
+
   $('#show-camera').on('click', function(){
     $('#uploader').hide();
     $("#camera").removeClass('hidden').webcam({
@@ -21,16 +45,18 @@ $(function(){
       onLoad: function() {}
     });
   });
-  var uploader = new qq.FileUploader({
+  var uploader = new qq.FileUploaderBasic({
     element: document.getElementById('uploader'),
     allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
     sizeLimit: 8000000,
     action: '/outfit/new',
+    button: {
+      element: document.getElementById('uploader')
+    },
     onComplete: function(id, fileName, responseJSON){
-    	var feedback_form_action = responseJSON['request_feedback_url'];
-    	$('#form-ask').attr("action", feedback_form_action);
-    	$('#form-ask').css("visibility", "visible");
-    	$('#form-ask').show();
+      var feedback_form_action = responseJSON['request_feedback_url'];
+      $('#form-ask').attr("action", feedback_form_action);
+      steps.second();
     },
   });
 })
