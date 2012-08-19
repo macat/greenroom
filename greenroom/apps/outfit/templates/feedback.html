@@ -18,6 +18,10 @@
 		<form action="{% url outfit_give_feedback uuid=outfit_feedback.uuid %}" method="post">
 			{% csrf_token %}
 			rating:
+			<div class="stars empty">
+					<input type="radio" name="rating" class="stars filled_{{ of.rating }}" value="{{ of.rating }}" >
+			</div>
+
 			<select name='rating'>
 			  <option value="1">1</option>
 			  <option value="2">2</option>
@@ -25,8 +29,10 @@
 			  <option value="4">4</option>
 			  <option value="5">5</option>
 			</select>
+			
 			comment: 
-			<input type="text" value="" name="comment" />
+			<textarea value="" name="comment">
+			</textarea>
 			<input type="submit" value="Rate!" />
 		</form>
 		</div>
