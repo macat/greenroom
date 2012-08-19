@@ -35,7 +35,9 @@
 								{% endif %}
 							</div>
 							<div class="span-2">
-								{{ of.rating }}
+								<div class="stars empty">
+	  								<div class="stars filled_{{ of.rating|default:"0" }}"></div>
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -47,8 +49,9 @@
 				</div>
 			{% endfor %}
 
+
 				
-<!-- 
+
 			<p>
 				{% for of in outfit.outfitfeedback_set.all %}
 					{{ of.emailed_to }} rating: 	
@@ -65,7 +68,7 @@
 					{% endif %}
 					 <br />
 				{% endfor %}
-			</p> -->
+			</p>
 			<p>
 				Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
 			</p>

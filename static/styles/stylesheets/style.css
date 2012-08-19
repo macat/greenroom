@@ -1107,6 +1107,35 @@ body {
   line-height: 58px;
   font-size: 1.7em; }
 
+.stars {
+  background: url(../../images/stars.png) repeat-x top left;
+  height: 18px; }
+  .stars.empty {
+    background-position: 0 -21px;
+    width: 100px; }
+  .stars.filled_0 {
+    width: 0px; }
+  .stars.filled_1 {
+    width: 10px; }
+  .stars.filled_2 {
+    width: 20px; }
+  .stars.filled_3 {
+    width: 30px; }
+  .stars.filled_4 {
+    width: 40px; }
+  .stars.filled_5 {
+    width: 50px; }
+  .stars.filled_6 {
+    width: 60px; }
+  .stars.filled_7 {
+    width: 70px; }
+  .stars.filled_8 {
+    width: 80px; }
+  .stars.filled_9 {
+    width: 90px; }
+  .stars.filled_10 {
+    width: 100px; }
+
 #mirror {
   background: url(../../images/mirror.png) no-repeat 0 15px;
   width: 697px;
