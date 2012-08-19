@@ -563,7 +563,7 @@ dd {
 menu,
 ol,
 ul {
-  padding: 0 0 0 40px; }
+  padding: 0 0 0 0px; }
 
 /*
  * Corrects list images handled incorrectly in IE 7.
@@ -841,6 +841,8 @@ table {
     background: #19181d;
     border-top: 1px solid #615d71;
     border-bottom: 1px solid #615d71; }
+    .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6 {
+      color: #e7d7c1; }
   .allwidth.green {
     background: #40876e; }
 
@@ -1074,8 +1076,10 @@ body {
   height: 16px; }
 
 /* Buttons */
-.button:hover {
-  background-position: 0 -1261px; }
+.button {
+  border: none; }
+  .button:hover {
+    background-position: 0 -1261px; }
 
 .button.big:hover {
   background-position: 0 -1123px; }
@@ -1111,3 +1115,11 @@ body {
   height: 4em; }
 .how-it-works .arrow {
   margin-top: 10%; }
+
+/* Assk feedback form */
+.ask-feedback-form ul li {
+  margin-top: 10px; }
+.ask-feedback-form ul input {
+  margin-left: 50px;
+  height: 100%;
+  width: 234px; }
