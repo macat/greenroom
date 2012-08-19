@@ -19,7 +19,8 @@ def new_outfit(request):
         if outfit:
             # success
             return JSONResponse(request,
-                                {'request_feedback_url': reverse('outfit_request_feedback', args=[outfit.uuid])})
+                    {'success': True,
+                     'request_feedback_url': reverse('outfit_request_feedback', args=[outfit.uuid])})
     # failure
     return JSONResponse(request, {})
  

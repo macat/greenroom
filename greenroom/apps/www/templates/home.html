@@ -6,25 +6,18 @@
 {% endblock %}
 		
 {% block body %}
-<h1>Mirror, mirror on the wall...</h1>
-<img src='http://us.123rf.com/400wm/400/400/korionov/korionov1102/korionov110200139/8905154-portrait-of-a-theater-actor-in-makeup-funny-mime-with-a-red-bow-on-the-chest-in-white-hat-and-stripe.jpg' width="200" height="200"/>
+<div id="logo">
+</div>
+<div id="mirror">
+  <div id="camera" class="hidden"></div>
+</div>
 <br />
-<div id="camera" class="hidden"></div>
-<span id="show-camera">Take picture</span>
-<span id="upload">Upload</span>
+<div id="show-camera">Take picture</div>
+<div id="uploader">Upload</div>
 
-<!-- change this to ajax request -->
-<form enctype="multipart/form-data" action="{% url outfit_new_outfit %}" method="post">
-	{% csrf_token %}
-	<p>
-		<label for="id_img">Img:</label>
-		<input type="file" name="img" id="id_img" />
-		<input type="submit" value="upload a picture" />
-	</p>
-</form>
 
 <!-- action should be created from the url returned by ajax call above -->
-<form action="" method="post">
+<form id="form-ask" action="" method="post" class="hidden">
        {% csrf_token %}
        <h3>Dear friends!</h3>
        <p>

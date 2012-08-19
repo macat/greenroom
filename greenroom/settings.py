@@ -123,10 +123,24 @@ PIPELINE = False
 PIPELINE_JS = {
     'scripts': {
         'source_filenames': (
+          'scripts/libs/underscore.js',
+          'scripts/libs/jquery-1.8.9.js',
           'scripts/libs/*.js',
           'scripts/*.js',
         ),
         'output_filename': 'scripts.js',
+    }
+}
+
+PIPELINE_CSS = {
+    'styles': {
+        'source_filenames': (
+          'styles/*.css',
+        ),
+        'output_filename': 'style.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
     }
 }
 

@@ -1,25 +1,24 @@
 import re
-
+import binascii
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.utils import simplejson
+from django.core.files.base import ContentFile
 
 from .forms import OutfitForm
-from .models import OutfitFeedback
+from .models import Outfit, OutfitFeedback
 
 
 def get_and_create_outfit_from_reqeust(request):
-    if request.FILES:
-        form = OutfitForm(request.POST, request.FILES)
-        if form.is_valid():
-            outfit = form.save()
-            # success - new outfit uploaded
-            return outfit
+    outfit = Outfit()
+    if 'qqfile' in request.GET:
+        outfit.img.save('%s.jpg' % outfit.uuid, ContentFile(
+            request.read(10485760)))
+        return outfit
     else:
-        outfit = Outfit()
-        outfit.img.save('image.jpg', ContentFile(binascii.unhexlify(request.raw_post_data)), save=False)
-        outfit.save()
+        outfit.img.save('%s.jpg' % outfit.uuid, ContentFile(
+            binascii.unhexlify(request.raw_post_data)))
         return outfit
     
 def create_and_send_feedback_requests(outfit, recipients_list):

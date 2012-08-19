@@ -1,0 +1,21 @@
+
+.hidden {
+  display: none;
+}
+#form-image {
+  position: relative;
+}
+
+#file-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+#upload {
+  width: 100px;
+  height: 30px;
+  background: red;
+  display: block;
+}
