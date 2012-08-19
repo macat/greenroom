@@ -27,7 +27,7 @@ def new_outfit(request):
  
 def list_outfits(request):
     return render(request, 'list.html',
-                  {'outfits': request.user.outfit_set.all() if request.user.is_authenticated() else []})
+                  {'outfits': request.user.outfit_set.all().order_by('-submitted_at') if request.user.is_authenticated() else []})
 
 def view_outfit(request, uuid):
     return render(request, 'view.html', {'outfit': Outfit.objects.get(uuid=uuid)})
@@ -40,10 +40,10 @@ def request_feedback(request, uuid):
         create_and_send_feedback_requests(outfit, recipients_list)
         bind_user_with_outfit(request.user, outfit)
         # success - feedback request sent out
-        return redirect(outfit.view_url)
+        return redirect(reverse('outfit_list_outfits'))
     
     # failure
-    return HttpResponseNotAllowed()
+    return HttpResponseNotAllowed('')
     
 def give_feedback(request, uuid):
     outfit_feedback = OutfitFeedback.objects.get(uuid=uuid)
