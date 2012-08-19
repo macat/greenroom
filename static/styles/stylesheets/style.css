@@ -493,7 +493,7 @@ table {
 
 .qq-upload-spinner {
   display: inline-block;
-  background: url("../../images/loading.gif");
+  background: url("../../loading.gif");
   width: 15px;
   height: 15px;
   vertical-align: text-bottom; }
@@ -540,7 +540,7 @@ table {
 .logo {
   @font-face {
     font-family: "riesling-webfont";
-    src: url("../../fonts/riesling-webfont.eot?") format("eot"), url("../../fonts/riesling-webfont.woff") format("woff"), url("../../fonts/riesling-webfont.ttf") format("truetype"); }
+    src: url("../../fonts/riesling-webfont.eot?") format("eot"), url("../../fonts/riesling-webfont.woff") format("woff"), url("../../fonts/.ttf") format("truetype"); }
 
   color: #19181d; }
   .logo .light {
@@ -556,7 +556,7 @@ h1, h2, h3, h4, h5, h6 {
 .suggestions {
   @font-face {
     font-family: "aescrawl-webfont";
-    src: url("../../fonts/aescrawl-webfont.eot?") format("eot"), url("../../fonts/aescrawl-webfont.woff") format("woff"), url("../../fonts/aescrawl-webfont.ttf") format("truetype"); }
+    src: url("../../fonts/aescrawl-webfont.eot?") format("eot"), url("../../fonts/aescrawl-webfont.woff") format("woff"), url("../../fonts/.ttf") format("truetype"); }
 
   color: #40876e; }
 
