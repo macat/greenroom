@@ -9,7 +9,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 # Django settings for greenroom project.
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
