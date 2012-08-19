@@ -24,7 +24,7 @@
 						<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
 					{% endif %}
 					{% if of.answered_at %}
-						at {{ of.answered_at }} UTC
+						at {{ of.answered_at|date:"H:i a" }}
 					{% endif %}
 					{% if of.comment %}
 					: "{{ of.comment}}"
