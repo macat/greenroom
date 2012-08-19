@@ -37,6 +37,31 @@
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		<!-- action should be created from the url returned by ajax call above -->
+		<form id="form-ask" action="" method="post" class="">
+				{% csrf_token %}
+		   	<div class="span-6">
+		   		<h3>Ask your friends about your outfit</h3>
+		   		<ul>
+		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
+		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
+		   			<li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
+		   		</ul>
+				<input class="button" type="submit" value="Ask feedback" />
+		   	</div>
+		   	<div class="span-6">
+		   		<h3>or ask your friends on facebook</h3>
+
+				<p>
+					{% for f in fb_friends %}
+						<img src='{{ f.pic_square }}' height="50" width="50" />
+						<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+					{% endfor %}
+				</p>
+			</div>
+		</form>
+	</div>
 </div>
 <div class="allwidth green">
 	<div class="container how-it-works">
@@ -75,26 +100,4 @@
 		</div>
 	</div>
 </div>
-
-<!-- action should be created from the url returned by ajax call above -->
-<form id="form-ask" action="" method="post" class="hidden">
-		{% csrf_token %}
-   		<h3>Dear friends!</h3>
-   		<p>
-   			email 1 : <input type="text" name="email_1" /> <br />
-   			email 2 : <input type="text" name="email_2" /> <br />
-   			email 3 : <input type="text" name="email_3" /> <br />
-   		</p>
-
-		<p>
-			{% for f in fb_friends %}
-				<img src='{{ f.pic_square }}' height="50" width="50" />
-				<input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-			{% endfor %}
-		</p>
-	
-		<input type="submit" value="Ask for opinion" />
-
-</form>
-
 {% endblock %}

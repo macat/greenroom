@@ -878,6 +878,12 @@ table {
   background: red;
   display: block; }
 
+input[type="placeholder"],
+:-webkit-input-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+  color: #eee; }
+
 /* Typography */
 @font-face {
   font-family: "riesling-webfont";
@@ -1082,7 +1088,7 @@ body {
   font-size: 1.7em; }
 
 #mirror {
-  background: url(../../images/mirror.png) no-repeat;
+  background: url(../../images/mirror.png) no-repeat 0 15px;
   width: 697px;
   height: 726px; }
 

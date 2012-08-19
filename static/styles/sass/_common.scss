@@ -44,3 +44,7 @@
   background: red;
   display: block;
 }
+input[type="placeholder"],
+:-webkit-input-placeholder, 
+:-moz-placeholder, 
+:-ms-input-placeholder { color: #eee;}
