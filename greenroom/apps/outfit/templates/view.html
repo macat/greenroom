@@ -14,10 +14,44 @@
 <div class="container">
 	<div class="row">
 		<div class="span-8">
-			<h3> {{ outfit.description|default:"How does it look? ^_^" }}</h3>
+			<div class="row">
+				<div class="span-8">
+					<h3> {{ outfit.description|default:"How does it look? ^_^" }}</h3>
+				</div>	
+			</div>
+
+			{% for of in outfit.outfitfeedback_set.all %}
+				<div class="span-8 comments-fb">
+					<div class="span-1">
+						<div class="pic">
+						</div>
+					</div>
+					<div class="span-10">
+						<div class="row">
+							<div class="span-10">
+								{{ of.emailed_to }} - 
+								{% if of.answered_at %}
+									at {{ of.answered_at }} UTC
+								{% endif %}
+							</div>
+							<div class="span-2">
+								{{ of.rating }}
+							</div>
+						</div>
+						<div class="row">
+							{% if of.comment %}
+							: "{{ of.comment}}"
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+				
+<!-- 
 			<p>
 				{% for of in outfit.outfitfeedback_set.all %}
-					{{ of.emailed_to }} rating: 
+					{{ of.emailed_to }} rating: 	
 					{% if of.rating %}
 						{{ of.rating }}
 					{% else %}
@@ -31,14 +65,14 @@
 					{% endif %}
 					 <br />
 				{% endfor %}
-			</p>
+			</p> -->
 			<p>
 				Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
 			</p>
 		</div>
 		<div class="span-8">
 			<img src='{{ outfit.img.url }}' width="200" height="200"/>
-		</div>
+		</div>	
 	</div>
 </div>
 {% endblock %}
