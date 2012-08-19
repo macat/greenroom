@@ -116,7 +116,7 @@ LOGGING = {
 # custom settings 
 
 HOST = 'http://mygreenroom.herokuapp.com'
-STATICFILES_STORAGE = 'greenroom.libs.staticfile_storage.S3PipelineStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE = True
 
 PIPELINE_JS = {
@@ -152,7 +152,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
-STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = '/static/'
 
 ## Mailgun 
 #EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
