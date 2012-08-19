@@ -892,7 +892,7 @@ table {
     color: #e7d7c1; }
 
 /* Headlines */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .button {
   font-family: "Puritan", sans-serif;
   font-weight: 400;
   color: #19181d;
@@ -941,7 +941,7 @@ body {
   width: 126px;
   height: 133px; }
 
-.blue-big-btn, .button-big-blue {
+.blue-big-btn, .button.big-blue {
   background: url("../../images/images.png");
   background-position: 0 -352px;
   background-repeat: no-repeat;
@@ -1013,7 +1013,7 @@ body {
   width: 12px;
   height: 23px; }
 
-.green-big-btn, .button-big {
+.green-big-btn, .button.big {
   background: url("../../images/images.png");
   background-position: 0 -1061px;
   background-repeat: no-repeat;
@@ -1071,11 +1071,15 @@ body {
 .button:hover {
   background-position: 0 -1261px; }
 
-.button-big:hover {
+.button.big:hover {
   background-position: 0 -1123px; }
 
-.button-big-blue:hover {
+.button.big-blue:hover {
   background-position: 0 -415px; }
+
+.button.big-blue, .button.big {
+  line-height: 58px;
+  font-size: 1.7em; }
 
 #mirror {
   background: url(../../images/mirror.png) no-repeat;
