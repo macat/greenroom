@@ -67,6 +67,13 @@ a {
   .comment-detail { padding-top: 7px; }
 }
 
+/* form leave a comment */
+.leave-a-comment {
+  textarea { width: 95%;}
+
+  .button { margin-top: -8px;}
+}
+
 /* general classes */
 .line {
   height: 2px;

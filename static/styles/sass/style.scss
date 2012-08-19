@@ -10,23 +10,20 @@
 
 #mirror-inner {
   position: absolute;
-  top: -20px;
-  left: 0;
   background: url(../../images/mirror.png) no-repeat;
   width: 697px;
   height: 605px; }
+
 #result-img {
   position: absolute;
   top: 0;
   left: 0;}
+
 #mirror {
   position: relative;
   width: 697px;
   height: 605px;
-  top: 43px;
-  left: -36px;
-  margin-bottom: 42px; }
-
+}
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
 	margin-top: 60px;

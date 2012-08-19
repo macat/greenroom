@@ -898,6 +898,12 @@ a {
   .comments-fb .comment-detail {
     padding-top: 7px; }
 
+/* form leave a comment */
+.leave-a-comment textarea {
+  width: 95%; }
+.leave-a-comment .button {
+  margin-top: -8px; }
+
 /* general classes */
 .line {
   height: 2px;
@@ -1162,8 +1168,6 @@ body {
 
 #mirror-inner {
   position: absolute;
-  top: -20px;
-  left: 0;
   background: url(../../images/mirror.png) no-repeat;
   width: 697px;
   height: 605px; }
@@ -1176,10 +1180,7 @@ body {
 #mirror {
   position: relative;
   width: 697px;
-  height: 605px;
-  top: 43px;
-  left: -36px;
-  margin-bottom: 42px; }
+  height: 605px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
