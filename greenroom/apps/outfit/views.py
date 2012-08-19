@@ -40,7 +40,7 @@ def request_feedback(request, uuid):
         create_and_send_feedback_requests(outfit, recipients_list)
         bind_user_with_outfit(request.user, outfit)
         # success - feedback request sent out
-        return redirect(reverse('outfit_list_outfits'))
+        return redirect(outfit.view_url)
     
     # failure
     return HttpResponseNotAllowed('')
@@ -52,8 +52,7 @@ def give_feedback(request, uuid):
         # failure - feedback already given
         return redirect(outfit_feedback.outfit.view_url)
     
-    if request.method == 'POST':
-        print request.POST
+    if request.method == 'POST' and request.POST.get('rating'):
         give_outfit_feedback(request.POST['rating'], request.POST['comment'], outfit_feedback)
         # success
         return redirect(outfit_feedback.outfit.view_url)
