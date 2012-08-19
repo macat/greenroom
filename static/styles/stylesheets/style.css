@@ -849,7 +849,6 @@ a {
   .allwidth.deco {
     background: url(../../images/background.jpg); }
   .allwidth.basic {
-    padding: 20px 0;
     background: #19181d;
     border-top: 1px solid #615d71;
     border-bottom: 1px solid #615d71; }
@@ -1081,14 +1080,14 @@ body {
   width: 23px;
   height: 23px; }
 
-.red-big-btn {
+.red-big-btn, .button.big-red {
   background: url("../../images/images.png");
   background-position: 0 -1465px;
   background-repeat: no-repeat;
   cursor: pointer;
   text-align: center;
   width: 255px;
-  height: 120px; }
+  height: 58px; }
 
 .x-icon {
   background: url("../../images/images.png");
@@ -1111,7 +1110,10 @@ body {
 .button.big-blue:hover {
   background-position: 0 -415px; }
 
-.button.big-blue, .button.big {
+.button.big-red:hover {
+  background-position: 0 -1527px; }
+
+.button.big-blue, .button.big, .button.big-red {
   line-height: 58px;
   font-size: 1.7em; }
 
@@ -1144,24 +1146,10 @@ body {
   .stars.filled_10 {
     width: 100px; }
 
-#mirror-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: url(../../images/mirror.png) no-repeat;
-  width: 697px;
-  height: 716px; }
-#result-img {
-  position: absolute;
-  top: 0;
-  left: 0;}
 #mirror {
-  position: relative;
+  background: url(../../images/mirror.png) no-repeat 0 -62px;
   width: 697px;
-  top: 43px;
-  left: -36px;
-  margin-bottom: 42px;
-  height: 640px; }
+  height: 605px; }
 
 /* Friends suggest opinion homepage*/
 .suggestions.left-side {
