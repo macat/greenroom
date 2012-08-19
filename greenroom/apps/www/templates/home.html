@@ -14,8 +14,8 @@
 			</div>
 			<div class="span-10 offset-2">
 				<div id="mirror">
-					<div class="placeholder-pic"></div>
           <div id="result-img"></div>
+          <div id="mirror-inner"></div>
 				  <div id="camera" class="hidden"></div>
 				</div>
 			</div>
@@ -24,27 +24,29 @@
 </div>
 <div class="allwidth basic">
 	<div class="container">
-      <div id="step-1" class="step row hidden">
-        <div class="span-4 offset-7">
+      <div id="step-1" class="step hidden">
+        {% comment %}
+        <div class="span-4 offset-5">
           <div class="button big" id="show-camera">Take picture</div>
         </div>
-        <div class="span-4">
+        {% endcomment %}
+        <div class="span-4 offset-9">
           <div class="button big-blue" id="uploader">Upload</div>
         </div>
       </div>
-      <div id="step-2" class="step row hidden">
+      <div id="step-2" class="row step hidden">
         <div class="span-4 offset-7">
           <div class="button big" id="ok">Ask for feedback</div>
         </div>
         <div class="span-4">
-          <div class="button big-blue" id="back">Take another</div>
+          <div class="button big-red" id="back">Take another</div>
         </div>
       </div>
       <div id="step-3" class="step row hidden ask-feedback-form">
         <form id="form-ask" action="" method="post" class="">
             {% csrf_token %}
             <textarea name="description"></textarea>
-            <div class="span-6">
+            <div class="span-6 offset-7">
               <h3>Ask your friends about your outfit</h3>
               <ul>
                 <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>

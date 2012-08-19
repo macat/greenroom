@@ -54,7 +54,7 @@ $(function(){
     onComplete: function(id, fileName, responseJSON){
       var feedback_form_action = responseJSON['request_feedback_url'];
       $('#form-ask').attr("action", feedback_form_action);
-      $('<img>', {src: responseJSON.img}).appendTo('#result-img')
+      $('<img>', {src: responseJSON.img, width: '679px', height: '716px'}).appendTo('#result-img')
       steps.second();
     },
   });

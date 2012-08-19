@@ -3,3 +3,5 @@
 *.pyc
 *.db
 settings_local.py
+static/styles/.sass-cache/
+env/

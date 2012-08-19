@@ -21,7 +21,14 @@
 		background-position: 0 -415px;
 	}
 }
-.button.big-blue, .button.big {
+.button.big-red {
+	@extend .red-big-btn;
+
+	&:hover {
+		background-position: 0 -1527px;
+	}
+}
+.button.big-blue, .button.big, .button.big-red {
 	line-height: 58px;
 	font-size: 1.7em;
 }
