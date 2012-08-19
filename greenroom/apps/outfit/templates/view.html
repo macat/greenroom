@@ -1,26 +1,44 @@
 {% extends 'base.html' %}
 
+{% block header %}
+	<div class="allwidth basic">
+		<div class="container">
+			<div class="row">
+				<div class="logo">greenroom</div>
+			</div>	
+		</div>	
+	</div>	
+{% endblock %}
+
 {% block body %}
-<h3> {{ outfit.description|default:"How does it look? ^_^" }}</h3>
-<img src='{{ outfit.img.url }}' width="200" height="200"/>
-<p>
-	{% for of in outfit.outfitfeedback_set.all %}
-		{{ of.emailed_to }} rating: 
-		{% if of.rating %}
-			{{ of.rating }}
-		{% else %}
-			<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
-		{% endif %}
-		{% if of.answered_at %}
-			at {{ of.answered_at }} UTC
-		{% endif %}
-		{% if of.comment %}
-		: "{{ of.comment}}"
-		{% endif %}
-		 <br />
-	{% endfor %}
-</p>
-<p>
-	Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
-</p>
+<div class="container">
+	<div class="row">
+		<div class="span-8">
+			<h3> {{ outfit.description|default:"How does it look? ^_^" }}</h3>
+			<p>
+				{% for of in outfit.outfitfeedback_set.all %}
+					{{ of.emailed_to }} rating: 
+					{% if of.rating %}
+						{{ of.rating }}
+					{% else %}
+						<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
+					{% endif %}
+					{% if of.answered_at %}
+						at {{ of.answered_at }} UTC
+					{% endif %}
+					{% if of.comment %}
+					: "{{ of.comment}}"
+					{% endif %}
+					 <br />
+				{% endfor %}
+			</p>
+			<p>
+				Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
+			</p>
+		</div>
+		<div class="span-8">
+			<img src='{{ outfit.img.url }}' width="200" height="200"/>
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -19,7 +19,13 @@
 				<input type="hidden" value="{{ request.path }}" name="next" />
 			</form>
 	 	{% endif %}
+		{% block header %}
+		{% endblock%}
+
 		{% block body %}
 		{% endblock %}
+
+		{% block footer %}
+		{% endblock%}
 	</body>
 </html>

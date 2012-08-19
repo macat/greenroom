@@ -1,3 +1,6 @@
+body {
+  background: $light;
+}
 /* row all background */
 .allwidth {
   width: 100%;
@@ -10,7 +13,8 @@
     border-top: 1px solid $light-basic;
     border-bottom: 1px solid $light-basic;
 
-    h1, h2, h3, h4, h5, h6 {color: $light;}
+    h1, h2, h3, h4, h5, h6, .logo {color: $light;}
+    .logo { margin: 0; }
   }
   &.green {  background: $action;}
 }

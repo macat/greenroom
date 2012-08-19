@@ -833,6 +833,9 @@ table {
   background-color: #D60000;
   color: #FFFFFF; }
 
+body {
+  background: #e7d7c1; }
+
 /* row all background */
 .allwidth {
   width: 100%; }
@@ -842,8 +845,10 @@ table {
     background: #19181d;
     border-top: 1px solid #615d71;
     border-bottom: 1px solid #615d71; }
-    .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6 {
+    .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6, .allwidth.basic .logo {
       color: #e7d7c1; }
+    .allwidth.basic .logo {
+      margin: 0; }
   .allwidth.green {
     background: #40876e; }
 
@@ -899,8 +904,6 @@ input[type="placeholder"],
   font-family: "riesling";
   font-size: 6em;
   margin: 0.67em 0; }
-  .logo .light {
-    color: #e7d7c1; }
 
 /* Headlines */
 h1, h2, h3, h4, h5, h6, .button {
