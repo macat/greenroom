@@ -137,7 +137,6 @@ PIPELINE_CSS = {
     'styles': {
         'source_filenames': (
           'styles/*.css',
-          'styles/stylesheets/*.css'
         ),
         'output_filename': 'style.css',
         'extra_context': {
@@ -147,14 +146,14 @@ PIPELINE_CSS = {
 }
 
 # Facebook integration
-FACEBOOK_APP_ID = ''
-FACEBOOK_APP_SECRET = ''
+FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID', '')
+FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET', '')
 
 # Amazon S3 integration
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = ''
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
 
 try:
     from settings_local import *
