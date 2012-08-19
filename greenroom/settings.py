@@ -117,7 +117,7 @@ LOGGING = {
 
 # custom settings 
 
-HOST = 'http://mygreenroomapp.herokuapp.com'
+HOST = 'http://mygreenroom.herokuapp.com'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE = True
 
