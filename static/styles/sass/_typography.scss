@@ -1,5 +1,5 @@
 /* Typography */
-@import url(http://fonts.googleapis.com/css?family=Puritan:400,700);
+@import url(http://fonts.googleapis.com/css?family=Puritan:400,700|The+Girl+Next+Door);
 
 @mixin font-face($font-family, $url) {
    @font-face {
@@ -8,13 +8,11 @@
    }
 }
 @include font-face(riesling-webfont, "../../fonts/");
-@include font-face(aescrawl-webfont, "../../fonts/");
-
 
 .logo {
 	color: $basic;
 	font-family: "riesling";
-    font-size: 7em;
+    font-size: 6em;
     margin: 0.67em 0;
 	
 	.light { color: $light;}
@@ -28,10 +26,19 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
 
+.green {
+	h1, h2, h3, h4, h5, h6 {
+		color: $light;
+	}
+}
+
 /* Suggestions */
 .suggestions {
 	color: $action;
-	font-family: "aescrawl";
+	font-family: 'The Girl Next Door', cursive;
+    font-size: 2em;
+    margin: 0.67em 0;
+    line-height: 1.4em;
 }
 
 /* Paragraph */

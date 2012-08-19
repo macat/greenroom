@@ -1,7 +1,13 @@
 @import "lib/cheeky/cheeky";
 @import "normalize";
+@import "colours";
 @import "fileuploader";
 @import "common";
-@import "colours";
 @import "typography";
 @import "images";
+
+#mirror {
+	background:url(../../images/mirror.png) no-repeat;
+	width: 697px;
+	height: 726px;
+}
