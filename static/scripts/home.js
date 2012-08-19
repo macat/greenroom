@@ -60,4 +60,5 @@ $(function(){
       steps.second();
     },
   });
+  $('.rateit').bind('rated', function(){ $('#rating').val($(this).rateit('value')); })
 })
