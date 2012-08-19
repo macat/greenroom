@@ -156,8 +156,8 @@ STATIC_URL = '/static/' # 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NA
 
 ## Mailgun 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', 'key-0fehis2ad1bg201u563dml95zbsbzx62')
-MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', 'app6842344.mailgun.org')
+MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', '')
+MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', '')
 
 # Sendgrid
 #EMAIL_HOST = 'smtp.sendgrid.net'
