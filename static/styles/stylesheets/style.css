@@ -836,6 +836,12 @@ table {
 body {
   background: #e7d7c1; }
 
+/* Links */
+a {
+  color: #40876e; }
+  a:hover {
+    color: #306452; }
+
 /* row all background */
 .allwidth {
   width: 100%; }

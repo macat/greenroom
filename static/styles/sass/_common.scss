@@ -1,6 +1,14 @@
 body {
   background: $light;
 }
+/* Links */
+a { 
+  color: $action; 
+
+  &:hover {
+    color: darken($action, 10%);
+  }
+}
 /* row all background */
 .allwidth {
   width: 100%;
