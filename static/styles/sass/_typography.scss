@@ -4,17 +4,20 @@
 @mixin font-face($font-family, $url) {
    @font-face {
       font-family: '#{$font-family}';
-      src: url('#{$url}#{$font-family}.eot?') format('eot'), url('#{$url}#{$font-family}.woff') format('woff'), url('#{$url}#{$font-family}.ttf') format('truetype');
+      src: url('#{$url}#{$font-family}.eot') format('eot'), url('#{$url}#{$font-family}.woff') format('woff'), url('#{$url}#{$font-family}.ttf') format('truetype');
    }
 }
+@include font-face(riesling-webfont, "../../fonts/");
+@include font-face(aescrawl-webfont, "../../fonts/");
+
 
 .logo {
-	@include font-face(riesling-webfont, "../../fonts/");
 	color: $basic;
-
-	.light { color: $light;
-
-	}
+	font-family: "riesling";
+    font-size: 7em;
+    margin: 0.67em 0;
+	
+	.light { color: $light;}
 }
 
 /* Headlines */
@@ -22,12 +25,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Puritan", sans-serif;
 	font-weight: 400;
 	color: $basic;
+	text-transform: uppercase;
 }
 
 /* Suggestions */
 .suggestions {
-	@include font-face(aescrawl-webfont, "../../fonts/");
 	color: $action;
+	font-family: "aescrawl";
 }
 
 /* Paragraph */
