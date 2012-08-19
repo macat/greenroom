@@ -23,6 +23,8 @@ a {
     border-bottom: 1px solid $light-basic;
 
     h1, h2, h3, h4, h5, h6, .logo {color: $light;}
+    
+    .step { padding: 10px 0;}
   }
   &.green {  background: $action;}
 }

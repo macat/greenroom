@@ -26,11 +26,11 @@
 	<div class="container">
       <div id="step-1" class="step hidden">
         {% comment %}
-        <div class="offset-5 span-4">
+        <div class="span-4 offset-5">
           <div class="button big" id="show-camera">Take picture</div>
         </div>
         {% endcomment %}
-        <div class="offset-6 span-4">
+        <div class="span-4 offset-9">
           <div class="button big-blue" id="uploader">Upload</div>
         </div>
       </div>
@@ -46,7 +46,7 @@
         <form id="form-ask" action="" method="post" class="">
             {% csrf_token %}
             <textarea name="description"></textarea>
-            <div class="span-6">
+            <div class="span-6 offset-7">
               <h3>Ask your friends about your outfit</h3>
               <ul>
                 <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>

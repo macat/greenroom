@@ -854,6 +854,8 @@ a {
     border-bottom: 1px solid #615d71; }
     .allwidth.basic h1, .allwidth.basic h2, .allwidth.basic h3, .allwidth.basic h4, .allwidth.basic h5, .allwidth.basic h6, .allwidth.basic .logo {
       color: #e7d7c1; }
+    .allwidth.basic .step {
+      padding: 10px 0; }
   .allwidth.green {
     background: #40876e; }
 
