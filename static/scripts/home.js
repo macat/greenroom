@@ -5,11 +5,13 @@ $(function(){
     first: function() {
       $('#arrow').animate({left: '-420px'}, 500)
       step = 1;
+      $('#placeholder-pic').removeClass('hidden');
       $('.step').addClass('hidden');
       $('#step-1').removeClass('hidden');
     },
     second: function() {
       step = 2;
+      $('#placeholder-pic').addClass('hidden');
       $('.step').addClass('hidden');
       $('#step-2').removeClass('hidden');
     },
@@ -52,6 +54,7 @@ $(function(){
     allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
     sizeLimit: 8000000,
     action: '/outfit/new',
+    multiple: false,
     button:  document.getElementById('uploader'),
     onComplete: function(id, fileName, responseJSON){
       var feedback_form_action = responseJSON['request_feedback_url'];
