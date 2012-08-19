@@ -41,6 +41,10 @@ a {
   -moz-transform: rotate(45deg); /* Firefox */
 }
 
+/* Comments */
+.comments-fb {
+  background: lighten($light, 10%);
+}
 /* general classes */
 .hidden {
   display: none;
