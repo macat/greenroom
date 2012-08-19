@@ -842,12 +842,20 @@ a {
   a:hover {
     color: #306452; }
 
+/* main content */
+.main-content {
+  margin-bottom: 40px; }
+
 /* footer */
 footer {
   position: fixed;
   bottom: 0;
   text-align: center;
-  color: #e7d7c1; }
+  color: #e7d7c1;
+  width: 100%;
+  font-size: 0.7em; }
+  footer p {
+    padding: 10px auto; }
 
 /* row all background */
 .allwidth {

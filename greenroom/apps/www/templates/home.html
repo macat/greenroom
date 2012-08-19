@@ -1,107 +1,109 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="allwidth deco">
-	<div class="container">
-		<div class="row">
-			<div class="span-4">
-				<div class="logo">greenroom</div>
-				<h2>Ask feedback of your outfit to your best friends</h2>
-				<div class="suggestions left-side">
-					only your real friends can give you a trustable opinion
-					<div class="big-arrow"></div>
+<div class="main-content">
+	<div class="allwidth deco">
+		<div class="container">
+			<div class="row">
+				<div class="span-4">
+					<div class="logo">greenroom</div>
+					<h2>Ask feedback of your outfit to your best friends</h2>
+					<div class="suggestions left-side">
+						only your real friends can give you a trustable opinion
+						<div class="big-arrow"></div>
+					</div>
 				</div>
-			</div>
-			<div class="span-10 offset-2">
-				<div id="mirror">
-          <div id="result-img"></div>
-          <div id="mirror-inner"></div>
-				  <div id="camera" class="hidden"></div>
+				<div class="span-10 offset-2">
+					<div id="mirror">
+	          <div id="result-img"></div>
+	          <div id="mirror-inner"></div>
+					  <div id="camera" class="hidden"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="allwidth basic">
-	<div class="container">
-      <div id="step-1" class="step hidden">
-        {% comment %}
-        <div class="span-4 offset-5">
-          <div class="button big" id="show-camera">Take picture</div>
-        </div>
-        {% endcomment %}
-        <div class="span-4 offset-9">
-          <div class="button big-blue" id="uploader">Upload</div>
-        </div>
-      </div>
-      <div id="step-2" class="row step hidden">
-        <div class="span-4 offset-7">
-          <div class="button big" id="ok">Ask for feedback</div>
-        </div>
-        <div class="span-4">
-          <div class="button big-red" id="back">Take another</div>
-        </div>
-      </div>
-      <div id="step-3" class="step row hidden ask-feedback-form">
-        <form id="form-ask" action="" method="post" class="">
-            {% csrf_token %}
-            <div class="span-6 offset-3">
-              <h3>Ask your friends</h3>
-              <textarea name="description" placeholder="My message"></textarea>
-              <ul>
-                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
-                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
-                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
-              </ul>
-            <input class="button" type="submit" value="Ask feedback" />
-            </div>
-            <!--
-	            <div class="span-6">
-	              <h3>or ask your friends on facebook</h3>
-	
-	            <p>
-	              
-	              	{% for f in fb_friends %}
-	                <img src='{{ f.pic_square }}' height="50" width="50" />
-	                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-	              {% endfor %}
-	            </p>
-	          </div>
-              -->
-        </form>
-      </div>
+	<div class="allwidth basic">
+		<div class="container">
+	      <div id="step-1" class="step hidden">
+	        {% comment %}
+	        <div class="span-4 offset-5">
+	          <div class="button big" id="show-camera">Take picture</div>
+	        </div>
+	        {% endcomment %}
+	        <div class="span-4 offset-9">
+	          <div class="button big-blue" id="uploader">Upload</div>
+	        </div>
+	      </div>
+	      <div id="step-2" class="row step hidden">
+	        <div class="span-4 offset-7">
+	          <div class="button big" id="ok">Ask for feedback</div>
+	        </div>
+	        <div class="span-4">
+	          <div class="button big-red" id="back">Take another</div>
+	        </div>
+	      </div>
+	      <div id="step-3" class="step row hidden ask-feedback-form">
+	        <form id="form-ask" action="" method="post" class="">
+	            {% csrf_token %}
+	            <div class="span-7 offset-8">
+	              <h3>Ask your friends</h3>
+	              <textarea name="description" placeholder="My message"></textarea>
+	              <ul>
+	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
+	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
+	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
+	              </ul>
+	            <input class="button" type="submit" value="Ask feedback" />
+	            </div>
+	            <!--
+		            <div class="span-6">
+		              <h3>or ask your friends on facebook</h3>
+		
+		            <p>
+		              
+		              	{% for f in fb_friends %}
+		                <img src='{{ f.pic_square }}' height="50" width="50" />
+		                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+		              {% endfor %}
+		            </p>
+		          </div>
+	              -->
+	        </form>
+	      </div>
+			<!-- </div> -->
 		</div>
 	</div>
-</div>
-<div class="allwidth green">
-  <div id="arrow" class="square-rotate"></div>
-  <div class="container placeholder"></div>
-	<div class="container how-it-works">
-		<div class="row">
-			<div class="span-4 box-selected">
-				<div class="box-image">
-					<img src="{{ STATIC_URL }}images/takePicture.png" alt="take a picture">
+	<div class="allwidth green">
+	  <div id="arrow" class="square-rotate"></div>
+	  <div class="container placeholder"></div>
+		<div class="container how-it-works">
+			<div class="row">
+				<div class="span-4 box-selected">
+					<div class="box-image">
+						<img src="{{ STATIC_URL }}images/takePicture.png" alt="take a picture">
+					</div>
+					<div class="box">
+						<h3>take your picture <span class="check-icon"></span></h3>
+					</div>
 				</div>
-				<div class="box">
-					<h3>take your picture <span class="check-icon"></span></h3>
+				<div class="span-2 arrow"></div>
+				<div class="span-4">
+					<div class="box-image">
+						<img src="{{ STATIC_URL }}images/wait-for-answer.png" alt="wait for an answer">
+					</div>
+					<div class="box">
+						<h3>ask for feedback</h3>
+					</div>
 				</div>
-			</div>
-			<div class="span-2 arrow"></div>
-			<div class="span-4">
-				<div class="box-image">
-					<img src="{{ STATIC_URL }}images/wait-for-answer.png" alt="wait for an answer">
-				</div>
-				<div class="box">
-					<h3>ask for feedback</h3>
-				</div>
-			</div>
-			<div class="span-2 arrow"></div>
-			<div class="span-4">
-				<div class="box-image">
-					<img src="{{ STATIC_URL }}images/see-what-your-friend-thinks.png" alt="see what your friend think">
-				</div>
-				<div class="box">
-					<h3>see what your friends think about it</h3>
+				<div class="span-2 arrow"></div>
+				<div class="span-4">
+					<div class="box-image">
+						<img src="{{ STATIC_URL }}images/see-what-your-friend-thinks.png" alt="see what your friend think">
+					</div>
+					<div class="box">
+						<h3>see what your friends think about it</h3>
+					</div>
 				</div>
 			</div>
 		</div>
