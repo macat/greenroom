@@ -10,6 +10,8 @@ from django.core.files.base import ContentFile
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.utils import simplejson
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from StringIO import StringIO
 
 from .models import Outfit, OutfitFeedback
 
@@ -17,8 +19,16 @@ from .models import Outfit, OutfitFeedback
 def get_and_create_outfit_from_reqeust(request):
     outfit = Outfit.objects.create()
     # file from uploader or webcam
-    cf_content = request.read(10485760) if 'qqfile' in request.GET else binascii.unhexlify(request.raw_post_data)
-    outfit.img.save('%s.jpg' % outfit.uuid, ContentFile(cf_content))
+    if 'qqfile' in request.GET:
+        cf_content = request.read(10485760)
+        outfit.img.save('%s.jpg' % outfit.uuid, ContentFile(cf_content))
+    else:
+        raw_data = request.POST['image'][len('data:image/png;base64,'):].decode('base64')
+        buf = StringIO(raw_data)
+        buf.seek(0, 2)
+        filename = '%s.jpg' % outfit.uuid
+        f = ContentFile(buf.getvalue())
+        outfit.img.save(filename, f)
     return outfit
     
 def add_description_to_outfit(outfit, description):

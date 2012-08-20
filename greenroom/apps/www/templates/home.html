@@ -31,6 +31,7 @@
 						<div class="big-arrow"></div>
 			          </div>
 					  <div id="camera" class="hidden"></div>
+            <canvas id="canvas" height="240" width="320" class="hidden"></canvas>
 					</div>
 				</div>
 			</div>
@@ -39,14 +40,16 @@
 	<div class="allwidth basic">
 		<div class="container">
 	      <div id="step-1" class="step hidden">
-	        {% comment %}
 	        <div class="span-4 offset-5">
 	          <div class="button big" id="show-camera">Take picture</div>
 	        </div>
-	        {% endcomment %}
 	        <div class="span-4 offset-9">
 	          <div class="button big-blue" id="uploader">Upload</div>
 	        </div>
+	        <div class="span-4 offset-5 hidden" id="capture">
+	          <div class="button big" id="show-camera">Capture</div>
+	        </div>
+
 	      </div>
 	      <div id="step-2" class="row step hidden">
 	        <div class="span-4 offset-7">
