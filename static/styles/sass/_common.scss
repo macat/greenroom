@@ -99,9 +99,12 @@ footer {
 }
 /* Comments */
 .comments-fb {
-  background: lighten($light, 10%);
+  background: lighten($light, 2%);
+  border: 1px solid darken($light, 5%);
   padding: 10px;
   margin: 4px 0;
+  -webkit-border-radius: 4px;
+  border-radius: 4px; 
 
   .user-data {    font-size: 0.85em;}
   .time { 
@@ -148,3 +151,19 @@ input[type="placeholder"],
 :-webkit-input-placeholder, 
 :-moz-placeholder, 
 :-ms-input-placeholder { color: #eee;}
+
+/* Fb friends */
+#fb-friends {
+  height: 400px;
+
+  .fb-friend {
+    width: 24%;
+    float: left;
+    color: $light;
+    margin: 5px;
+    font-size: 0.75em;
+
+    img { float: left; }
+  }
+
+}

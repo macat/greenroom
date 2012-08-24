@@ -8,6 +8,7 @@
 @import "buttons";
 @import "rating";
 @import "rit";
+@import "lib/jquery.mCustomScrollbar";
 
 #mirror-inner {
   position: absolute;
@@ -90,11 +91,17 @@
 }
 /* How it works */
 .how-it-works {
+  padding-bottom: 30px;
+
   h1, h2, h3 {
     text-align: center;
+    margin: 0;
   }
   .box-selected {
     background: $light;
+    -webkit-border-radius: 4px;
+  	border-radius: 4px; 
+  	padding: 3px;
     
     .box { background: none;}
     h1, h2, h3 { color: $action;}
@@ -106,7 +113,9 @@
   }
   .box {
     background: $basic;
-    height: 4em;
+    -webkit-border-radius: 4px;
+  	border-radius: 4px; 
+  	padding: 3px;
   }
   .arrow {
     margin-top: 10%;

@@ -39,11 +39,11 @@
 	</div>
 	<div class="allwidth basic">
 		<div class="container">
-	      <div id="step-1" class="step hidden">
-	        <div class="span-4 offset-5">
+	      <div id="step-1" class="row step hidden">
+	        <div class="span-4 offset-7">
 	          <div class="button big" id="show-camera">Take picture</div>
 	        </div>
-	        <div class="span-4 offset-9">
+	        <div class="span-4">
 	          <div class="button big-blue" id="uploader">Upload</div>
 	        </div>
 	        <div class="span-4 offset-5 hidden" id="capture">
@@ -73,17 +73,17 @@
 	            <input class="button" type="submit" value="Ask feedback" />
 	            </div>
 		            <div class="">
-		              <h3>or ask your friends on facebook</h3>
-		
-		            <div id="fb-friends" >
-		              
-		              	{% for f in fb_friends %}
-                    <div class="fb-friend">
-		                <img src='{{ f.pic_square }}' height="50" width="50" />
-		                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-                  </div>
-		              {% endfor %}
-		            </div>
+		              <div class="span-16">
+		              	<h3>or ask your friends on facebook</h3>
+					  </div>
+			            <div id="fb-friends" >
+			              	{% for f in fb_friends %}
+			                    <div class="fb-friend">
+					                <img src='{{ f.pic_square }}' height="50" width="50" />
+					                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+			                  </div>
+			              {% endfor %}
+			            </div>
 		          </div>
 	        </form>
 	      </div>
