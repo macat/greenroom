@@ -128,4 +128,5 @@ $(function(){
     },
   });
   $('.rateit').bind('rated', function(){ $('#rating').val($(this).rateit('value')); })
+  $("#fb-friends").mCustomScrollbar();
 })
