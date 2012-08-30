@@ -5,3 +5,5 @@
 settings_local.py
 static/styles/.sass-cache/
 env/
+static/styles.css
+static/scripts.css
