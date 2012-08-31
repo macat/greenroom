@@ -123,39 +123,35 @@
 				</div>
 			</div>
 		</div>
-	</div>
-<!-- 	<div class="allwidth green">
-	  <div id="arrow" class="square-rotate"></div>
-		<div class="container how-it-works">
+		{% if user.is_authenticated %}
+		<div class="container">
 			<div class="row">
-				<div class="span-4 box-selected">
-					<div class="box-image">
-						<img src="{{ STATIC_URL }}images/takePicture.png" alt="take a picture">
-					</div>
-					<div class="box">
-						<h3>take a picture <span class="check-icon"></span></h3>
-					</div>
-				</div>
-				<div class="span-2 arrow"></div>
-				<div class="span-4">
-					<div class="box-image">
-						<img src="{{ STATIC_URL }}images/wait-for-answer.png" alt="wait for an answer">
-					</div>
-					<div class="box">
-						<h3>ask for feedback</h3>
-					</div>
-				</div>
-				<div class="span-2 arrow"></div>
-				<div class="span-4">
-					<div class="box-image">
-						<img src="{{ STATIC_URL }}images/see-what-your-friend-thinks.png" alt="see what your friend think">
-					</div>
-					<div class="box">
-						<h3>see what your friends think</h3>
-					</div>
-				</div>
+				<h3>Your last outfits</h3>
+					{% for o in outfits %}
+					 <a href='{{ o.view_url }}'>
+						<div class="span-4 outfit-image">
+							<img src="{{ o.img.url }}" style="max-width: 260;" />
+							<div>
+								<div class="span-1">
+									<ul>
+										<li class="comments {% if not o.comment %}null{% endif %}">
+											<span>{{ o.outfitfeedback_set.all|length }}</span>
+										</li>
+									</ul>
+								</div>
+								<div class="span-1 offset-2">
+								</div>
+								<!-- <a href='{{ o.view_url }}'>
+									From {{ o.submitted_at|date:"H:i a" }}
+									Average rating: {{ o.avg_rating|default:"no ratings yet" }}
+								</a> -->
+							</div>
+						</div>
+					</a>
+					{% endfor %}
 			</div>
+			{% endif %}
 		</div>
-	</div> -->
+	</div>
 </div>
 {% endblock %}
