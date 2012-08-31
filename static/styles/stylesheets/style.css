@@ -866,7 +866,6 @@ a {
 footer {
   position: fixed;
   bottom: 0;
-  color: #f9f9f9;
   width: 100%;
   background: url(../../images/line.png) repeat-x #f9f9f9;
   font-size: 0.7em; }
@@ -877,6 +876,8 @@ footer {
     border-right: 1px solid #999; }
     footer ul li:last-child {
       border: none; }
+  footer .follow {
+    margin-top: 11px; }
 
 /* navbar */
 .navbar {
