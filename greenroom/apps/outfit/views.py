@@ -6,10 +6,10 @@ from django.views.decorators.csrf import csrf_exempt
 from greenroom.apps.feedback import api as feedback_api 
 
 from .helpers import (create_and_send_feedback_requests,
-                      JSONResponse,
                       get_and_create_outfit_from_reqeust,
                       bind_user_with_outfit,
                       add_description_to_outfit)
+from .utils import JSONResponse
 from .models import Outfit
 
 

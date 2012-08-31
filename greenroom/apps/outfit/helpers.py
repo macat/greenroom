@@ -1,13 +1,9 @@
-import re
 from StringIO import StringIO
 
 from greenroom.apps.django_facebook_patched.api import get_persistent_graph
 from open_facebook.api import FacebookAuthorization
     
-from django.conf import settings
 from django.core.files.base import ContentFile
-from django.http import HttpResponse
-from django.utils import simplejson
 
 from greenroom.apps.feedback import api as feedback_api 
 
@@ -54,19 +50,3 @@ def get_users_fb_email(request):
     app_access_token = FacebookAuthorization.get_cached_app_access_token()
     graph = get_persistent_graph(request, access_token=app_access_token)
     return graph.me()['email']
-        
-class JSONResponse(HttpResponse):
-    def __init__(self, request, data):
-        indent = 2 if settings.DEBUG else None
-        mime = "text/javascript" if settings.DEBUG else "application/json"
-        content = simplejson.dumps(data, indent=indent)
-        callback = request.GET.get('callback')
-        if callback:
-            # verify that the callback is only letters, numbers, periods, and underscores
-            if re.compile(r'^[a-zA-Z][\w.]*$').match(callback):
-                content = '%s(%s);' % (callback, content)
-        super(JSONResponse, self).__init__(
-            content = content,
-            mimetype = mime,
-        )
-    
