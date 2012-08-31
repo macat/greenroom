@@ -5,7 +5,7 @@ GREENROOM
 
 1) DEV MODE: to run project without collecting static files
 
-./manage runserver
+./manage.py runserver
 
 
 2) TEST MODE: to run the project with collected static files:

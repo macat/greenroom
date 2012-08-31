@@ -1,0 +1,4 @@
+1) recreate db (sqlite)
+
+rm greenroom.db
+./manage.py syncdb --noinput
