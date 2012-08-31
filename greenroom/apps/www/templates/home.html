@@ -46,14 +46,26 @@
 						<div class="big-arrow"></div>
 					</div>
 
+					<div id="mirror">
+			          	<div id="result-img"></div>
+			          	<div id="mirror-inner"></div>
+<!-- 			          	<div id="placeholder-pic"></div>
+ -->					  	<div id="camera" class="hidden"></div>
+           				<canvas id="canvas" height="240" width="320" class="hidden"></canvas>
+					</div>
 			        <div class="span-3">
 			          <div class="button big" id="show-camera">Take picture <span class="action"></span></div>
 			        </div>
 			        <div class="span-3">
 			          <div class="button big blue" id="uploader">Upload <span class="action"></span></div>
 			        </div>
-			        <div class="span-4 offset-4 hidden" id="capture">
-			          <div class="button big" id="show-camera">Capture</div>
+			        <div class="hidden" id="capture">
+			          <div class="span-3">
+			          	<div class="button big" id="show-camera">Capture <span class="action"></span></div>
+			          </div>
+  			          <div class="span-3">
+			          	<div class="button big red" id="back">Discard <span class="action"></span></div>
+			          </div>
 			        </div>
 			        <div class="span-16">
 			        	<p class="suggestions rotate-text center">
@@ -61,20 +73,42 @@
 			          	</p>
 			        </div>
 		      	</div>
+	  		     <div id="step-capture" class="row step hidden">
+					<div id="mirror">
+			          	<div id="result-img"></div>
+			          	<div id="mirror-inner"></div>
+			          	<div id="placeholder-pic"></div>
+					  	<div id="camera" class="hidden"></div>
+           				<canvas id="canvas" height="240" width="320" class="hidden"></canvas>
+					</div>
+			        <div class="span-4 offset-7">
+			          <div class="button big" id="ok">Ask for feedback</div>
+			        </div>
+			        <div class="span-4">
+			          <div class="button big red" id="back">Take another</div>
+			        </div>
+		      </div>
+  		        <div id="step-2" class="row step hidden">
+					<div id="mirror">
+			          	<div id="result-img"></div>
+			          	<div id="mirror-inner"></div>
+			          	<div id="placeholder-pic"></div>
+					  	<div id="camera" class="hidden"></div>
+           				<canvas id="canvas" height="240" width="320" class="hidden"></canvas>
+					</div>
+			        <div class="span-4 offset-7">
+			          <div class="button big" id="ok">Ask for feedback</div>
+			        </div>
+			        <div class="span-4">
+			          <div class="button big red" id="back">Take another</div>
+			        </div>
+		      </div>
 			</div>
 		</div>
 	</div>
 	<div class="allwidth basic">
 		<div class="container">
 	      
-	      <div id="step-2" class="row step hidden">
-	        <div class="span-4 offset-7">
-	          <div class="button big" id="ok">Ask for feedback</div>
-	        </div>
-	        <div class="span-4">
-	          <div class="button big-red" id="back">Take another</div>
-	        </div>
-	      </div>
 	      <div id="step-3" class="step row hidden ask-feedback-form">
 	        <form id="form-ask" action="" method="post" class="">
 	            {% csrf_token %}

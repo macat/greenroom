@@ -5,9 +5,10 @@ $(function(){
     first: function() {
       $('#arrow').animate({left: '-420px'}, 500)
       step = 1;
-      $('#placeholder-pic').removeClass('hidden');
+      // $('#placeholder-pic').removeClass('hidden');
       $('.step').addClass('hidden');
       $('#step-1').removeClass('hidden');
+      $('.suggestions').removeClass('hidden');
     },
     second: function() {
       step = 2;
@@ -31,6 +32,7 @@ $(function(){
   $('#show-camera').on('click', function(){
     $('#uploader').hide();
     $('#show-camera').hide();
+    $('.suggestions').addClass('hidden');
     $('#capture').show();
     $('#camera').removeClass('hidden');
     var pos = 0, ctx = null, saveCB, image = [];
