@@ -3,12 +3,17 @@ greenroom
 
 GREENROOM
 
-1) to run the project with collected static files:
+1) DEV MODE: to run project without collecting static files
+
+./manage runserver
+
+
+2) TEST MODE: to run the project with collected static files:
 
 ./runserver-greenroom.sh
 
 
-2) sample settings_local.py
+3) sample settings_local.py
 
 ##-- helpers --##
 import os
@@ -51,5 +56,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # enabling Facebook authorization and login
 # also add an alias in /etc/hosts: mygreenroom.herokuapp.com http://localhost.mygreenroom.herokuapp.com:8000
-FACEBOOK_APP_ID = 
-FACEBOOK_APP_SECRET = 
+FACEBOOK_APP_ID = 'ask-someone'
+FACEBOOK_APP_SECRET = 'ask-someone'
