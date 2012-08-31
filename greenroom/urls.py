@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls import include, patterns, url
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 import greenroom.apps.outfit.views as outfit_views
 import greenroom.apps.www.views as www_views
@@ -20,5 +19,11 @@ urlpatterns = patterns('',
     (r'^accounts/', include('greenroom.apps.django_facebook_patched.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
 )
 
+
+# only enabled when runserver started with --nostatic, then remember to collectstatic first
 if settings.DEBUG:
-    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += patterns('',
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.STATIC_ROOT,
+        }),
+   )
