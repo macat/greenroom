@@ -3,6 +3,7 @@ $(function(){
 
   var steps = {
     first: function() {
+      $('#result-img').empty();
       $('#arrow').animate({left: '-420px'}, 500)
       step = 1;
       $('#placeholder-pic').removeClass('hidden');
@@ -27,7 +28,7 @@ $(function(){
   steps.first();
   
   $('#ok').on('click', steps.third);
-  $('#back').on('click', steps.first);
+  $('.back').on('click', steps.first);
 
   $('#show-camera').on('click', function(){
     $('#uploader').hide();
@@ -71,14 +72,14 @@ $(function(){
             var responseJSON = $.parseJSON(response.responseText);
             var feedback_form_action = responseJSON['request_feedback_url'];
             $('#form-ask').attr("action", feedback_form_action);
-            $('<img>', {src: responseJSON.img, width: '679', height: '605'}).appendTo('#result-img')
+            $('<img>', {src: responseJSON.img, MaxWidth: '679', MaxHeight: '605'}).appendTo('#result-img')
             steps.second();
           },
           error: function(response){
             var responseJSON = $.parseJSON(response.responseText);
             var feedback_form_action = responseJSON['request_feedback_url'];
             $('#form-ask').attr("action", feedback_form_action);
-            $('<img>', {src: responseJSON.img, width: '679', height: '605'}).appendTo('#result-img')
+            $('<img>', {src: responseJSON.img, MaxWidth: '679', MaxHeight: '605'}).appendTo('#result-img')
             steps.second();
           }});
 				pos = 0;
@@ -125,7 +126,7 @@ $(function(){
     onComplete: function(id, fileName, responseJSON){
       var feedback_form_action = responseJSON['request_feedback_url'];
       $('#form-ask').attr("action", feedback_form_action);
-      $('<img>', {src: responseJSON.img, width: '679', height: '605'}).appendTo('#result-img')
+      $('<img>', {src: responseJSON.img, MaxWidth: '679', MaxHeight: '605'}).appendTo('#result-img')
       steps.second();
     },
   });

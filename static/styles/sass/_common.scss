@@ -164,7 +164,9 @@ input[type="placeholder"],
 
 /* Fb friends */
 #fb-friends {
-  height: 400px;
+  max-height: 400px;
+  clear: both;
+  float: none;
 
   .fb-friend {
     width: 24%;

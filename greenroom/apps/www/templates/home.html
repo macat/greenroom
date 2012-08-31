@@ -65,7 +65,7 @@
 			          	<div class="button big" id="capture-btn">Capture <span class="action"></span></div>
 			          </div>
   			          <div class="span-3">
-			          	<div class="button big red" id="back">Discard <span class="action"></span></div>
+			          	<div class="button big red back" id="">Discard <span class="action"></span></div>
 			          </div>
 			        </div>
 			        <div class="span-16">
@@ -90,20 +90,19 @@
 			        </div>
 		      </div> -->
   		        <div id="step-2" class="row step hidden">
-			        <div class="span-4 offset-7">
-			          <div class="button big" id="ok">Ask for feedback</div>
+			        <div class="span-3 offset-5">
+			          <div class="button big" id="ok">Ask for feedback <span class="action"></span></div>
 			        </div>
-			        <div class="span-4">
-			          <div class="button big red" id="back">Take another</div>
+			        <div class="span-3">
+			          <div class="button big red back" id="">Take another</div>
 			        </div>
 		      </div>
 			</div>
 		</div>
 	</div>
-	<div class="allwidth basic">
-		<div class="container">
-	      
-	      <div id="step-3" class="step row hidden ask-feedback-form">
+	<div id="step-3" class="step allwidth basic hidden ask-feedback-form">
+	<div class="container">
+		<div class="row">
 	        <form id="form-ask" action="" method="post" class="">
 	            {% csrf_token %}
 	            <div class="span-7 offset-8">
