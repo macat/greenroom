@@ -7,9 +7,7 @@ prepend_path_with_root = lambda *l: os.path.join(os.getcwd(), *l)
 
 ##-- settings --##
 
-# Django settings for greenroom project.
-
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = MANAGERS = (
     ('virtuallight', 'mat.jankowski@gmail.com'),
@@ -113,30 +111,42 @@ LOGGING = {
     }
 }
 
-# custom settings 
+
+##-- custom settings --##
 
 HOST = 'http://mygreenroom.herokuapp.com'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage' # 'greenroom.libs.staticfile_storage.S3PipelineStorage'
-PIPELINE = True
 
+# Amazon S3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
+
+STATICFILES_STORAGE = 'greenroom.libs.staticfile_storage.S3PipelineStorage'
+STATIC_URL = '/https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+
+# combined, compressed and versioned static files
+PIPELINE = True
+PIPELINE_AUTO = False
+PIPELINE_VERSION = True
 PIPELINE_JS = {
     'scripts': {
         'source_filenames': (
-          'scripts/libs/underscore.js',
-          'scripts/libs/jquery-1.8.9.js',
           'scripts/libs/*.js',
           'scripts/*.js',
+          'js/*.js'
         ),
-        'output_filename': 'scripts.js',
+        'output_filename': 'scripts-pipeline.js',
     }
 }
 
 PIPELINE_CSS = {
     'styles': {
         'source_filenames': (
-          'styles/*.css',
+          'styles/stylesheets/style.css',
+          'css/*.css',
         ),
-        'output_filename': 'style.css',
+        'output_filename': 'styles-pipeline.css',
         'extra_context': {
             'media': 'screen,projection',
         },
@@ -147,24 +157,10 @@ PIPELINE_CSS = {
 FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET', '')
 
-# Amazon S3
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', '')
-STATIC_URL = '/static/' # 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-
 ## Mailgun 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = os.getenv('MAILGUN_ACCESS_KEY', '')
 MAILGUN_SERVER_NAME = os.getenv('MAILGUN_SERVER_NAME', '')
-
-# Sendgrid
-#EMAIL_HOST = 'smtp.sendgrid.net'
-#EMAIL_HOST_USER = os.getenv('SENDGRID_USERNAME', '')
-#EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_PASSWORD', '')
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
 
 try:
     from settings_local import *
