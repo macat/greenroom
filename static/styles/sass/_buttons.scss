@@ -91,6 +91,41 @@
 		background:url(../../images/arrow-buttons.png) no-repeat 0 -24px;
 	}
 }
+
+.navbar .button {
+	padding: 10px 19px;
+	color: #f0f0f0;
+	background: -moz-linear-gradient(
+		top,
+		lighten($basic, 10%) 0%,
+		darken($basic, 5%));
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(lighten($basic, 10%)),
+		to(darken($basic, 5%)));
+	border: 1px solid $basic;
+	-moz-box-shadow:
+		0px 0px 1px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.3);
+	-webkit-box-shadow:
+		0px 0px 1px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.3);
+	box-shadow:
+		0px 0px 1px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.3);
+
+
+	&:hover {
+	background: -moz-linear-gradient(
+		top,
+		darken($basic, 3%) 0%,
+		lighten($basic, 5%));
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(darken($basic, 3%)),
+		to(lighten($basic, 5%)));
+	}
+}
 /*.button.big {
 	@extend .green-big-btn;
 
