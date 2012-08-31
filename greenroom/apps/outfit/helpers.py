@@ -1,19 +1,17 @@
-import binascii
 import re
-from datetime import datetime
+from StringIO import StringIO
 
-from greenroom.apps.django_facebook_patched.api import FacebookUserConverter, get_persistent_graph
+from greenroom.apps.django_facebook_patched.api import get_persistent_graph
 from open_facebook.api import FacebookAuthorization
     
 from django.conf import settings
 from django.core.files.base import ContentFile
-from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.utils import simplejson
-from django.core.files.uploadedfile import InMemoryUploadedFile
-from StringIO import StringIO
 
-from .models import Outfit, OutfitFeedback
+from greenroom.apps.feedback import api as feedback_api 
+
+from .models import Outfit
 
 
 def get_and_create_outfit_from_reqeust(request):
@@ -36,22 +34,17 @@ def add_description_to_outfit(outfit, description):
     outfit.save()
 
 def create_and_send_feedback_requests(request, outfit):
-    sender = get_users_fb_email(request) if request.user.is_authenticated() else "friend@greenroomapp.com" 
-    recipients_list = [v for k,v in request.POST.items() if k.startswith('email_') and v]
-    for recipient in recipients_list:
-        outfit_feedback = OutfitFeedback.objects.create(outfit=outfit, emailed_to=recipient)
-        send_mail('I urgently need your advice!',
-                  'Please give me feedback: ' + outfit_feedback.feedback_url, 
-                  sender, 
-                  [recipient],
-                  fail_silently=False)
-
-def give_outfit_feedback(rating, comment, outfit_feedback):
-    outfit_feedback.rating = rating
-    outfit_feedback.comment = comment
-    outfit_feedback.answered_at = datetime.now()
-    outfit_feedback.save()
+    # facebook
+    fb_emails = [v for k,v in request.POST.items() if k.startswith('email_fb_') and v]
+    fb_sender = get_users_fb_email(request) if request.user.is_authenticated() else "friend@greenroomapp.com" 
+    feedback_api.send_mass_facebook_request(outfit.pk, fb_emails, fb_sender)
     
+    # email
+    emails = [v for k,v in request.POST.items() if k.startswith('email_') and \
+              not k.startswith('email_fb_') and v]
+    sender = fb_sender
+    feedback_api.send_mass_email_request(outfit.pk, emails, sender)
+
 def bind_user_with_outfit(user, outfit):
     if user.is_authenticated() and not outfit.user:
         outfit.user = user

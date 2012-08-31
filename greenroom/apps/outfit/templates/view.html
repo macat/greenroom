@@ -32,7 +32,7 @@
 				</div>	
 			</div>
 
-			{% for of in outfit.outfitfeedback_set.all %}
+			{% for of in outfitfeedback_list %}
 			<div class="span-7 comments-fb">
 				<div class="span-1">
 					<div class="pic">
@@ -67,7 +67,7 @@
 				
 
 <!-- 			<p>
-				{% for of in outfit.outfitfeedback_set.all %}
+				{% for of in outfitfeedback_list %}
 					{{ of.emailed_to }} rating: 	
 					{% if of.rating %}
 						{{ of.rating }}

@@ -3,13 +3,14 @@ from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
+from greenroom.apps.feedback import api as feedback_api 
+
 from .helpers import (create_and_send_feedback_requests,
-                      give_outfit_feedback,
                       JSONResponse,
                       get_and_create_outfit_from_reqeust,
                       bind_user_with_outfit,
                       add_description_to_outfit)
-from .models import Outfit, OutfitFeedback
+from .models import Outfit
 
 
 @csrf_exempt
@@ -30,7 +31,10 @@ def list_outfits(request):
                   {'outfits': request.user.outfit_set.all().order_by('-submitted_at') if request.user.is_authenticated() else []})
 
 def view_outfit(request, uuid):
-    return render(request, 'view.html', {'outfit': Outfit.objects.get(uuid=uuid)})
+    outfit = Outfit.objects.get(uuid=uuid)
+    outfitfeedback_list = feedback_api.get_outfitfeedback_list(outfit.pk)
+    return render(request, 'view.html', {'outfit': outfit,
+                                         'outfitfeedback_list': outfitfeedback_list})
 
 def request_feedback(request, uuid):        
     if request.method == 'POST':
@@ -43,17 +47,3 @@ def request_feedback(request, uuid):
     
     # failure
     return HttpResponseNotAllowed('')
-    
-def give_feedback(request, uuid):
-    outfit_feedback = OutfitFeedback.objects.get(uuid=uuid)
-    
-    if outfit_feedback.answered_at:
-        # failure - feedback already given
-        return redirect(outfit_feedback.outfit.view_url)
-    
-    if request.method == 'POST' and request.POST.get('rating'):
-        give_outfit_feedback(request.POST['rating'], request.POST['comment'], outfit_feedback)
-        # success
-        return redirect(outfit_feedback.outfit.view_url)
-    
-    return render(request, 'feedback.html', {'outfit_feedback': outfit_feedback})

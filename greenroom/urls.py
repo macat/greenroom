@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 
+import greenroom.apps.feedback.views as feedback_views
 import greenroom.apps.outfit.views as outfit_views
 import greenroom.apps.www.views as www_views
 
@@ -13,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^outfit/list$', outfit_views.list_outfits, name='outfit_list_outfits'),
     url(r'^outfit/(?P<uuid>.{6})$', outfit_views.view_outfit, name='outfit_view_outfit'),
     url(r'^outfit/(?P<uuid>.{6})/request_feedback$', outfit_views.request_feedback, name='outfit_request_feedback'),
-    url(r'^outfit/feedback/(?P<uuid>.{6})$', outfit_views.give_feedback, name='outfit_give_feedback'),
+    url(r'^outfit/feedback/(?P<uuid>.{6})$', feedback_views.give_feedback, name='outfit_give_feedback'),
     # django-facebook
     (r'^facebook/', include('greenroom.apps.django_facebook_patched.urls')),
     (r'^accounts/', include('greenroom.apps.django_facebook_patched.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
