@@ -41,12 +41,15 @@ DATABASES = {
 
 # not sending files to Amazon
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+MEDIA_ROOT = '/tmp/media'
+MEDIA_URL = '/media/'
+
+# development static files handling
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 STATICFILES_DIRS = (prepend_path_with_root('static'),
                     prepend_path_with_root('greenroom', 'apps', 'django_facebook_patched', 'static'))
-STATIC_URL = '/static/'
-MEDIA_ROOT = '/tmp/media'
 STATIC_ROOT = '/tmp/static'
+STATIC_URL = '/static/'
 
 ## not compressing and combining files
 PIPELINE = False
