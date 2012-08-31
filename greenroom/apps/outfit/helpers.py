@@ -32,7 +32,7 @@ def add_description_to_outfit(outfit, description):
 def create_and_send_feedback_requests(request, outfit):
     # facebook
     fb_emails = [v for k,v in request.POST.items() if k.startswith('email_fb_') and v]
-    fb_sender = get_users_fb_email(request) if request.user.is_authenticated() else "friend@greenroomapp.com" 
+    fb_sender = get_users_fb_email(request) if request.user.is_authenticated() else None 
     feedback_api.send_mass_facebook_request(outfit.pk, fb_emails, fb_sender)
     
     # email
