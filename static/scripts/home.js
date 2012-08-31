@@ -24,7 +24,7 @@ $(function(){
       $('.step').addClass('hidden');
       $('#step-3').removeClass('hidden');
       $('#mirror').addClass('span-8');
-      $('#mirror').removeClass('max-width');
+      $('#result-img').removeClass('max-width');
     }
   };
   steps.first();

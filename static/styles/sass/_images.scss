@@ -24,7 +24,10 @@ $url: (url("../../images/images.png"));
 } 
 .dark-check-icon{ @include sprite( 0, -677px); width: 18px; height: 17px; } 
 .decoration-line{ @include sprite( 0, -744px); width: 39px; height: 29px; } 
-.email-icon{ @include sprite( 0, -823px); width: 42px; height: 30px; } 
+.email-icon{ 
+	background:url(../../images/envelop.png) no-repeat;
+	width: 42px; height: 30px; 
+} 
 .facebook-big{ @include sprite( 0, -903px); width: 17px; height: 35px; } 
 .facebook-small{ @include sprite( 0, -988px); width: 12px; height: 23px; } 
 .green-big-btn{ @include sprite( 0, -1061px); width: 255px; height: 58px; } 

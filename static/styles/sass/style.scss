@@ -100,9 +100,10 @@
 .ask-feedback-form {
 	ul {
 		li { margin-top: 10px; list-style: none; padding: 0; }
-		input { margin-left: 50px; height: 24px; width: 234px; border-radius: 4px;}
+		input { margin-left: 50px; width: 234px; }
     .button { margin-left: 150px;}
 	}
+  textarea { width: 234px;}
 }
 
 #camera {
