@@ -19,6 +19,7 @@ a {
   margin-right: auto;
   width: 407px;
   margin-top: 53px;
+  margin-bottom: 33px;
 }
 
 /* main content */
@@ -34,8 +35,16 @@ footer {
   color: $light;
   width: 100%;
   background:url(../../images/line.png) repeat-x $light;
-
   font-size: 0.7em;
+
+  ul li {
+    display: inline;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #999;
+    
+    &:last-child { border: none;}
+  }
 }
 /* navbar */
 .navbar {
@@ -67,7 +76,7 @@ footer {
       display: block;
     }
     
-    .step { padding: 100px 0;}
+    .step { padding: 20px 0;}
   }
   &.green {  background: $action;}
 }

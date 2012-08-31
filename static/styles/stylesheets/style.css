@@ -853,7 +853,8 @@ a {
   margin-left: auto;
   margin-right: auto;
   width: 407px;
-  margin-top: 53px; }
+  margin-top: 53px;
+  margin-bottom: 33px; }
 
 /* main content */
 .main-content {
@@ -869,6 +870,13 @@ footer {
   width: 100%;
   background: url(../../images/line.png) repeat-x #f9f9f9;
   font-size: 0.7em; }
+  footer ul li {
+    display: inline;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #999; }
+    footer ul li:last-child {
+      border: none; }
 
 /* navbar */
 .navbar {
@@ -896,7 +904,7 @@ footer {
       margin-top: 14px;
       display: block; }
     .allwidth.basic .step {
-      padding: 100px 0; }
+      padding: 20px 0; }
   .allwidth.green {
     background: #40876e; }
 
@@ -1701,7 +1709,7 @@ div.rateit div.rateit-reset:hover {
   background: black; }
 
 .step {
-  padding: 100px 0; }
+  padding: 20px 0; }
 
 #arrow {
   position: relative;
