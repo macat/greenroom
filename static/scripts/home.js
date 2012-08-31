@@ -5,10 +5,10 @@ $(function(){
     first: function() {
       $('#arrow').animate({left: '-420px'}, 500)
       step = 1;
-      // $('#placeholder-pic').removeClass('hidden');
+      $('#placeholder-pic').removeClass('hidden');
       $('.step').addClass('hidden');
       $('#step-1').removeClass('hidden');
-      $('.suggestions').removeClass('hidden');
+      // $('.suggestions').removeClass('hidden');
     },
     second: function() {
       step = 2;
@@ -98,7 +98,7 @@ $(function(){
 			}
 		};
 	}
-  $('#capture div').on('click', function(){webcam.capture();});
+  $('#capture-btn').on('click', function(){webcam.capture();});
     $("#camera").removeClass('hidden').webcam({
       width: 320,
       height: 240,
