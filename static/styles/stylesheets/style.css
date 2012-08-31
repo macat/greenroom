@@ -956,7 +956,8 @@ footer {
   background: #f1f1f1;
   border: 1px solid #e7e7e7;
   -webkit-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  max-width: 611px; }
 
 .outfit-image {
   cursor: pointer;
@@ -1747,9 +1748,8 @@ div.rateit div.rateit-reset:hover {
     left: 0;*/
   margin: 0 auto;
   text-align: center;
-  margin-top: 25px; }
-  #result-img.max-width {
-    max-width: 50%; }
+  margin-top: 25px;
+  /*&.max-width { max-width: 50%; }*/ }
 
 #mirror {
   position: relative;
