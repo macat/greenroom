@@ -18,7 +18,11 @@
 #result-img {
 /*  position: absolute;
   top: 0;
-  left: 0;*/}
+  left: 0;*/
+  margin: 0 auto;
+  max-width: 50%;
+  text-align: center;
+}
 
 #mirror {
   position: relative;

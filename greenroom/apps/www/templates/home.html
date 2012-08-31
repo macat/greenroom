@@ -3,17 +3,27 @@
 <div class="allwidth deco">
 	<div class="container">
 		<div class="row">
+			{% if not user.is_authenticated %}
 			<div class="navbar">
 				<div class="span-4 offset-12">
-					{% if not user.is_authenticated %}
 						<div class="span-2">Already a user?</div>
 						<form class="span-2" id="login" action="{% url facebook_connect %}?facebook_login=1" method="post">
 							<a class="button" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login</a>
 							<input type="hidden" value="{{ request.path }}" name="next" />
 						</form>
-					{% endif %}
 				</div>
 			</div>
+			{% else %}
+			<div class="navbar autenticate">
+				<div class="span-4">
+					<img class="logosmall" src="{{ STATIC_URL }}images/logo-small.png" alt="greenroom">
+				</div>
+				<div class="span-4 offset-8">
+					<a class="span-1 button">Outfits</a>
+					<a class="span-1 button">Settings</a>
+				</div>
+			</div>
+			{% endif %}
 		</div>	
 	</div>	
 </div>	
@@ -22,9 +32,13 @@
 <div class="main-content">
 	<div class="allwidth deco">
 		<div class="container">
+			{% if not user.is_authenticated %}
+
 					<div class="logo">
 						<img src="{{ STATIC_URL }}images/logo.png" alt="greenroom">
 					</div>
+			{% endif %}
+
 <!-- 				<div class="span-10 offset-1">
 					<div id="mirror">
 			          <div id="result-img"></div>
@@ -65,7 +79,7 @@
 			          	<div class="button big" id="capture-btn">Capture <span class="action"></span></div>
 			          </div>
   			          <div class="span-3">
-			          	<div class="button big red" id="back">Discard <span class="action"></span></div>
+			          	<div class="button big red back" id="">Discard <span class="action"></span></div>
 			          </div>
 			        </div>
 			        <div class="span-16">
@@ -90,20 +104,19 @@
 			        </div>
 		      </div> -->
   		        <div id="step-2" class="row step hidden">
-			        <div class="span-4 offset-7">
-			          <div class="button big" id="ok">Ask for feedback</div>
+			        <div class="span-3 offset-5">
+			          <div class="button big" id="ok">Ask for feedback <span class="action"></span></div>
 			        </div>
-			        <div class="span-4">
-			          <div class="button big red" id="back">Take another</div>
+			        <div class="span-3">
+			          <div class="button big red back" id="">Take another</div>
 			        </div>
 		      </div>
 			</div>
 		</div>
 	</div>
-	<div class="allwidth basic">
-		<div class="container">
-	      
-	      <div id="step-3" class="step row hidden ask-feedback-form">
+	<div id="step-3" class="step allwidth basic hidden ask-feedback-form">
+	<div class="container">
+		<div class="row">
 	        <form id="form-ask" action="" method="post" class="">
 	            {% csrf_token %}
 	            <div class="span-7 offset-8">

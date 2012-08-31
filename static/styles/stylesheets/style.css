@@ -856,6 +856,9 @@ a {
   margin-top: 53px;
   margin-bottom: 33px; }
 
+.logosmall {
+  margin-left: 20px; }
+
 /* main content */
 .main-content {
   height: 100%;
@@ -866,7 +869,6 @@ a {
 footer {
   position: fixed;
   bottom: 0;
-  color: #f9f9f9;
   width: 100%;
   background: url(../../images/line.png) repeat-x #f9f9f9;
   font-size: 0.7em; }
@@ -877,11 +879,19 @@ footer {
     border-right: 1px solid #999; }
     footer ul li:last-child {
       border: none; }
+  footer .follow {
+    margin-top: 11px; }
 
 /* navbar */
 .navbar {
   padding: 20px 0;
   margin-bottom: 10px; }
+  .navbar.autenticate {
+    background: #244242;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: -6px;
+    height: 30px; }
 
 /* row all background */
 .allwidth {
@@ -989,7 +999,9 @@ input[type="placeholder"],
 
 /* Fb friends */
 #fb-friends {
-  height: 400px; }
+  max-height: 400px;
+  clear: both;
+  float: none; }
   #fb-friends .fb-friend {
     width: 24%;
     float: left;
@@ -1215,12 +1227,12 @@ body {
     background: -moz-linear-gradient(top, #5a9b94 0%, #8caaa2);
     background: -webkit-gradient(linear, left top, left bottom, from(#5a9b94), to(#8caaa2)); }
   .button.big {
-    font-size: 1.1em;
+    font-size: 0.95em;
     padding: 7px 20px; }
   .button .action {
     background: url(../../images/arrow-buttons.png) no-repeat 0 0;
     width: 20px;
-    height: 22px;
+    height: 18px;
     float: right; }
 
 .button.blue {
@@ -1232,7 +1244,20 @@ body {
     background: -moz-linear-gradient(top, #51bd9c 0%, #a3e3b1);
     background: -webkit-gradient(linear, left top, left bottom, from(#51bd9c), to(#a3e3b1)); }
   .button.blue .action {
-    background: url(../../images/arrow-buttons.png) no-repeat 0 -22px; }
+    background: url(../../images/arrow-buttons.png) no-repeat 0 -24px; }
+
+.navbar .button {
+  padding: 10px 19px;
+  color: #f0f0f0;
+  background: -moz-linear-gradient(top, #366363 0%, #1b3132);
+  background: -webkit-gradient(linear, left top, left bottom, from(#366363), to(#1b3132));
+  border: 1px solid #244242;
+  -moz-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5), inset 0px 1px 1px rgba(255, 255, 255, 0.3); }
+  .navbar .button:hover {
+    background: -moz-linear-gradient(top, #1f3838 0%, #2d5253);
+    background: -webkit-gradient(linear, left top, left bottom, from(#1f3838), to(#2d5253)); }
 
 /*.button.big {
 	@extend .green-big-btn;
@@ -1686,7 +1711,10 @@ div.rateit div.rateit-reset:hover {
 #result-img {
   /*  position: absolute;
     top: 0;
-    left: 0;*/ }
+    left: 0;*/
+  margin: 0 auto;
+  max-width: 50%;
+  text-align: center; }
 
 #mirror {
   position: relative;
