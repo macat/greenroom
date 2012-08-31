@@ -1,4 +1,8 @@
-1) recreate db (sqlite)
+1) activate virtualenv
+
+source env/bin/activate
+
+2) recreate db (sqlite) (virtualenv active!)
 
 rm greenroom.db
 ./manage.py syncdb --noinput
