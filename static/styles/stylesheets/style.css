@@ -1734,8 +1734,9 @@ div.rateit div.rateit-reset:hover {
     top: 0;
     left: 0;*/
   margin: 0 auto;
-  max-width: 50%;
   text-align: center; }
+  #result-img.max-width {
+    max-width: 50%; }
 
 #mirror {
   position: relative;

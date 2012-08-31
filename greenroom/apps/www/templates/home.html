@@ -27,10 +27,10 @@
 				</div> -->
 			<div class="row">
 				<div id="mirror">
-		          	<div id="result-img"></div>
+		          	<div id="result-img" class="img-result max-width"></div>
 		          	<div id="mirror-inner"></div>
 	<!-- 			          	<div id="placeholder-pic"></div>
-	-->					  	<div id="camera" class="hidden"></div>
+	-->				<div id="camera" class="hidden"></div>
 	   				<canvas id="canvas" height="240" width="320" class="hidden"></canvas>
 				</div>
 
@@ -82,47 +82,46 @@
 			        <div class="span-3">
 			          <div class="button big red back" id="">Take another</div>
 			        </div>
-		      </div>
-			</div>
-		</div>
-	</div>
-	<div id="step-3" class="step allwidth basic hidden ask-feedback-form">
-	<div class="container">
-		<div class="row">
-	        <form id="form-ask" action="" method="post" class="">
-	            {% csrf_token %}
-	            <div class="span-7 offset-8">
-	              <h3>Ask your friends</h3>
-	              <textarea name="description" placeholder="My message"></textarea>
-	              <ul>
-	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
-	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
-	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li><a>add mail</a>
-	              </ul>
-	            <input class="button" type="submit" value="Ask feedback" />
-	            </div>
-		            <div class="">
-		              <div class="span-16">
-		              	<h3>or ask your friends on facebook</h3>
-		              	{% if not user.is_authenticated %}
-							<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-								<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-								<input type="hidden" value="{{ request.path }}" name="next" />
-							</form>					
-						{% endif %}	
-					  </div>
-			            <div id="fb-friends" >
-			              	{% for f in fb_friends %}
-			                    <div class="fb-friend">
-					                <img src='{{ f.pic_square }}' height="50" width="50" />
-					                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
-			                  </div>
-			              {% endfor %}
+		      	</div>
+
+		      	<div id="step-3" class="step hidden ask-feedback-form">
+			        <form id="form-ask" action="" method="post" class="">
+			            {% csrf_token %}
+			            <div class="span-6 offset-4">
+			              <h3>Ask your friends</h3>
+			              <textarea name="description" placeholder="My message"></textarea>
+			              <ul>
+			                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
+			                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
+			                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li><a>add mail</a>
+			              </ul>
+			            <input class="button" type="submit" value="Ask feedback" />
 			            </div>
-		          </div>
-	        </form>
-	      </div>
-			<!-- </div> -->
+				            <div class="">
+				              <div class="span-16">
+				              	<h3>or ask your friends on facebook</h3>
+				              	{% if not user.is_authenticated %}
+									<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+										<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+										<input type="hidden" value="{{ request.path }}" name="next" />
+									</form>					
+								{% endif %}	
+							  </div>
+							  <div class="row">
+					            <div id="fb-friends" >
+					              	{% for f in fb_friends %}
+					                    <div class="fb-friend">
+							                <img src='{{ f.pic_square }}' height="50" width="50" />
+							                <input type="checkbox" name="email_fb_{{ forloop.counter }}" value='{{ f.username }}@facebook.com' /> {{ f.name }} <br />
+					                  </div>
+					              {% endfor %}
+					            </div>
+					           </div>
+				          </div>
+			        </form>
+							<!-- </div> -->
+				</div>
+			</div>
 		</div>
 	</div>
 <!-- 	<div class="allwidth green">

@@ -23,6 +23,8 @@ $(function(){
       $('#arrow').animate({left: '-25px'}, 500)
       $('.step').addClass('hidden');
       $('#step-3').removeClass('hidden');
+      $('#mirror').addClass('span-8');
+      $('#mirror').removeClass('max-width');
     }
   };
   steps.first();
