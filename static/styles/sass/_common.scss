@@ -4,42 +4,43 @@ body {
 /* Links */
 a { 
   color: $action; 
+  cursor: pointer;
 
   &:hover {
     color: darken($action, 10%);
   }
 }
 
+.center {
+  text-align: center;
+}
 .logo {
-  background:url(../../images/logo-dark.png);
-  height: 68px;
-  width: 315px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 407px;
   margin-top: 53px;
 }
 
 /* main content */
-.main-content { margin-bottom: 40px}
+.main-content { 
+  height: 100%;
+  margin-bottom: 40px;
+  background:url(../../images/background.jpg);
+}
 /* footer */
 footer {
   position: fixed;
   bottom: 0;
-  text-align: center;
   color: $light;
   width: 100%;
+  background:url(../../images/line.png) repeat-x $light;
 
   font-size: 0.7em;
-  p {
-    padding: 10px auto;
-  }
 }
 /* navbar */
 .navbar {
-  margin: 35px 0;
-
-  .zocial.facebook {
-    font-size: 70%;
-    width: 152px;
-  }
+  padding: 20px 0;
+  margin-bottom: 10px;
 }
 /* row all background */
 .allwidth {
@@ -59,14 +60,14 @@ footer {
     h1, h2, h3, h4, h5, h6 {color: $light;}
 
     a.logo {
-      background:url(../../images/logo-light.png);
+      background:url(../../images/logo.png);
       width: 228px;
       height: 49px;
-      margin-top: 34px;
+      margin-top: 14px;
       display: block;
     }
     
-    .step { padding: 10px 0;}
+    .step { padding: 100px 0;}
   }
   &.green {  background: $action;}
 }
@@ -165,5 +166,9 @@ input[type="placeholder"],
 
     img { float: left; }
   }
+}
 
+/* Welcome */
+.welcome {
+  color: $light;
 }

@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
-
+{% block header %}
+<div class="allwidth deco">
+	<div class="container">
+		<div class="row">
+			<div class="navbar">
+				<div class="span-4 offset-12">
+					{% if not user.is_authenticated %}
+						<div class="span-2">Already a user?</div>
+						<form class="span-2" id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+							<a class="button" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login</a>
+							<input type="hidden" value="{{ request.path }}" name="next" />
+						</form>
+					{% endif %}
+				</div>
+			</div>
+		</div>	
+	</div>	
+</div>	
+{% endblock%}
 {% block body %}
 <div class="main-content">
 	<div class="allwidth deco">
 		<div class="container">
-			<div class="row">
-				<div class="span-4">
-					<div class="logo"></div>
-					<h2>Ask your friends about your style</h2>
-					{% if not user.is_authenticated %}
-						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-							<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-							<input type="hidden" value="{{ request.path }}" name="next" />
-						</form>
-					{% endif %}	
-					<div class="suggestions left-side">
-						only your real friends can give you a trustable opinion
-
-						<div class="big-arrow"></div>
+					<div class="logo">
+						<img src="{{ STATIC_URL }}images/logo.png" alt="greenroom">
 					</div>
-				</div>
-				<div class="span-10 offset-2">
+<!-- 				<div class="span-10 offset-1">
 					<div id="mirror">
 			          <div id="result-img"></div>
 			          <div id="mirror-inner"></div>
@@ -31,26 +36,37 @@
 						<div class="big-arrow"></div>
 			          </div>
 					  <div id="camera" class="hidden"></div>
-            <canvas id="canvas" height="240" width="320" class="hidden"></canvas>
+           				<canvas id="canvas" height="240" width="320" class="hidden"></canvas>
 					</div>
-				</div>
+				</div> -->
+			<div class="row">
+				<div id="step-1" class=" step hidden">
+					<div class="span-5 suggestions left-side">
+						only your real friends can give you a trustable opinion
+						<div class="big-arrow"></div>
+					</div>
+
+			        <div class="span-3">
+			          <div class="button big" id="show-camera">Take picture <span class="action"></span></div>
+			        </div>
+			        <div class="span-3">
+			          <div class="button big blue" id="uploader">Upload <span class="action"></span></div>
+			        </div>
+			        <div class="span-4 offset-4 hidden" id="capture">
+			          <div class="button big" id="show-camera">Capture</div>
+			        </div>
+			        <div class="span-16">
+			        	<p class="suggestions rotate-text center">
+			          		get yourself ready!
+			          	</p>
+			        </div>
+		      	</div>
 			</div>
 		</div>
 	</div>
 	<div class="allwidth basic">
 		<div class="container">
-	      <div id="step-1" class="row step hidden">
-	        <div class="span-4 offset-7">
-	          <div class="button big" id="show-camera">Take picture</div>
-	        </div>
-	        <div class="span-4">
-	          <div class="button big-blue" id="uploader">Upload</div>
-	        </div>
-	        <div class="span-4 offset-9 hidden" id="capture">
-	          <div class="button big" id="show-camera">Capture</div>
-	        </div>
-
-	      </div>
+	      
 	      <div id="step-2" class="row step hidden">
 	        <div class="span-4 offset-7">
 	          <div class="button big" id="ok">Ask for feedback</div>
@@ -68,13 +84,19 @@
 	              <ul>
 	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_1" /> </li>
 	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_2" /> </li>
-	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li>
+	                <li class="email-icon"><input type="text" placeholder="nameofyourfriends@email.com" name="email_3" /> </li><a>add mail</a>
 	              </ul>
 	            <input class="button" type="submit" value="Ask feedback" />
 	            </div>
 		            <div class="">
 		              <div class="span-16">
 		              	<h3>or ask your friends on facebook</h3>
+		              	{% if not user.is_authenticated %}
+							<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
+								<a class="zocial facebook" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
+								<input type="hidden" value="{{ request.path }}" name="next" />
+							</form>					
+						{% endif %}	
 					  </div>
 			            <div id="fb-friends" >
 			              	{% for f in fb_friends %}
@@ -90,7 +112,7 @@
 			<!-- </div> -->
 		</div>
 	</div>
-	<div class="allwidth green">
+<!-- 	<div class="allwidth green">
 	  <div id="arrow" class="square-rotate"></div>
 		<div class="container how-it-works">
 			<div class="row">
@@ -122,6 +144,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 {% endblock %}
