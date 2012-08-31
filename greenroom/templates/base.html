@@ -2,8 +2,12 @@
 <html>
 	<head>
 
-		{% compressed_css 'styles' %}
+		<!-- the order of loading is important -->
+		{% compressed_js 'scripts-basic-libs' %}
+		{% compressed_js 'scripts-libs' %}
 		{% compressed_js 'scripts' %}
+		{% compressed_css 'styles' %}
+
 		{% include 'django_facebook_patched/_facebook_js.html' %}
 
 		{% block head %}

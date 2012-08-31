@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'greenroom.apps.feedback',
     'greenroom.apps.outfit',
     'greenroom.apps.www',
     'greenroom.apps.django_facebook_patched',
@@ -130,14 +131,25 @@ PIPELINE = True
 PIPELINE_AUTO = False
 PIPELINE_VERSION = True
 PIPELINE_JS = {
-    'scripts': {
+    'scripts-basic-libs': {
+        'source_filenames': (
+          'scripts/basic-libs/*.js',
+        ),
+        'output_filename': 'pipeline_scripts-basic-libs.js',
+    },
+    'scripts-libs': {
         'source_filenames': (
           'scripts/libs/*.js',
+        ),
+        'output_filename': 'pipeline_scripts-libs.js',
+    },
+    'scripts': {
+        'source_filenames': (
           'scripts/*.js',
           'js/*.js'
         ),
-        'output_filename': 'scripts-pipeline.js',
-    }
+        'output_filename': 'pipeline_scripts.js',
+    },
 }
 
 PIPELINE_CSS = {
@@ -146,7 +158,7 @@ PIPELINE_CSS = {
           'styles/stylesheets/style.css',
           'css/*.css',
         ),
-        'output_filename': 'styles-pipeline.css',
+        'output_filename': 'pipeline_styles.css',
         'extra_context': {
             'media': 'screen,projection',
         },
