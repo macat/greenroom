@@ -1,97 +1,79 @@
 {% extends 'base.html' %}
 
-{% block header %}
-	<div class="allwidth basic">
-		<div class="container">
-			<div class="row">
-				<div class="span-10">
-					<a href="{% url www_home %}" class="logo"></a>
-				</div>
-				<div class="span-6 navbar">
-					{% if not user.is_authenticated %}
-						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-							<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-							<input type="hidden" value="{{ request.path }}" name="next" />
-						</form>
-					{% endif %}
-				</div>
-			</div>	
-		</div>	
-	</div>	
-{% endblock %}
-
 {% block body %}
-<div class="container">
-	<div class="row">
-		<div class="span-8">
-			<div class="row">
-				<div class="span-7">
-					<p class="request-for-fb">" {{ outfit.description }} "</p>
-					<h3> what your friends thought about it</h3>
-					<div class="line"></div>
-				</div>	
-			</div>
-
-			{% for of in outfitfeedback_list %}
-			<div class="span-7 comments-fb">
-				<div class="span-1">
-					<div class="pic">
-					</div>
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="span-8">
+				<div class="row">
+					<div class="span-7">
+						<p class="request-for-fb">" {{ outfit.description }} "</p>
+						<h3> what your friends thought about it</h3>
+						<div class="line"></div>
+					</div>	
 				</div>
-				<div class="span-7">
-					<div class="row">
-						<div class="span-5 user-data">
-							{{ of.emailed_to }} - 
-							<span class="time">
-								{% if of.answered_at %}
-									at {{ of.answered_at }} UTC
-								{% endif %}
-							</span>
+
+				{% for of in outfitfeedback_list %}
+				<div class="span-7 comments-fb">
+					<div class="span-1">
+						<div class="pic">
 						</div>
-						<div class="span-2">
-							<div class="stars empty">
-  								<div class="stars filled_{{ of.rating_doubled|default:"0" }}"></div>
+					</div>
+					<div class="span-7">
+						<div class="row">
+							<div class="span-5 user-data">
+								{{ of.emailed_to }} - 
+								<span class="time">
+									{% if of.answered_at %}
+										at {{ of.answered_at }} UTC
+									{% endif %}
+								</span>
+							</div>
+							<div class="span-2">
+								<div class="stars empty">
+	  								<div class="stars filled_{{ of.rating_doubled|default:"0" }}"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						{% if of.comment %}
-							<div class="span-7 comment-detail">{{ of.comment}}</div>
-						{% endif %}
+						<div class="row">
+							{% if of.comment %}
+								<div class="span-7 comment-detail">{{ of.comment}}</div>
+							{% endif %}
+						</div>
 					</div>
 				</div>
-			</div>
-			{% endfor %}
-
-
-				
-
-<!-- 			<p>
-				{% for of in outfitfeedback_list %}
-					{{ of.emailed_to }} rating: 	
-					{% if of.rating %}
-						{{ of.rating }}
-					{% else %}
-						<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
-					{% endif %}
-					{% if of.answered_at %}
-						at {{ of.answered_at|date:"H:i a" }}
-					{% endif %}
-					{% if of.comment %}
-					: "{{ of.comment}}"
-					{% endif %}
-					 <br />
 				{% endfor %}
-			</p>
-			<p>
-				Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
-			</p> -->
-		</div>
-		<div class="span-8">
-			<div class="img-result">
-				<img src='{{ outfit.img.url }}' width="400" />
+
+
+					
+
+	<!-- 			<p>
+					{% for of in outfitfeedback_list %}
+						{{ of.emailed_to }} rating: 	
+						{% if of.rating %}
+							{{ of.rating }}
+						{% else %}
+							<a href="{{ of.feedback_url }}">{{ of.feedback_url }}</a>
+						{% endif %}
+						{% if of.answered_at %}
+							at {{ of.answered_at|date:"H:i a" }}
+						{% endif %}
+						{% if of.comment %}
+						: "{{ of.comment}}"
+						{% endif %}
+						 <br />
+					{% endfor %}
+				</p>
+				<p>
+					Average rating: {{ outfit.avg_rating|default:"no ratings yet" }}
+				</p> -->
 			</div>
-		</div>	
+			<div class="span-8">
+				<div class="img-result">
+					<img src='{{ outfit.img.url }}' width="400" />
+				</div>
+			</div>	
+		</div>
 	</div>
 </div>
 {% endblock %}

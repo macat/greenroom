@@ -1,34 +1,33 @@
 {% extends 'base.html' %}
 
-{% block header %}
-	<div class="allwidth basic">
-		<div class="container">
-			<div class="row">
-				<div class="span-10">
-					<a href="{% url www_home %}" class="logo"></a>
-				</div>
-				<div class="span-6 navbar">
-					{% if not user.is_authenticated %}
-						<form id="fbconnect" action="{% url facebook_connect %}?facebook_login=1" method="post">
-							<a class="zocial facebook  span-4" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login with Facebook</a>
-							<input type="hidden" value="{{ request.path }}" name="next" />
-						</form>
-					{% endif %}
-				</div>
-			</div>	
-		</div>	
-	</div>	
-{% endblock %}
 {% block body %}
-<ul>
-	{% for o in outfits %}
-		<li>
-			<a href='{{ o.view_url }}'>
-				From {{ o.submitted_at|date:"H:i a" }}
-				<img src="{{ o.img.url }}" width="100" height="100"/>
-				Average rating: {{ o.avg_rating|default:"no ratings yet" }}
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			{% for o in outfits %}
+			 <a href='{{ o.view_url }}'>
+				<div class="span-4 outfit-image">
+					<img src="{{ o.img.url }}" style="max-width: 260;" />
+					<div>
+						<div class="span-1">
+							<ul>
+								<li class="comments {% if not o.comment %}null{% endif %}">
+									<span>{{ o.outfitfeedback_set.all|length }}</span>
+								</li>
+							</ul>
+						</div>
+						<div class="span-1 offset-2">
+						</div>
+						<!-- <a href='{{ o.view_url }}'>
+							From {{ o.submitted_at|date:"H:i a" }}
+							Average rating: {{ o.avg_rating|default:"no ratings yet" }}
+						</a> -->
+					</div>
+				</div>
 			</a>
-		</li>
-	{% endfor %}
-</ul>
+			{% endfor %}
+
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -16,7 +16,12 @@ $url: (url("../../images/images.png"));
  } 
 .blue-big-btn{ @include sprite( 0, -352px); width: 255px; height: 58px; } 
 .check-icon{ @include sprite( 0, -523px); width: 20px; height: 20px; } 
-.comments{ @include sprite( 0, -593px); width: 15px; height: 34px; } 
+.comments{ 
+	@include sprite( 0, -593px); width: 15px; height: 16px; 
+	display: block;
+
+	&.null { background-position: 0 -609px}
+} 
 .dark-check-icon{ @include sprite( 0, -677px); width: 18px; height: 17px; } 
 .decoration-line{ @include sprite( 0, -744px); width: 39px; height: 29px; } 
 .email-icon{ @include sprite( 0, -823px); width: 42px; height: 30px; } 

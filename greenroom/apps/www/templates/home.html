@@ -1,33 +1,5 @@
 {% extends 'base.html' %}
-{% block header %}
-<div class="allwidth deco">
-	<div class="container">
-		<div class="row">
-			{% if not user.is_authenticated %}
-			<div class="navbar">
-				<div class="span-4 offset-12">
-						<div class="span-2">Already a user?</div>
-						<form class="span-2" id="login" action="{% url facebook_connect %}?facebook_login=1" method="post">
-							<a class="button" href="javascript:void(0);" style="font-size: 14px;" onclick="F.connect(this.parentNode);">Login</a>
-							<input type="hidden" value="{{ request.path }}" name="next" />
-						</form>
-				</div>
-			</div>
-			{% else %}
-			<div class="navbar autenticate">
-				<div class="span-4">
-					<img class="logosmall" src="{{ STATIC_URL }}images/logo-small.png" alt="greenroom">
-				</div>
-				<div class="span-2 offset-10 buttons">
-					<a class="button"><img src="{{ STATIC_URL }}images/outfits.png" alt="outfits"></a>
-					<a class="button"><img src="{{ STATIC_URL }}images/settingicon.png" alt="settings"></a>
-				</div>
-			</div>
-			{% endif %}
-		</div>	
-	</div>	
-</div>	
-{% endblock%}
+
 {% block body %}
 <div class="main-content">
 	<div class="allwidth deco">

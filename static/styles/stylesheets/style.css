@@ -842,7 +842,8 @@ body {
 /* Links */
 a {
   color: #40876e;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none; }
   a:hover {
     color: #306452; }
 
@@ -943,9 +944,25 @@ footer {
 /* Img results */
 .img-result {
   margin: 20px 0; }
-  .img-result img {
-    padding: 5px;
-    background: #244242; }
+
+.outfit-image, .img-result img {
+  padding: 15px;
+  background: #f1f1f1;
+  border: 1px solid #e7e7e7;
+  -webkit-border-radius: 4px;
+  border-radius: 4px; }
+
+.outfit-image {
+  cursor: pointer;
+  -webkit-transition: background 250ms ease-out 0s;
+  -moz-transition: background 250ms ease-out 0s;
+  -ms-transition: background 250ms ease-out 0s;
+  -o-transition: background 250ms ease-out 0s;
+  transition: background 250ms ease-out 0s; }
+  .outfit-image:hover {
+    background: #d8d8d8; }
+  .outfit-image li span {
+    margin-left: 20px; }
 
 /* Comments */
 .comments-fb {
@@ -1103,7 +1120,10 @@ body {
   cursor: pointer;
   text-align: center;
   width: 15px;
-  height: 34px; }
+  height: 16px;
+  display: block; }
+  .comments.null {
+    background-position: 0 -609px; }
 
 .dark-check-icon {
   background: url("../../images/images.png");
