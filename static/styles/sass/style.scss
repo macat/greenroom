@@ -21,6 +21,7 @@
   left: 0;*/
   margin: 0 auto;
   text-align: center;
+  margin-top: 25px;
 
   &.max-width { max-width: 50%; }
 }
@@ -53,6 +54,7 @@
 .step {
   padding: 20px 0;
 }
+#step-3 { padding: 0;}
 #arrow {
   position: relative;
   left: -420px;
